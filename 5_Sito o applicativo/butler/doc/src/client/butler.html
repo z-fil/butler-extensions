@@ -1,0 +1,1261 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>src.client.butler API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>src.client.butler</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import threading
+from time import sleep
+import socket
+import getpass
+from json.decoder import JSONDecodeError
+from os.path import abspath, join
+import sys
+sys.path.append(abspath(join(sys.path[0],&#39;..&#39;)))
+
+from common.logger import Logger
+from common import log
+from common.argsParser import ArgsParser
+from common.notificationBuilder import NotificationBuilder
+from common.configParser import ConfigParser
+
+from client.scriptManager import ScriptManager
+from client.messenger import Messenger
+from client.commandListener import CommandListener
+from client.clientGUI import ClientGUI
+
+from client.inventory import Inventory
+from client.behaviour import Behaviour
+
+class Butler():
+        &#34;&#34;&#34;
+        Questo programma rappresenta un modello astratto di Butler (maggiordomo).
+        È un agent che rimane in ascolto dei comandi da parte di un server (definito
+        in un file di configurazione apposito().
+        &#34;&#34;&#34;
+
+        RETRY_TIMER = 4
+        NOTIFICATION_MODULE = &#39;notification&#39;
+        INVENTORY_MODULE = &#39;inventory&#39;
+        BEHAVIOUR_MODULE = &#39;behaviour&#39;
+
+        def __init__(self):
+                &#34;&#34;&#34;
+                Istanzia un Butler senza accettare attributi.
+                Inizializza l&#39;utente, lo stato della connessione e i dati della notifica
+                &#34;&#34;&#34;
+                self.user = getpass.getuser()
+                self.connected = False
+                self.notifData = &#39;&#39;
+                self.behaviour = Behaviour()
+        
+        def start(self):
+                &#34;&#34;&#34;
+                Punto d&#39;entrata del programma.
+                - Legge le configurazioni da un file JSON
+                - Cerca di contattare il server
+                - Avvia l&#39;icona sulla taskbar
+                - Mostra le notifiche quando necessario
+                &#34;&#34;&#34;
+
+                params = [
+                        {&#39;short&#39;: &#39;c&#39;, &#39;full&#39;: &#39;config&#39;, &#39;args&#39;: True, &#39;default&#39;: &#39;.&#39;,
+                                &#39;help&#39;: &#39;Usa il file di configurazione dal percorso specificato.\nSe non è dato nessun percorso, viene preso quello di avvio del programma.&#39;},
+                ]
+                # gestione degli argomenti da linea di comando e lettura il file di configurazione
+                argsParser = ArgsParser(params)
+                args = argsParser.parse()
+                try:
+                        self.configs = ConfigParser().load_configs(args[&#39;config&#39;])
+                except FileNotFoundError as e:
+                        log.critical(&#39;Impossibile leggere il file di configurazione:\n{}&#39;.format(e.__str__()))
+                        return
+                except JSONDecodeError as e:
+                        log.critical(&#39;Errore nella decodifica del file di configurazione:\n{}&#39;.format(e.__str__()))
+                        return
+
+                Logger().start(**self.configs[&#39;logging&#39;])
+                self.modules = self.configs[&#39;modules&#39;]
+
+                ip = self.configs[&#39;client&#39;][&#39;ip&#39;]
+                if ip == &#39;&#39;:
+                        try:
+                                s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+                                # trova l&#39;IP &#34;principale&#34; (molti altri metodi ritornerebbero 127.0.0.1).
+                                # In realtà non serve che l&#39;IP sia raggiungibile
+                                s.connect((self.configs[&#39;server&#39;][&#39;ip&#39;], 80))
+                                ip = s.getsockname()[0]
+                        except Exception as e:
+                                ip = socket.gethostbyname(socket.gethostname())
+                                log.warning(&#39;Errore di socket: {}&#39;.format(e.__str__()))
+                        finally:
+                                s.close()
+                        log.info(&#39;È usato l\&#39;ip {}&#39;.format(ip))
+                self.addr = &#39;{}:{}&#39;.format(ip, self.configs[&#39;client&#39;][&#39;port&#39;])
+
+                self.inventory = Inventory(ip)
+                self.mac = self.inventory.get_mac()
+
+                log.info(&#39;Avvio del Butler {}&#39;.format(self.addr))
+
+                if self.configs[&#39;automaticSendInterval&#39;] &gt;= 1:
+                        threading.Thread(target=self.check_details, args=[self.configs[&#39;automaticSendInterval&#39;]], daemon=True).start()
+
+                # avvio dell&#39;ascoltatore di comandi
+                listener = CommandListener(ip, self.configs[&#39;client&#39;][&#39;port&#39;], self.configs[&#39;expireTime&#39;],
+                        self.configs[&#39;ssl&#39;], {&#39;show_notif&#39;: self.show_notif,
+                        &#39;revoke&#39;: self.revoke_notif, &#39;disconnect&#39;: self.disconnect,
+                        &#39;validate_credentials&#39;: self.validate_credentials,
+                        &#39;get_details&#39;: self.get_details, &#39;toggle_module&#39;: self.toggle_module,
+                        &#39;toggle_phase&#39;: self.toggle_phase, &#39;update_model&#39;: self.update_model})
+                threading.Thread(target=listener.start_api, daemon=True).start()
+                #sleep(0.1)
+
+                # preparazione del generatore di notifiche
+                self.notifBuilder = NotificationBuilder(
+                        scriptManager=ScriptManager(self.configs[&#39;tempPath&#39;]),
+                        logoPath=self.configs[&#39;logoPath&#39;], callback=self.interacted)
+
+                # avvio della GUI e ascolto degli eventi sulla tray icon
+                self.tray = ClientGUI(self.configs[&#39;logoPath&#39;], self.get_server_status, self.configs[&#39;website&#39;])
+                self.tray.start_tray()
+
+                sleep(3)
+                # impostazione dell&#39;ip del server e tentativo di connessione
+                self.serverAddr = &#39;{}://{}:{}&#39;.format(
+                        self.configs[&#39;protocol&#39;], self.configs[&#39;server&#39;][&#39;ip&#39;], self.configs[&#39;server&#39;][&#39;port&#39;])
+                threading.Thread(target=self.connect, daemon=True).start()
+
+                for event in self.tray.listen_tray():
+                        if self.notifData != &#39;&#39; and self.modules[self.NOTIFICATION_MODULE]:
+                                log.warning(&#39;Nuova notifica: &#34;{}&#34;&#39;.format(self.notifData[&#39;name&#39;]))
+                                self.notifBuilder.interrupt = False
+                                self.notifBuilder.show_window(self.notifData)
+                                self.notifData = &#39;&#39;
+                        if event == self.tray.QUIT:
+                                log.info(&#39;Tentativo di spegnimento manuale&#39;)
+                                if self.msg.can_disconnect(self.addr):
+                                        log.warning(&#39;Richiesta accettata. Disconnessione di {}&#39;.format(self.addr))
+                                        self.shutdown()
+                                        break
+                                log.warning(&#39;Richiesta rifiutata&#39;)
+                        elif event == self.tray.CONNECT:
+                                log.info(&#39;Tentativo di connessione manuale&#39;)
+                                self.disconnect()
+                                threading.Thread(target=self.connect, daemon=True).start()
+                                pass
+                        elif event == self.tray.DISCONNECT:
+                                log.info(&#39;Tentativo di disconnessione manuale&#39;)
+                                # la procedura di disconnessione è avviata se il server lo permette
+                                # o se il Butler dovrebbe già essere disconnesso
+                                if not self.connected or self.msg.can_disconnect(self.addr):
+                                        log.warning(&#39;Richiesta accettata. Disconnessione di {}&#39;.format(self.addr))
+                                        self.disconnect()
+                                else:
+                                        log.warning(&#39;Richiesta rifiutata&#39;)
+                log.info(&#39;Spegnimento del Butler {}&#39;.format(self.addr))
+                self.tray.stop()
+                sys.exit()
+                
+        def connect(self):
+                &#34;&#34;&#34;
+                Cerca di connettersi al server specificato nelle configurazioni.
+                Ripete l&#39;operazione ad intervalli definiti dalla costante RETRY_TIMER.
+                &#34;&#34;&#34;
+                log.info(&#39;Connessione al server {}&#39;.format(self.serverAddr))
+                self.msg = Messenger(baseUrl=self.serverAddr, authCallback=self.authenticate)
+                while not self.connected:
+                        self.connected = self.authenticate()
+                        sleep(self.RETRY_TIMER)
+
+        def authenticate(self):
+                &#34;&#34;&#34;
+                Permette l&#39;autenticazione al server. Non richiedendo altri parametri,
+                può essere richiamata da ovunque senza dipendenze. 
+                
+                :return: True se la connessione è stata stabilita, altrimenti False.
+                &#34;&#34;&#34;
+                self.msg.baseUrl = self.serverAddr
+                return self.msg.authenticate(mac=self.mac, addr=self.addr, user=self.user)
+
+        def show_notif(self, data):
+                &#34;&#34;&#34;
+                Imposta i dati della notifica da mostrare come flag.
+                La notifica non può essere mostrata in questa funzione poichè generalmente
+                richiamata da thread secondarie, ma la gui richiede di essere avviata
+                dalla main thread. Sarà quindi il loop principale ad accorgersi dei dati
+                in sospeso da mostrare.
+                
+                :param data (dict): i dati della notifica da mostrare.
+                &#34;&#34;&#34;
+                if self.modules[self.NOTIFICATION_MODULE]:
+                        self.notifData = data
+                
+        def revoke_notif(self, name=&#39;&#39;):
+                &#34;&#34;&#34;
+                Richiede la chiusura di una notifica in base al suo nome.
+                È solitamente richiesta da remoto.
+                
+                :param name (str): il nome della notifica da chiudere.
+                        Default: &#39;&#39;.
+                &#34;&#34;&#34;
+                self.notifBuilder.stop(name)
+                pass
+
+        def interacted(self, name):
+                &#34;&#34;&#34;
+                Richiamato all&#39;interazione con il pulsante della notifica da parte dell&#39;utente.
+                
+                :param name (str): il nome della notifica con la quale l&#39;utente ha interagito.
+                &#34;&#34;&#34;
+                self.msg.interacted(name=name)
+
+        def disconnect(self):
+                &#34;&#34;&#34;
+                Disconnette il Butler resettando il messenger e impostando un flag.
+                &#34;&#34;&#34;
+                self.msg.disconnect()
+                self.connected = False
+
+        def shutdown(self):
+                &#34;&#34;&#34;
+                Spegne il Butler completamente interrompendo il messenger e il menu.
+                &#34;&#34;&#34;
+                self.disconnect()
+                self.tray.stop()
+
+        def get_server_status(self):
+                &#34;&#34;&#34;
+                Richiede lo stato al server e in base alla risposta
+                ritorna alcune variabili rappresentati lo stato del Butler.
+                
+                :return: il nome utente, l&#39;indirizzo IPv4 e la porta del Butler, l&#39;indirizzo del server se connesso.
+                &#34;&#34;&#34;
+                if not self.msg.server_online(self.addr):
+                        self.disconnect()
+                        self.authenticate()
+                return self.user, self.addr, self.serverAddr if self.connected else None
+
+        def validate_credentials(self, addr, id):
+                &#34;&#34;&#34;
+                Controlla che le informazioni passate dal server corrispondano
+                ad quelle del file di configurazione.
+                
+                :param addr (str): l&#39;indirizzo e la porta del server.
+                :param id (str): un identificativo del server.
+                
+                :return: True se le credenziali corrispondono.
+                &#34;&#34;&#34;
+                valid = addr == self.serverAddr and id == self.configs[&#39;server&#39;][&#39;id&#39;]
+                if not valid:
+                        log.warning(&#39;Credenziali del server {} non valide&#39;.format(addr))
+                        self.msg.disconnect()
+                return valid
+
+
+        &#34;&#34;&#34;
+        #####################################
+        Funzioni aggiuntive butler-extensions
+        #####################################
+        &#34;&#34;&#34;
+
+        def get_details(self):
+                &#34;&#34;&#34;
+                Prende i dettagli del client in base ai moduli attivi.
+
+                :return: i dettagli dei moduli.
+                &#34;&#34;&#34;
+                details = {&#39;mac&#39;: self.mac, &#39;modules&#39;: self.modules}
+                if self.modules[self.INVENTORY_MODULE]:
+                        details[&#39;inventory&#39;] = self.inventory.get_inventory()
+                if self.modules[self.BEHAVIOUR_MODULE]:
+                        details[&#39;model&#39;] = self.behaviour.get_model()
+                        details[&#39;phase&#39;] = self.behaviour.phase
+                return details
+
+        def toggle_module(self, module):
+                &#34;&#34;&#34;
+                Cambia lo stato di un modulo in base ai parametri.
+
+                :param module (str): l&#39;identificativo del modulo.
+                &#34;&#34;&#34;
+                self.modules.update(module)
+                
+        def toggle_phase(self, phase):
+                &#34;&#34;&#34;
+                Cambia la fase del comportamento e aggiorna le connessioni.
+
+                :param phase (bool): lo stato da applicare.
+                &#34;&#34;&#34;
+                if self.modules[self.BEHAVIOUR_MODULE]:
+                        self.behaviour.phase = phase
+                        self.behaviour.check_connections()
+
+        def update_model(self, model):
+                &#34;&#34;&#34;
+                Aggiorna il modello delle connessioni.
+
+                :param model (list): la lista delle nuove connessioni.
+                &#34;&#34;&#34;
+                if self.modules[self.BEHAVIOUR_MODULE]:
+                        self.behaviour.update_model(model)
+
+        def check_details(self, interval):
+                &#34;&#34;&#34;
+                Contolla periodicamente le informazioni dell&#39;host e, se sono
+                cambiate dalle precedenti, le invia al server.
+                Ripete l&#39;operazione ad intervalli definiti dal parametro.
+                È necessario mandare solo l&#39;inventario e il modello delle connessioni.
+
+                :param interval (int): il tempo tra un controllo e l&#39;altro.
+                &#34;&#34;&#34;
+                while True:
+                        if self.connected:
+                                oldDetails = {
+                                        &#39;inventory&#39;: self.inventory.data,
+                                        &#39;model&#39;: self.behaviour.model}
+                                currentDetails = self.get_details()
+                                newDetails = {}
+
+                                # inventario e model potrebbero essere disattivati
+                                # quindi verifica anche che la chiave esista
+                                if &#39;inventory&#39; in currentDetails and oldDetails[&#39;inventory&#39;] != currentDetails[&#39;inventory&#39;]:
+                                        newDetails[&#39;inventory&#39;] = currentDetails[&#39;inventory&#39;]
+                                if &#39;model&#39; in currentDetails and oldDetails[&#39;model&#39;] != currentDetails[&#39;model&#39;]:
+                                        for currentConn in currentDetails[&#39;model&#39;]:
+                                                found = False
+                                                for oldConn in oldDetails[&#39;model&#39;]:
+                                                        if self.behaviour.conn_match(oldConn, currentConn):
+                                                                found = True
+                                                                break
+                                                if not found:
+                                                        if &#39;model&#39; not in newDetails:
+                                                                newDetails[&#39;model&#39;] = []
+                                                        newDetails[&#39;model&#39;].append(currentConn)
+
+                                # invia solo se sono state trovate differenze
+                                if newDetails != {}:
+                                        newDetails[&#39;mac&#39;] = self.mac
+                                        successful = self.msg.send_details(newDetails)
+                                        log.info(&#39;Invio di alcuni dettagli al server: {}&#39;.format([key for key in newDetails]))
+                                        if not successful and not self.msg.server_online(self.addr):
+                                                log.warning(&#39;I dettagli inviati non hanno raggiunto il server&#39;)
+                                                self.disconnect()
+                        sleep(interval)
+
+        &#34;&#34;&#34;
+        ##########################################
+        Fine funzioni aggiuntive butler-extensions
+        ##########################################
+        &#34;&#34;&#34;
+
+if __name__ == &#39;__main__&#39;:
+        Butler().start()</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="src.client.butler.Butler"><code class="flex name class">
+<span>class <span class="ident">Butler</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Questo programma rappresenta un modello astratto di Butler (maggiordomo).
+È un agent che rimane in ascolto dei comandi da parte di un server (definito
+in un file di configurazione apposito().</p>
+<p>Istanzia un Butler senza accettare attributi.
+Inizializza l'utente, lo stato della connessione e i dati della notifica</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Butler():
+        &#34;&#34;&#34;
+        Questo programma rappresenta un modello astratto di Butler (maggiordomo).
+        È un agent che rimane in ascolto dei comandi da parte di un server (definito
+        in un file di configurazione apposito().
+        &#34;&#34;&#34;
+
+        RETRY_TIMER = 4
+        NOTIFICATION_MODULE = &#39;notification&#39;
+        INVENTORY_MODULE = &#39;inventory&#39;
+        BEHAVIOUR_MODULE = &#39;behaviour&#39;
+
+        def __init__(self):
+                &#34;&#34;&#34;
+                Istanzia un Butler senza accettare attributi.
+                Inizializza l&#39;utente, lo stato della connessione e i dati della notifica
+                &#34;&#34;&#34;
+                self.user = getpass.getuser()
+                self.connected = False
+                self.notifData = &#39;&#39;
+                self.behaviour = Behaviour()
+        
+        def start(self):
+                &#34;&#34;&#34;
+                Punto d&#39;entrata del programma.
+                - Legge le configurazioni da un file JSON
+                - Cerca di contattare il server
+                - Avvia l&#39;icona sulla taskbar
+                - Mostra le notifiche quando necessario
+                &#34;&#34;&#34;
+
+                params = [
+                        {&#39;short&#39;: &#39;c&#39;, &#39;full&#39;: &#39;config&#39;, &#39;args&#39;: True, &#39;default&#39;: &#39;.&#39;,
+                                &#39;help&#39;: &#39;Usa il file di configurazione dal percorso specificato.\nSe non è dato nessun percorso, viene preso quello di avvio del programma.&#39;},
+                ]
+                # gestione degli argomenti da linea di comando e lettura il file di configurazione
+                argsParser = ArgsParser(params)
+                args = argsParser.parse()
+                try:
+                        self.configs = ConfigParser().load_configs(args[&#39;config&#39;])
+                except FileNotFoundError as e:
+                        log.critical(&#39;Impossibile leggere il file di configurazione:\n{}&#39;.format(e.__str__()))
+                        return
+                except JSONDecodeError as e:
+                        log.critical(&#39;Errore nella decodifica del file di configurazione:\n{}&#39;.format(e.__str__()))
+                        return
+
+                Logger().start(**self.configs[&#39;logging&#39;])
+                self.modules = self.configs[&#39;modules&#39;]
+
+                ip = self.configs[&#39;client&#39;][&#39;ip&#39;]
+                if ip == &#39;&#39;:
+                        try:
+                                s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+                                # trova l&#39;IP &#34;principale&#34; (molti altri metodi ritornerebbero 127.0.0.1).
+                                # In realtà non serve che l&#39;IP sia raggiungibile
+                                s.connect((self.configs[&#39;server&#39;][&#39;ip&#39;], 80))
+                                ip = s.getsockname()[0]
+                        except Exception as e:
+                                ip = socket.gethostbyname(socket.gethostname())
+                                log.warning(&#39;Errore di socket: {}&#39;.format(e.__str__()))
+                        finally:
+                                s.close()
+                        log.info(&#39;È usato l\&#39;ip {}&#39;.format(ip))
+                self.addr = &#39;{}:{}&#39;.format(ip, self.configs[&#39;client&#39;][&#39;port&#39;])
+
+                self.inventory = Inventory(ip)
+                self.mac = self.inventory.get_mac()
+
+                log.info(&#39;Avvio del Butler {}&#39;.format(self.addr))
+
+                if self.configs[&#39;automaticSendInterval&#39;] &gt;= 1:
+                        threading.Thread(target=self.check_details, args=[self.configs[&#39;automaticSendInterval&#39;]], daemon=True).start()
+
+                # avvio dell&#39;ascoltatore di comandi
+                listener = CommandListener(ip, self.configs[&#39;client&#39;][&#39;port&#39;], self.configs[&#39;expireTime&#39;],
+                        self.configs[&#39;ssl&#39;], {&#39;show_notif&#39;: self.show_notif,
+                        &#39;revoke&#39;: self.revoke_notif, &#39;disconnect&#39;: self.disconnect,
+                        &#39;validate_credentials&#39;: self.validate_credentials,
+                        &#39;get_details&#39;: self.get_details, &#39;toggle_module&#39;: self.toggle_module,
+                        &#39;toggle_phase&#39;: self.toggle_phase, &#39;update_model&#39;: self.update_model})
+                threading.Thread(target=listener.start_api, daemon=True).start()
+                #sleep(0.1)
+
+                # preparazione del generatore di notifiche
+                self.notifBuilder = NotificationBuilder(
+                        scriptManager=ScriptManager(self.configs[&#39;tempPath&#39;]),
+                        logoPath=self.configs[&#39;logoPath&#39;], callback=self.interacted)
+
+                # avvio della GUI e ascolto degli eventi sulla tray icon
+                self.tray = ClientGUI(self.configs[&#39;logoPath&#39;], self.get_server_status, self.configs[&#39;website&#39;])
+                self.tray.start_tray()
+
+                sleep(3)
+                # impostazione dell&#39;ip del server e tentativo di connessione
+                self.serverAddr = &#39;{}://{}:{}&#39;.format(
+                        self.configs[&#39;protocol&#39;], self.configs[&#39;server&#39;][&#39;ip&#39;], self.configs[&#39;server&#39;][&#39;port&#39;])
+                threading.Thread(target=self.connect, daemon=True).start()
+
+                for event in self.tray.listen_tray():
+                        if self.notifData != &#39;&#39; and self.modules[self.NOTIFICATION_MODULE]:
+                                log.warning(&#39;Nuova notifica: &#34;{}&#34;&#39;.format(self.notifData[&#39;name&#39;]))
+                                self.notifBuilder.interrupt = False
+                                self.notifBuilder.show_window(self.notifData)
+                                self.notifData = &#39;&#39;
+                        if event == self.tray.QUIT:
+                                log.info(&#39;Tentativo di spegnimento manuale&#39;)
+                                if self.msg.can_disconnect(self.addr):
+                                        log.warning(&#39;Richiesta accettata. Disconnessione di {}&#39;.format(self.addr))
+                                        self.shutdown()
+                                        break
+                                log.warning(&#39;Richiesta rifiutata&#39;)
+                        elif event == self.tray.CONNECT:
+                                log.info(&#39;Tentativo di connessione manuale&#39;)
+                                self.disconnect()
+                                threading.Thread(target=self.connect, daemon=True).start()
+                                pass
+                        elif event == self.tray.DISCONNECT:
+                                log.info(&#39;Tentativo di disconnessione manuale&#39;)
+                                # la procedura di disconnessione è avviata se il server lo permette
+                                # o se il Butler dovrebbe già essere disconnesso
+                                if not self.connected or self.msg.can_disconnect(self.addr):
+                                        log.warning(&#39;Richiesta accettata. Disconnessione di {}&#39;.format(self.addr))
+                                        self.disconnect()
+                                else:
+                                        log.warning(&#39;Richiesta rifiutata&#39;)
+                log.info(&#39;Spegnimento del Butler {}&#39;.format(self.addr))
+                self.tray.stop()
+                sys.exit()
+                
+        def connect(self):
+                &#34;&#34;&#34;
+                Cerca di connettersi al server specificato nelle configurazioni.
+                Ripete l&#39;operazione ad intervalli definiti dalla costante RETRY_TIMER.
+                &#34;&#34;&#34;
+                log.info(&#39;Connessione al server {}&#39;.format(self.serverAddr))
+                self.msg = Messenger(baseUrl=self.serverAddr, authCallback=self.authenticate)
+                while not self.connected:
+                        self.connected = self.authenticate()
+                        sleep(self.RETRY_TIMER)
+
+        def authenticate(self):
+                &#34;&#34;&#34;
+                Permette l&#39;autenticazione al server. Non richiedendo altri parametri,
+                può essere richiamata da ovunque senza dipendenze. 
+                
+                :return: True se la connessione è stata stabilita, altrimenti False.
+                &#34;&#34;&#34;
+                self.msg.baseUrl = self.serverAddr
+                return self.msg.authenticate(mac=self.mac, addr=self.addr, user=self.user)
+
+        def show_notif(self, data):
+                &#34;&#34;&#34;
+                Imposta i dati della notifica da mostrare come flag.
+                La notifica non può essere mostrata in questa funzione poichè generalmente
+                richiamata da thread secondarie, ma la gui richiede di essere avviata
+                dalla main thread. Sarà quindi il loop principale ad accorgersi dei dati
+                in sospeso da mostrare.
+                
+                :param data (dict): i dati della notifica da mostrare.
+                &#34;&#34;&#34;
+                if self.modules[self.NOTIFICATION_MODULE]:
+                        self.notifData = data
+                
+        def revoke_notif(self, name=&#39;&#39;):
+                &#34;&#34;&#34;
+                Richiede la chiusura di una notifica in base al suo nome.
+                È solitamente richiesta da remoto.
+                
+                :param name (str): il nome della notifica da chiudere.
+                        Default: &#39;&#39;.
+                &#34;&#34;&#34;
+                self.notifBuilder.stop(name)
+                pass
+
+        def interacted(self, name):
+                &#34;&#34;&#34;
+                Richiamato all&#39;interazione con il pulsante della notifica da parte dell&#39;utente.
+                
+                :param name (str): il nome della notifica con la quale l&#39;utente ha interagito.
+                &#34;&#34;&#34;
+                self.msg.interacted(name=name)
+
+        def disconnect(self):
+                &#34;&#34;&#34;
+                Disconnette il Butler resettando il messenger e impostando un flag.
+                &#34;&#34;&#34;
+                self.msg.disconnect()
+                self.connected = False
+
+        def shutdown(self):
+                &#34;&#34;&#34;
+                Spegne il Butler completamente interrompendo il messenger e il menu.
+                &#34;&#34;&#34;
+                self.disconnect()
+                self.tray.stop()
+
+        def get_server_status(self):
+                &#34;&#34;&#34;
+                Richiede lo stato al server e in base alla risposta
+                ritorna alcune variabili rappresentati lo stato del Butler.
+                
+                :return: il nome utente, l&#39;indirizzo IPv4 e la porta del Butler, l&#39;indirizzo del server se connesso.
+                &#34;&#34;&#34;
+                if not self.msg.server_online(self.addr):
+                        self.disconnect()
+                        self.authenticate()
+                return self.user, self.addr, self.serverAddr if self.connected else None
+
+        def validate_credentials(self, addr, id):
+                &#34;&#34;&#34;
+                Controlla che le informazioni passate dal server corrispondano
+                ad quelle del file di configurazione.
+                
+                :param addr (str): l&#39;indirizzo e la porta del server.
+                :param id (str): un identificativo del server.
+                
+                :return: True se le credenziali corrispondono.
+                &#34;&#34;&#34;
+                valid = addr == self.serverAddr and id == self.configs[&#39;server&#39;][&#39;id&#39;]
+                if not valid:
+                        log.warning(&#39;Credenziali del server {} non valide&#39;.format(addr))
+                        self.msg.disconnect()
+                return valid
+
+
+        &#34;&#34;&#34;
+        #####################################
+        Funzioni aggiuntive butler-extensions
+        #####################################
+        &#34;&#34;&#34;
+
+        def get_details(self):
+                &#34;&#34;&#34;
+                Prende i dettagli del client in base ai moduli attivi.
+
+                :return: i dettagli dei moduli.
+                &#34;&#34;&#34;
+                details = {&#39;mac&#39;: self.mac, &#39;modules&#39;: self.modules}
+                if self.modules[self.INVENTORY_MODULE]:
+                        details[&#39;inventory&#39;] = self.inventory.get_inventory()
+                if self.modules[self.BEHAVIOUR_MODULE]:
+                        details[&#39;model&#39;] = self.behaviour.get_model()
+                        details[&#39;phase&#39;] = self.behaviour.phase
+                return details
+
+        def toggle_module(self, module):
+                &#34;&#34;&#34;
+                Cambia lo stato di un modulo in base ai parametri.
+
+                :param module (str): l&#39;identificativo del modulo.
+                &#34;&#34;&#34;
+                self.modules.update(module)
+                
+        def toggle_phase(self, phase):
+                &#34;&#34;&#34;
+                Cambia la fase del comportamento e aggiorna le connessioni.
+
+                :param phase (bool): lo stato da applicare.
+                &#34;&#34;&#34;
+                if self.modules[self.BEHAVIOUR_MODULE]:
+                        self.behaviour.phase = phase
+                        self.behaviour.check_connections()
+
+        def update_model(self, model):
+                &#34;&#34;&#34;
+                Aggiorna il modello delle connessioni.
+
+                :param model (list): la lista delle nuove connessioni.
+                &#34;&#34;&#34;
+                if self.modules[self.BEHAVIOUR_MODULE]:
+                        self.behaviour.update_model(model)
+
+        def check_details(self, interval):
+                &#34;&#34;&#34;
+                Contolla periodicamente le informazioni dell&#39;host e, se sono
+                cambiate dalle precedenti, le invia al server.
+                Ripete l&#39;operazione ad intervalli definiti dal parametro.
+                È necessario mandare solo l&#39;inventario e il modello delle connessioni.
+
+                :param interval (int): il tempo tra un controllo e l&#39;altro.
+                &#34;&#34;&#34;
+                while True:
+                        if self.connected:
+                                oldDetails = {
+                                        &#39;inventory&#39;: self.inventory.data,
+                                        &#39;model&#39;: self.behaviour.model}
+                                currentDetails = self.get_details()
+                                newDetails = {}
+
+                                # inventario e model potrebbero essere disattivati
+                                # quindi verifica anche che la chiave esista
+                                if &#39;inventory&#39; in currentDetails and oldDetails[&#39;inventory&#39;] != currentDetails[&#39;inventory&#39;]:
+                                        newDetails[&#39;inventory&#39;] = currentDetails[&#39;inventory&#39;]
+                                if &#39;model&#39; in currentDetails and oldDetails[&#39;model&#39;] != currentDetails[&#39;model&#39;]:
+                                        for currentConn in currentDetails[&#39;model&#39;]:
+                                                found = False
+                                                for oldConn in oldDetails[&#39;model&#39;]:
+                                                        if self.behaviour.conn_match(oldConn, currentConn):
+                                                                found = True
+                                                                break
+                                                if not found:
+                                                        if &#39;model&#39; not in newDetails:
+                                                                newDetails[&#39;model&#39;] = []
+                                                        newDetails[&#39;model&#39;].append(currentConn)
+
+                                # invia solo se sono state trovate differenze
+                                if newDetails != {}:
+                                        newDetails[&#39;mac&#39;] = self.mac
+                                        successful = self.msg.send_details(newDetails)
+                                        log.info(&#39;Invio di alcuni dettagli al server: {}&#39;.format([key for key in newDetails]))
+                                        if not successful and not self.msg.server_online(self.addr):
+                                                log.warning(&#39;I dettagli inviati non hanno raggiunto il server&#39;)
+                                                self.disconnect()
+                        sleep(interval)
+
+        &#34;&#34;&#34;
+        ##########################################
+        Fine funzioni aggiuntive butler-extensions
+        ##########################################
+        &#34;&#34;&#34;</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="src.client.butler.Butler.BEHAVIOUR_MODULE"><code class="name">var <span class="ident">BEHAVIOUR_MODULE</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="src.client.butler.Butler.INVENTORY_MODULE"><code class="name">var <span class="ident">INVENTORY_MODULE</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="src.client.butler.Butler.NOTIFICATION_MODULE"><code class="name">var <span class="ident">NOTIFICATION_MODULE</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="src.client.butler.Butler.RETRY_TIMER"><code class="name">var <span class="ident">RETRY_TIMER</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="src.client.butler.Butler.authenticate"><code class="name flex">
+<span>def <span class="ident">authenticate</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Permette l'autenticazione al server. Non richiedendo altri parametri,
+può essere richiamata da ovunque senza dipendenze. </p>
+<p>:return: True se la connessione è stata stabilita, altrimenti False.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def authenticate(self):
+        &#34;&#34;&#34;
+        Permette l&#39;autenticazione al server. Non richiedendo altri parametri,
+        può essere richiamata da ovunque senza dipendenze. 
+        
+        :return: True se la connessione è stata stabilita, altrimenti False.
+        &#34;&#34;&#34;
+        self.msg.baseUrl = self.serverAddr
+        return self.msg.authenticate(mac=self.mac, addr=self.addr, user=self.user)</code></pre>
+</details>
+</dd>
+<dt id="src.client.butler.Butler.check_details"><code class="name flex">
+<span>def <span class="ident">check_details</span></span>(<span>self, interval)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Contolla periodicamente le informazioni dell'host e, se sono
+cambiate dalle precedenti, le invia al server.
+Ripete l'operazione ad intervalli definiti dal parametro.
+È necessario mandare solo l'inventario e il modello delle connessioni.</p>
+<p>:param interval (int): il tempo tra un controllo e l'altro.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def check_details(self, interval):
+        &#34;&#34;&#34;
+        Contolla periodicamente le informazioni dell&#39;host e, se sono
+        cambiate dalle precedenti, le invia al server.
+        Ripete l&#39;operazione ad intervalli definiti dal parametro.
+        È necessario mandare solo l&#39;inventario e il modello delle connessioni.
+
+        :param interval (int): il tempo tra un controllo e l&#39;altro.
+        &#34;&#34;&#34;
+        while True:
+                if self.connected:
+                        oldDetails = {
+                                &#39;inventory&#39;: self.inventory.data,
+                                &#39;model&#39;: self.behaviour.model}
+                        currentDetails = self.get_details()
+                        newDetails = {}
+
+                        # inventario e model potrebbero essere disattivati
+                        # quindi verifica anche che la chiave esista
+                        if &#39;inventory&#39; in currentDetails and oldDetails[&#39;inventory&#39;] != currentDetails[&#39;inventory&#39;]:
+                                newDetails[&#39;inventory&#39;] = currentDetails[&#39;inventory&#39;]
+                        if &#39;model&#39; in currentDetails and oldDetails[&#39;model&#39;] != currentDetails[&#39;model&#39;]:
+                                for currentConn in currentDetails[&#39;model&#39;]:
+                                        found = False
+                                        for oldConn in oldDetails[&#39;model&#39;]:
+                                                if self.behaviour.conn_match(oldConn, currentConn):
+                                                        found = True
+                                                        break
+                                        if not found:
+                                                if &#39;model&#39; not in newDetails:
+                                                        newDetails[&#39;model&#39;] = []
+                                                newDetails[&#39;model&#39;].append(currentConn)
+
+                        # invia solo se sono state trovate differenze
+                        if newDetails != {}:
+                                newDetails[&#39;mac&#39;] = self.mac
+                                successful = self.msg.send_details(newDetails)
+                                log.info(&#39;Invio di alcuni dettagli al server: {}&#39;.format([key for key in newDetails]))
+                                if not successful and not self.msg.server_online(self.addr):
+                                        log.warning(&#39;I dettagli inviati non hanno raggiunto il server&#39;)
+                                        self.disconnect()
+                sleep(interval)</code></pre>
+</details>
+</dd>
+<dt id="src.client.butler.Butler.connect"><code class="name flex">
+<span>def <span class="ident">connect</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Cerca di connettersi al server specificato nelle configurazioni.
+Ripete l'operazione ad intervalli definiti dalla costante RETRY_TIMER.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def connect(self):
+        &#34;&#34;&#34;
+        Cerca di connettersi al server specificato nelle configurazioni.
+        Ripete l&#39;operazione ad intervalli definiti dalla costante RETRY_TIMER.
+        &#34;&#34;&#34;
+        log.info(&#39;Connessione al server {}&#39;.format(self.serverAddr))
+        self.msg = Messenger(baseUrl=self.serverAddr, authCallback=self.authenticate)
+        while not self.connected:
+                self.connected = self.authenticate()
+                sleep(self.RETRY_TIMER)</code></pre>
+</details>
+</dd>
+<dt id="src.client.butler.Butler.disconnect"><code class="name flex">
+<span>def <span class="ident">disconnect</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Disconnette il Butler resettando il messenger e impostando un flag.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def disconnect(self):
+        &#34;&#34;&#34;
+        Disconnette il Butler resettando il messenger e impostando un flag.
+        &#34;&#34;&#34;
+        self.msg.disconnect()
+        self.connected = False</code></pre>
+</details>
+</dd>
+<dt id="src.client.butler.Butler.get_details"><code class="name flex">
+<span>def <span class="ident">get_details</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Prende i dettagli del client in base ai moduli attivi.</p>
+<p>:return: i dettagli dei moduli.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_details(self):
+        &#34;&#34;&#34;
+        Prende i dettagli del client in base ai moduli attivi.
+
+        :return: i dettagli dei moduli.
+        &#34;&#34;&#34;
+        details = {&#39;mac&#39;: self.mac, &#39;modules&#39;: self.modules}
+        if self.modules[self.INVENTORY_MODULE]:
+                details[&#39;inventory&#39;] = self.inventory.get_inventory()
+        if self.modules[self.BEHAVIOUR_MODULE]:
+                details[&#39;model&#39;] = self.behaviour.get_model()
+                details[&#39;phase&#39;] = self.behaviour.phase
+        return details</code></pre>
+</details>
+</dd>
+<dt id="src.client.butler.Butler.get_server_status"><code class="name flex">
+<span>def <span class="ident">get_server_status</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Richiede lo stato al server e in base alla risposta
+ritorna alcune variabili rappresentati lo stato del Butler.</p>
+<p>:return: il nome utente, l'indirizzo IPv4 e la porta del Butler, l'indirizzo del server se connesso.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_server_status(self):
+        &#34;&#34;&#34;
+        Richiede lo stato al server e in base alla risposta
+        ritorna alcune variabili rappresentati lo stato del Butler.
+        
+        :return: il nome utente, l&#39;indirizzo IPv4 e la porta del Butler, l&#39;indirizzo del server se connesso.
+        &#34;&#34;&#34;
+        if not self.msg.server_online(self.addr):
+                self.disconnect()
+                self.authenticate()
+        return self.user, self.addr, self.serverAddr if self.connected else None</code></pre>
+</details>
+</dd>
+<dt id="src.client.butler.Butler.interacted"><code class="name flex">
+<span>def <span class="ident">interacted</span></span>(<span>self, name)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Richiamato all'interazione con il pulsante della notifica da parte dell'utente.</p>
+<p>:param name (str): il nome della notifica con la quale l'utente ha interagito.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def interacted(self, name):
+        &#34;&#34;&#34;
+        Richiamato all&#39;interazione con il pulsante della notifica da parte dell&#39;utente.
+        
+        :param name (str): il nome della notifica con la quale l&#39;utente ha interagito.
+        &#34;&#34;&#34;
+        self.msg.interacted(name=name)</code></pre>
+</details>
+</dd>
+<dt id="src.client.butler.Butler.revoke_notif"><code class="name flex">
+<span>def <span class="ident">revoke_notif</span></span>(<span>self, name='')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Richiede la chiusura di una notifica in base al suo nome.
+È solitamente richiesta da remoto.</p>
+<p>:param name (str): il nome della notifica da chiudere.
+Default: ''.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def revoke_notif(self, name=&#39;&#39;):
+        &#34;&#34;&#34;
+        Richiede la chiusura di una notifica in base al suo nome.
+        È solitamente richiesta da remoto.
+        
+        :param name (str): il nome della notifica da chiudere.
+                Default: &#39;&#39;.
+        &#34;&#34;&#34;
+        self.notifBuilder.stop(name)
+        pass</code></pre>
+</details>
+</dd>
+<dt id="src.client.butler.Butler.show_notif"><code class="name flex">
+<span>def <span class="ident">show_notif</span></span>(<span>self, data)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Imposta i dati della notifica da mostrare come flag.
+La notifica non può essere mostrata in questa funzione poichè generalmente
+richiamata da thread secondarie, ma la gui richiede di essere avviata
+dalla main thread. Sarà quindi il loop principale ad accorgersi dei dati
+in sospeso da mostrare.</p>
+<p>:param data (dict): i dati della notifica da mostrare.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def show_notif(self, data):
+        &#34;&#34;&#34;
+        Imposta i dati della notifica da mostrare come flag.
+        La notifica non può essere mostrata in questa funzione poichè generalmente
+        richiamata da thread secondarie, ma la gui richiede di essere avviata
+        dalla main thread. Sarà quindi il loop principale ad accorgersi dei dati
+        in sospeso da mostrare.
+        
+        :param data (dict): i dati della notifica da mostrare.
+        &#34;&#34;&#34;
+        if self.modules[self.NOTIFICATION_MODULE]:
+                self.notifData = data</code></pre>
+</details>
+</dd>
+<dt id="src.client.butler.Butler.shutdown"><code class="name flex">
+<span>def <span class="ident">shutdown</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Spegne il Butler completamente interrompendo il messenger e il menu.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def shutdown(self):
+        &#34;&#34;&#34;
+        Spegne il Butler completamente interrompendo il messenger e il menu.
+        &#34;&#34;&#34;
+        self.disconnect()
+        self.tray.stop()</code></pre>
+</details>
+</dd>
+<dt id="src.client.butler.Butler.start"><code class="name flex">
+<span>def <span class="ident">start</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Punto d'entrata del programma.
+- Legge le configurazioni da un file JSON
+- Cerca di contattare il server
+- Avvia l'icona sulla taskbar
+- Mostra le notifiche quando necessario</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def start(self):
+        &#34;&#34;&#34;
+        Punto d&#39;entrata del programma.
+        - Legge le configurazioni da un file JSON
+        - Cerca di contattare il server
+        - Avvia l&#39;icona sulla taskbar
+        - Mostra le notifiche quando necessario
+        &#34;&#34;&#34;
+
+        params = [
+                {&#39;short&#39;: &#39;c&#39;, &#39;full&#39;: &#39;config&#39;, &#39;args&#39;: True, &#39;default&#39;: &#39;.&#39;,
+                        &#39;help&#39;: &#39;Usa il file di configurazione dal percorso specificato.\nSe non è dato nessun percorso, viene preso quello di avvio del programma.&#39;},
+        ]
+        # gestione degli argomenti da linea di comando e lettura il file di configurazione
+        argsParser = ArgsParser(params)
+        args = argsParser.parse()
+        try:
+                self.configs = ConfigParser().load_configs(args[&#39;config&#39;])
+        except FileNotFoundError as e:
+                log.critical(&#39;Impossibile leggere il file di configurazione:\n{}&#39;.format(e.__str__()))
+                return
+        except JSONDecodeError as e:
+                log.critical(&#39;Errore nella decodifica del file di configurazione:\n{}&#39;.format(e.__str__()))
+                return
+
+        Logger().start(**self.configs[&#39;logging&#39;])
+        self.modules = self.configs[&#39;modules&#39;]
+
+        ip = self.configs[&#39;client&#39;][&#39;ip&#39;]
+        if ip == &#39;&#39;:
+                try:
+                        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+                        # trova l&#39;IP &#34;principale&#34; (molti altri metodi ritornerebbero 127.0.0.1).
+                        # In realtà non serve che l&#39;IP sia raggiungibile
+                        s.connect((self.configs[&#39;server&#39;][&#39;ip&#39;], 80))
+                        ip = s.getsockname()[0]
+                except Exception as e:
+                        ip = socket.gethostbyname(socket.gethostname())
+                        log.warning(&#39;Errore di socket: {}&#39;.format(e.__str__()))
+                finally:
+                        s.close()
+                log.info(&#39;È usato l\&#39;ip {}&#39;.format(ip))
+        self.addr = &#39;{}:{}&#39;.format(ip, self.configs[&#39;client&#39;][&#39;port&#39;])
+
+        self.inventory = Inventory(ip)
+        self.mac = self.inventory.get_mac()
+
+        log.info(&#39;Avvio del Butler {}&#39;.format(self.addr))
+
+        if self.configs[&#39;automaticSendInterval&#39;] &gt;= 1:
+                threading.Thread(target=self.check_details, args=[self.configs[&#39;automaticSendInterval&#39;]], daemon=True).start()
+
+        # avvio dell&#39;ascoltatore di comandi
+        listener = CommandListener(ip, self.configs[&#39;client&#39;][&#39;port&#39;], self.configs[&#39;expireTime&#39;],
+                self.configs[&#39;ssl&#39;], {&#39;show_notif&#39;: self.show_notif,
+                &#39;revoke&#39;: self.revoke_notif, &#39;disconnect&#39;: self.disconnect,
+                &#39;validate_credentials&#39;: self.validate_credentials,
+                &#39;get_details&#39;: self.get_details, &#39;toggle_module&#39;: self.toggle_module,
+                &#39;toggle_phase&#39;: self.toggle_phase, &#39;update_model&#39;: self.update_model})
+        threading.Thread(target=listener.start_api, daemon=True).start()
+        #sleep(0.1)
+
+        # preparazione del generatore di notifiche
+        self.notifBuilder = NotificationBuilder(
+                scriptManager=ScriptManager(self.configs[&#39;tempPath&#39;]),
+                logoPath=self.configs[&#39;logoPath&#39;], callback=self.interacted)
+
+        # avvio della GUI e ascolto degli eventi sulla tray icon
+        self.tray = ClientGUI(self.configs[&#39;logoPath&#39;], self.get_server_status, self.configs[&#39;website&#39;])
+        self.tray.start_tray()
+
+        sleep(3)
+        # impostazione dell&#39;ip del server e tentativo di connessione
+        self.serverAddr = &#39;{}://{}:{}&#39;.format(
+                self.configs[&#39;protocol&#39;], self.configs[&#39;server&#39;][&#39;ip&#39;], self.configs[&#39;server&#39;][&#39;port&#39;])
+        threading.Thread(target=self.connect, daemon=True).start()
+
+        for event in self.tray.listen_tray():
+                if self.notifData != &#39;&#39; and self.modules[self.NOTIFICATION_MODULE]:
+                        log.warning(&#39;Nuova notifica: &#34;{}&#34;&#39;.format(self.notifData[&#39;name&#39;]))
+                        self.notifBuilder.interrupt = False
+                        self.notifBuilder.show_window(self.notifData)
+                        self.notifData = &#39;&#39;
+                if event == self.tray.QUIT:
+                        log.info(&#39;Tentativo di spegnimento manuale&#39;)
+                        if self.msg.can_disconnect(self.addr):
+                                log.warning(&#39;Richiesta accettata. Disconnessione di {}&#39;.format(self.addr))
+                                self.shutdown()
+                                break
+                        log.warning(&#39;Richiesta rifiutata&#39;)
+                elif event == self.tray.CONNECT:
+                        log.info(&#39;Tentativo di connessione manuale&#39;)
+                        self.disconnect()
+                        threading.Thread(target=self.connect, daemon=True).start()
+                        pass
+                elif event == self.tray.DISCONNECT:
+                        log.info(&#39;Tentativo di disconnessione manuale&#39;)
+                        # la procedura di disconnessione è avviata se il server lo permette
+                        # o se il Butler dovrebbe già essere disconnesso
+                        if not self.connected or self.msg.can_disconnect(self.addr):
+                                log.warning(&#39;Richiesta accettata. Disconnessione di {}&#39;.format(self.addr))
+                                self.disconnect()
+                        else:
+                                log.warning(&#39;Richiesta rifiutata&#39;)
+        log.info(&#39;Spegnimento del Butler {}&#39;.format(self.addr))
+        self.tray.stop()
+        sys.exit()</code></pre>
+</details>
+</dd>
+<dt id="src.client.butler.Butler.toggle_module"><code class="name flex">
+<span>def <span class="ident">toggle_module</span></span>(<span>self, module)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Cambia lo stato di un modulo in base ai parametri.</p>
+<p>:param module (str): l'identificativo del modulo.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def toggle_module(self, module):
+        &#34;&#34;&#34;
+        Cambia lo stato di un modulo in base ai parametri.
+
+        :param module (str): l&#39;identificativo del modulo.
+        &#34;&#34;&#34;
+        self.modules.update(module)</code></pre>
+</details>
+</dd>
+<dt id="src.client.butler.Butler.toggle_phase"><code class="name flex">
+<span>def <span class="ident">toggle_phase</span></span>(<span>self, phase)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Cambia la fase del comportamento e aggiorna le connessioni.</p>
+<p>:param phase (bool): lo stato da applicare.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def toggle_phase(self, phase):
+        &#34;&#34;&#34;
+        Cambia la fase del comportamento e aggiorna le connessioni.
+
+        :param phase (bool): lo stato da applicare.
+        &#34;&#34;&#34;
+        if self.modules[self.BEHAVIOUR_MODULE]:
+                self.behaviour.phase = phase
+                self.behaviour.check_connections()</code></pre>
+</details>
+</dd>
+<dt id="src.client.butler.Butler.update_model"><code class="name flex">
+<span>def <span class="ident">update_model</span></span>(<span>self, model)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Aggiorna il modello delle connessioni.</p>
+<p>:param model (list): la lista delle nuove connessioni.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def update_model(self, model):
+        &#34;&#34;&#34;
+        Aggiorna il modello delle connessioni.
+
+        :param model (list): la lista delle nuove connessioni.
+        &#34;&#34;&#34;
+        if self.modules[self.BEHAVIOUR_MODULE]:
+                self.behaviour.update_model(model)</code></pre>
+</details>
+</dd>
+<dt id="src.client.butler.Butler.validate_credentials"><code class="name flex">
+<span>def <span class="ident">validate_credentials</span></span>(<span>self, addr, id)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Controlla che le informazioni passate dal server corrispondano
+ad quelle del file di configurazione.</p>
+<p>:param addr (str): l'indirizzo e la porta del server.
+:param id (str): un identificativo del server.</p>
+<p>:return: True se le credenziali corrispondono.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def validate_credentials(self, addr, id):
+        &#34;&#34;&#34;
+        Controlla che le informazioni passate dal server corrispondano
+        ad quelle del file di configurazione.
+        
+        :param addr (str): l&#39;indirizzo e la porta del server.
+        :param id (str): un identificativo del server.
+        
+        :return: True se le credenziali corrispondono.
+        &#34;&#34;&#34;
+        valid = addr == self.serverAddr and id == self.configs[&#39;server&#39;][&#39;id&#39;]
+        if not valid:
+                log.warning(&#39;Credenziali del server {} non valide&#39;.format(addr))
+                self.msg.disconnect()
+        return valid</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="src.client" href="index.html">src.client</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="src.client.butler.Butler" href="#src.client.butler.Butler">Butler</a></code></h4>
+<ul class="">
+<li><code><a title="src.client.butler.Butler.BEHAVIOUR_MODULE" href="#src.client.butler.Butler.BEHAVIOUR_MODULE">BEHAVIOUR_MODULE</a></code></li>
+<li><code><a title="src.client.butler.Butler.INVENTORY_MODULE" href="#src.client.butler.Butler.INVENTORY_MODULE">INVENTORY_MODULE</a></code></li>
+<li><code><a title="src.client.butler.Butler.NOTIFICATION_MODULE" href="#src.client.butler.Butler.NOTIFICATION_MODULE">NOTIFICATION_MODULE</a></code></li>
+<li><code><a title="src.client.butler.Butler.RETRY_TIMER" href="#src.client.butler.Butler.RETRY_TIMER">RETRY_TIMER</a></code></li>
+<li><code><a title="src.client.butler.Butler.authenticate" href="#src.client.butler.Butler.authenticate">authenticate</a></code></li>
+<li><code><a title="src.client.butler.Butler.check_details" href="#src.client.butler.Butler.check_details">check_details</a></code></li>
+<li><code><a title="src.client.butler.Butler.connect" href="#src.client.butler.Butler.connect">connect</a></code></li>
+<li><code><a title="src.client.butler.Butler.disconnect" href="#src.client.butler.Butler.disconnect">disconnect</a></code></li>
+<li><code><a title="src.client.butler.Butler.get_details" href="#src.client.butler.Butler.get_details">get_details</a></code></li>
+<li><code><a title="src.client.butler.Butler.get_server_status" href="#src.client.butler.Butler.get_server_status">get_server_status</a></code></li>
+<li><code><a title="src.client.butler.Butler.interacted" href="#src.client.butler.Butler.interacted">interacted</a></code></li>
+<li><code><a title="src.client.butler.Butler.revoke_notif" href="#src.client.butler.Butler.revoke_notif">revoke_notif</a></code></li>
+<li><code><a title="src.client.butler.Butler.show_notif" href="#src.client.butler.Butler.show_notif">show_notif</a></code></li>
+<li><code><a title="src.client.butler.Butler.shutdown" href="#src.client.butler.Butler.shutdown">shutdown</a></code></li>
+<li><code><a title="src.client.butler.Butler.start" href="#src.client.butler.Butler.start">start</a></code></li>
+<li><code><a title="src.client.butler.Butler.toggle_module" href="#src.client.butler.Butler.toggle_module">toggle_module</a></code></li>
+<li><code><a title="src.client.butler.Butler.toggle_phase" href="#src.client.butler.Butler.toggle_phase">toggle_phase</a></code></li>
+<li><code><a title="src.client.butler.Butler.update_model" href="#src.client.butler.Butler.update_model">update_model</a></code></li>
+<li><code><a title="src.client.butler.Butler.validate_credentials" href="#src.client.butler.Butler.validate_credentials">validate_credentials</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,30 @@
+{
+	"expireTime": 20,
+	"protocol": "https",
+	"ssl": {
+		"certPath": "../butler.crt",
+		"keyPath": "../butler.key"
+	},
+	"server": {
+		"ip": "192.168.56.101",
+		"port": 20210,
+		"id": "serverID"
+	},
+	"client": {
+		"ip": "",
+		"port": 20219
+	},
+	"logging": {
+		"level": "INFO",
+		"path": "."
+	},
+	"logoPath": "../logo.ico",
+	"tempPath": "./temp",
+	"website": "http://gitsam.cpt.local/2020_2021_2_semestre/butler",
+	"modules": {
+		"notification": true, 
+		"inventory": true,
+		"behaviour": true
+	},
+	"automaticSendInterval": 30
+}

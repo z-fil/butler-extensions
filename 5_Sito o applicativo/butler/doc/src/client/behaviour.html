@@ -1,0 +1,772 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>src.client.behaviour API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>src.client.behaviour</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import psutil
+import socket
+
+from common import log
+
+class Behaviour:
+        &#34;&#34;&#34;
+        Questa classe studia e analizza il comportamento del computer
+        distinguendo il traffico di rete normale da quello sospetto.
+        Nella fase di apprendimento, tutte le nuove connessioni sono considerate
+        sicure, mentre durante l&#39;analisi sono tutte sospette.
+        &#34;&#34;&#34;
+
+        LEARNING = True
+        ANALYZING = False
+        UNKNOWN_PROTO = &#39;unknown&#39;
+
+        EXCLUDED_STATUS = [psutil.CONN_TIME_WAIT, psutil.CONN_NONE]
+
+        customProto = {
+                        8080:&#39;CPT Proxy&#39;, 27017: &#39;Butler MongoDB&#39;,
+                        20210: &#39;ButlerAPI&#39;, 20211: &#39;Butler Server Control&#39;,
+                        20212: &#39;Butler Web GUI&#39;, 20213: &#39;Butler live preview&#39;,
+                        20219: &#39;Butler Client CommandListener&#39;}
+
+        def __init__(self, phase=LEARNING, customProtocols={}):
+                &#34;&#34;&#34;
+                Istanzia un oggetto Behaviour definendone la fase
+                e il modello delle connessioni iniziale.
+
+                :param phase (bool, opzionale): la fase (True = apprendimento, False = analisi).
+                        Default: LEARNING.
+                :param customProtocols (dict, opzionale): una lista di nomi di
+                                protocolli personalizzati e le porte alle quali sono associati.
+                        Default: {}.
+                &#34;&#34;&#34;
+                self.phase = phase
+                self.model = []
+                self.customProto.update(customProtocols)
+
+        def get_protocol(self, port, type=&#39;&#39;):
+                &#34;&#34;&#34;
+                Ricava il nome del protocollo in base alla porta passata.
+
+                :param port (int): la porta trovata.
+                :param type (str, opzionale): il tipo specifico (tcp/udp).
+                        Default: &#39;&#39;.
+
+                :return: il nome del protocollo se trovato, altrimenti un valore di default.
+                &#34;&#34;&#34;
+                try:
+                        return socket.getservbyport(port, type)
+                except Exception as e:
+                        return self.customProto[port] if port in self.customProto else self.UNKNOWN_PROTO
+        
+        def check_connections(self):
+                &#34;&#34;&#34;
+                Legge le connessioni attive e ne salva solo alcuni attributi.
+                &#34;&#34;&#34;
+                data = []
+                for id in psutil.pids():
+                        # un&#39;eccezione è sollevata in caso di permessi non sufficienti
+                        # o di processo non trovato 
+                        try:
+                                p = psutil.Process(id)
+                                # il processo è ignorato se non ha connessioni o se non è attivo
+                                if p.connections() == [] or not p.is_running():
+                                        continue
+                                for conn in range(0, len(p.connections())):
+                                        if p.connections()[conn][5] not in self.EXCLUDED_STATUS:
+                                                # la sicurezza (safe) è impostata ora, ma sarà il server
+                                                # a decidere se mantenere effettivamente questo stato
+                                                c = {&#39;proc&#39;: p.name(), &#39;status&#39;: p.connections()[conn][5],
+                                                &#39;source&#39;: [&#39;&#39;,&#39;&#39;], &#39;dest&#39;: [&#39;&#39;,&#39;&#39;], &#39;proto&#39;: &#39;unknown&#39;, &#39;safe&#39;: self.phase}
+                                                port = p.connections()[conn].laddr.port
+                                                c[&#39;source&#39;] = [p.connections()[conn].laddr.ip, port]
+                                                c[&#39;proto&#39;] =  self.get_protocol(port)
+
+                                                # non tutte le connessioni hanno un indirizzo di destinazione
+                                                try:
+                                                        if hasattr(p.connections()[conn].raddr, &#39;ip&#39;):
+                                                                # port è una variabile perchè viene usato anche in seguito
+                                                                port = p.connections()[conn].raddr.port
+                                                                c[&#39;dest&#39;] = [p.connections()[conn].raddr.ip, port]
+                                                except:
+                                                        pass
+                                                if c[&#39;proto&#39;] == self.UNKNOWN_PROTO:
+                                                        c[&#39;proto&#39;] = self.get_protocol(port)
+                                                data.append(c)
+                        except Exception:
+                                pass
+
+                # logga solo se le informazioni sono utili
+                if len(data) != len(self.model):
+                        log.info(&#39;Ci sono {} connessioni attive&#39;.format(len(data)))
+
+                # gli array sono scambiati per rispettare l&#39;ordine delle priorità
+                originalModel = self.model.copy()
+                self.model = data
+                self.update_model(originalModel)
+                
+        def update_model(self, newData):
+                &#34;&#34;&#34;
+                Unisce il modello attuale con le nuove connessioni, senza scartarne
+                nessuna e facendo attenzione a non duplicarle.
+
+                :param newData (list): la lista di nuove connessioni da aggiungere.
+                        Questo parametro ha priorità sull&#39;attributo model, quindi
+                        all&#39;occorrenza vanno passati in ordine inverso.
+                &#34;&#34;&#34;
+                self.model = self.remove_duplicates(self.model.copy())
+
+                newModel = self.model.copy()
+                newData = self.remove_duplicates(newData)
+                
+                for newConn in newData:
+                        found = False
+                        i = 0
+                        for c in self.model:
+                                if self.conn_match(newConn, c):
+                                        if len(newModel) &gt; i:
+                                                newModel[i][&#39;safe&#39;] = newConn[&#39;safe&#39;]
+                                        else:
+                                                # la funzione viene richiamata se ci sono stati cambiamenti
+                                                # in parallelo (dimensioni degli array diverse)
+                                                self.update_model(newData)
+                                        found = True
+                                        break
+                                i+=1
+                        if not found:
+                                newModel.append(newConn)
+                # se non ci sono dati, vengono impostati quelli precedenti
+                if newData == []:
+                        newModel = self.model
+                        
+                self.model = newModel.copy()
+
+                # logga solo se le informazioni sono utili
+                if len(self.model) != len(newData):
+                        log.info(&#39;Il modello contiene ora {} connessioni. Ne sono state verificate {}&#39;.format(
+                                len(self.model), len(newData))
+                        )
+
+        def remove_duplicates(self, model):
+                &#34;&#34;&#34;
+                Rimuove le connessioni simili dal modello passato.
+
+                :param model (list): la lista delle connessioni.
+
+                :return: il modello con le connessioni considerate diverse tra loro.
+                &#34;&#34;&#34;
+                cleanModel = []
+                for c in model:
+                        found = False
+                        for c2 in cleanModel:
+                                if self.conn_match(c, c2):
+                                        found = True
+                                        break
+                        if not found:
+                                cleanModel.append(c.copy())
+                return cleanModel
+
+
+        def get_model(self):
+                &#34;&#34;&#34;
+                Aggiorna e ritorna il modello delle connessioni.
+
+                :return: il modello aggiornato.
+                &#34;&#34;&#34;
+                self.check_connections()
+                return self.model
+
+        def conn_match(self, conn1, conn2):
+                &#34;&#34;&#34;
+                Verifica che le connessioni corrispondano.
+                Non esiste un identificativo, quindi vanno controllati
+                l&#39;indirizzo e la porta sorgente e quelli di destinazione, se presenti.
+
+                :param conn1 (dict): i dati della prima connessione.
+                :param conn2 (list): i dati della seconda connessione.
+
+                :return: True se le connessioni corrispondono, altrimenti False.
+                &#34;&#34;&#34;
+                return (
+                        # il nome del processo deve corrispondere
+                        conn1[&#39;proc&#39;] == conn2[&#39;proc&#39;] and (
+                        (
+                                # se entrambe le destinazioni sono vuote, la sorgente deve
+                                # corrispondere completamente 
+                                conn1[&#39;dest&#39;] == [&#39;&#39;,&#39;&#39;] and 
+                                conn2[&#39;dest&#39;] == [&#39;&#39;,&#39;&#39;]
+                                and conn1[&#39;source&#39;] == conn2[&#39;source&#39;]
+                        ) or (
+                                # se la destinazione non è vuota,
+                                # 3 su 4 degli altri campi (ip1, porta1, ip2, porta2) devono corrispondere
+                                conn1[&#39;dest&#39;] != [&#39;&#39;,&#39;&#39;]
+                                and (
+                                        conn1[&#39;dest&#39;] == conn2[&#39;dest&#39;]
+                                        and conn1[&#39;source&#39;][0] == conn2[&#39;source&#39;][0]
+                                ) or (
+                                        conn1[&#39;dest&#39;][0] == conn2[&#39;dest&#39;][0]
+                                        and conn1[&#39;source&#39;] == conn2[&#39;source&#39;])
+                        ))
+                )</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="src.client.behaviour.Behaviour"><code class="flex name class">
+<span>class <span class="ident">Behaviour</span></span>
+<span>(</span><span>phase=True, customProtocols={})</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Questa classe studia e analizza il comportamento del computer
+distinguendo il traffico di rete normale da quello sospetto.
+Nella fase di apprendimento, tutte le nuove connessioni sono considerate
+sicure, mentre durante l'analisi sono tutte sospette.</p>
+<p>Istanzia un oggetto Behaviour definendone la fase
+e il modello delle connessioni iniziale.</p>
+<p>:param phase (bool, opzionale): la fase (True = apprendimento, False = analisi).
+Default: LEARNING.
+:param customProtocols (dict, opzionale): una lista di nomi di
+protocolli personalizzati e le porte alle quali sono associati.
+Default: {}.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Behaviour:
+        &#34;&#34;&#34;
+        Questa classe studia e analizza il comportamento del computer
+        distinguendo il traffico di rete normale da quello sospetto.
+        Nella fase di apprendimento, tutte le nuove connessioni sono considerate
+        sicure, mentre durante l&#39;analisi sono tutte sospette.
+        &#34;&#34;&#34;
+
+        LEARNING = True
+        ANALYZING = False
+        UNKNOWN_PROTO = &#39;unknown&#39;
+
+        EXCLUDED_STATUS = [psutil.CONN_TIME_WAIT, psutil.CONN_NONE]
+
+        customProto = {
+                        8080:&#39;CPT Proxy&#39;, 27017: &#39;Butler MongoDB&#39;,
+                        20210: &#39;ButlerAPI&#39;, 20211: &#39;Butler Server Control&#39;,
+                        20212: &#39;Butler Web GUI&#39;, 20213: &#39;Butler live preview&#39;,
+                        20219: &#39;Butler Client CommandListener&#39;}
+
+        def __init__(self, phase=LEARNING, customProtocols={}):
+                &#34;&#34;&#34;
+                Istanzia un oggetto Behaviour definendone la fase
+                e il modello delle connessioni iniziale.
+
+                :param phase (bool, opzionale): la fase (True = apprendimento, False = analisi).
+                        Default: LEARNING.
+                :param customProtocols (dict, opzionale): una lista di nomi di
+                                protocolli personalizzati e le porte alle quali sono associati.
+                        Default: {}.
+                &#34;&#34;&#34;
+                self.phase = phase
+                self.model = []
+                self.customProto.update(customProtocols)
+
+        def get_protocol(self, port, type=&#39;&#39;):
+                &#34;&#34;&#34;
+                Ricava il nome del protocollo in base alla porta passata.
+
+                :param port (int): la porta trovata.
+                :param type (str, opzionale): il tipo specifico (tcp/udp).
+                        Default: &#39;&#39;.
+
+                :return: il nome del protocollo se trovato, altrimenti un valore di default.
+                &#34;&#34;&#34;
+                try:
+                        return socket.getservbyport(port, type)
+                except Exception as e:
+                        return self.customProto[port] if port in self.customProto else self.UNKNOWN_PROTO
+        
+        def check_connections(self):
+                &#34;&#34;&#34;
+                Legge le connessioni attive e ne salva solo alcuni attributi.
+                &#34;&#34;&#34;
+                data = []
+                for id in psutil.pids():
+                        # un&#39;eccezione è sollevata in caso di permessi non sufficienti
+                        # o di processo non trovato 
+                        try:
+                                p = psutil.Process(id)
+                                # il processo è ignorato se non ha connessioni o se non è attivo
+                                if p.connections() == [] or not p.is_running():
+                                        continue
+                                for conn in range(0, len(p.connections())):
+                                        if p.connections()[conn][5] not in self.EXCLUDED_STATUS:
+                                                # la sicurezza (safe) è impostata ora, ma sarà il server
+                                                # a decidere se mantenere effettivamente questo stato
+                                                c = {&#39;proc&#39;: p.name(), &#39;status&#39;: p.connections()[conn][5],
+                                                &#39;source&#39;: [&#39;&#39;,&#39;&#39;], &#39;dest&#39;: [&#39;&#39;,&#39;&#39;], &#39;proto&#39;: &#39;unknown&#39;, &#39;safe&#39;: self.phase}
+                                                port = p.connections()[conn].laddr.port
+                                                c[&#39;source&#39;] = [p.connections()[conn].laddr.ip, port]
+                                                c[&#39;proto&#39;] =  self.get_protocol(port)
+
+                                                # non tutte le connessioni hanno un indirizzo di destinazione
+                                                try:
+                                                        if hasattr(p.connections()[conn].raddr, &#39;ip&#39;):
+                                                                # port è una variabile perchè viene usato anche in seguito
+                                                                port = p.connections()[conn].raddr.port
+                                                                c[&#39;dest&#39;] = [p.connections()[conn].raddr.ip, port]
+                                                except:
+                                                        pass
+                                                if c[&#39;proto&#39;] == self.UNKNOWN_PROTO:
+                                                        c[&#39;proto&#39;] = self.get_protocol(port)
+                                                data.append(c)
+                        except Exception:
+                                pass
+
+                # logga solo se le informazioni sono utili
+                if len(data) != len(self.model):
+                        log.info(&#39;Ci sono {} connessioni attive&#39;.format(len(data)))
+
+                # gli array sono scambiati per rispettare l&#39;ordine delle priorità
+                originalModel = self.model.copy()
+                self.model = data
+                self.update_model(originalModel)
+                
+        def update_model(self, newData):
+                &#34;&#34;&#34;
+                Unisce il modello attuale con le nuove connessioni, senza scartarne
+                nessuna e facendo attenzione a non duplicarle.
+
+                :param newData (list): la lista di nuove connessioni da aggiungere.
+                        Questo parametro ha priorità sull&#39;attributo model, quindi
+                        all&#39;occorrenza vanno passati in ordine inverso.
+                &#34;&#34;&#34;
+                self.model = self.remove_duplicates(self.model.copy())
+
+                newModel = self.model.copy()
+                newData = self.remove_duplicates(newData)
+                
+                for newConn in newData:
+                        found = False
+                        i = 0
+                        for c in self.model:
+                                if self.conn_match(newConn, c):
+                                        if len(newModel) &gt; i:
+                                                newModel[i][&#39;safe&#39;] = newConn[&#39;safe&#39;]
+                                        else:
+                                                # la funzione viene richiamata se ci sono stati cambiamenti
+                                                # in parallelo (dimensioni degli array diverse)
+                                                self.update_model(newData)
+                                        found = True
+                                        break
+                                i+=1
+                        if not found:
+                                newModel.append(newConn)
+                # se non ci sono dati, vengono impostati quelli precedenti
+                if newData == []:
+                        newModel = self.model
+                        
+                self.model = newModel.copy()
+
+                # logga solo se le informazioni sono utili
+                if len(self.model) != len(newData):
+                        log.info(&#39;Il modello contiene ora {} connessioni. Ne sono state verificate {}&#39;.format(
+                                len(self.model), len(newData))
+                        )
+
+        def remove_duplicates(self, model):
+                &#34;&#34;&#34;
+                Rimuove le connessioni simili dal modello passato.
+
+                :param model (list): la lista delle connessioni.
+
+                :return: il modello con le connessioni considerate diverse tra loro.
+                &#34;&#34;&#34;
+                cleanModel = []
+                for c in model:
+                        found = False
+                        for c2 in cleanModel:
+                                if self.conn_match(c, c2):
+                                        found = True
+                                        break
+                        if not found:
+                                cleanModel.append(c.copy())
+                return cleanModel
+
+
+        def get_model(self):
+                &#34;&#34;&#34;
+                Aggiorna e ritorna il modello delle connessioni.
+
+                :return: il modello aggiornato.
+                &#34;&#34;&#34;
+                self.check_connections()
+                return self.model
+
+        def conn_match(self, conn1, conn2):
+                &#34;&#34;&#34;
+                Verifica che le connessioni corrispondano.
+                Non esiste un identificativo, quindi vanno controllati
+                l&#39;indirizzo e la porta sorgente e quelli di destinazione, se presenti.
+
+                :param conn1 (dict): i dati della prima connessione.
+                :param conn2 (list): i dati della seconda connessione.
+
+                :return: True se le connessioni corrispondono, altrimenti False.
+                &#34;&#34;&#34;
+                return (
+                        # il nome del processo deve corrispondere
+                        conn1[&#39;proc&#39;] == conn2[&#39;proc&#39;] and (
+                        (
+                                # se entrambe le destinazioni sono vuote, la sorgente deve
+                                # corrispondere completamente 
+                                conn1[&#39;dest&#39;] == [&#39;&#39;,&#39;&#39;] and 
+                                conn2[&#39;dest&#39;] == [&#39;&#39;,&#39;&#39;]
+                                and conn1[&#39;source&#39;] == conn2[&#39;source&#39;]
+                        ) or (
+                                # se la destinazione non è vuota,
+                                # 3 su 4 degli altri campi (ip1, porta1, ip2, porta2) devono corrispondere
+                                conn1[&#39;dest&#39;] != [&#39;&#39;,&#39;&#39;]
+                                and (
+                                        conn1[&#39;dest&#39;] == conn2[&#39;dest&#39;]
+                                        and conn1[&#39;source&#39;][0] == conn2[&#39;source&#39;][0]
+                                ) or (
+                                        conn1[&#39;dest&#39;][0] == conn2[&#39;dest&#39;][0]
+                                        and conn1[&#39;source&#39;] == conn2[&#39;source&#39;])
+                        ))
+                )</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="src.client.behaviour.Behaviour.ANALYZING"><code class="name">var <span class="ident">ANALYZING</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="src.client.behaviour.Behaviour.EXCLUDED_STATUS"><code class="name">var <span class="ident">EXCLUDED_STATUS</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="src.client.behaviour.Behaviour.LEARNING"><code class="name">var <span class="ident">LEARNING</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="src.client.behaviour.Behaviour.UNKNOWN_PROTO"><code class="name">var <span class="ident">UNKNOWN_PROTO</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="src.client.behaviour.Behaviour.customProto"><code class="name">var <span class="ident">customProto</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="src.client.behaviour.Behaviour.check_connections"><code class="name flex">
+<span>def <span class="ident">check_connections</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Legge le connessioni attive e ne salva solo alcuni attributi.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def check_connections(self):
+        &#34;&#34;&#34;
+        Legge le connessioni attive e ne salva solo alcuni attributi.
+        &#34;&#34;&#34;
+        data = []
+        for id in psutil.pids():
+                # un&#39;eccezione è sollevata in caso di permessi non sufficienti
+                # o di processo non trovato 
+                try:
+                        p = psutil.Process(id)
+                        # il processo è ignorato se non ha connessioni o se non è attivo
+                        if p.connections() == [] or not p.is_running():
+                                continue
+                        for conn in range(0, len(p.connections())):
+                                if p.connections()[conn][5] not in self.EXCLUDED_STATUS:
+                                        # la sicurezza (safe) è impostata ora, ma sarà il server
+                                        # a decidere se mantenere effettivamente questo stato
+                                        c = {&#39;proc&#39;: p.name(), &#39;status&#39;: p.connections()[conn][5],
+                                        &#39;source&#39;: [&#39;&#39;,&#39;&#39;], &#39;dest&#39;: [&#39;&#39;,&#39;&#39;], &#39;proto&#39;: &#39;unknown&#39;, &#39;safe&#39;: self.phase}
+                                        port = p.connections()[conn].laddr.port
+                                        c[&#39;source&#39;] = [p.connections()[conn].laddr.ip, port]
+                                        c[&#39;proto&#39;] =  self.get_protocol(port)
+
+                                        # non tutte le connessioni hanno un indirizzo di destinazione
+                                        try:
+                                                if hasattr(p.connections()[conn].raddr, &#39;ip&#39;):
+                                                        # port è una variabile perchè viene usato anche in seguito
+                                                        port = p.connections()[conn].raddr.port
+                                                        c[&#39;dest&#39;] = [p.connections()[conn].raddr.ip, port]
+                                        except:
+                                                pass
+                                        if c[&#39;proto&#39;] == self.UNKNOWN_PROTO:
+                                                c[&#39;proto&#39;] = self.get_protocol(port)
+                                        data.append(c)
+                except Exception:
+                        pass
+
+        # logga solo se le informazioni sono utili
+        if len(data) != len(self.model):
+                log.info(&#39;Ci sono {} connessioni attive&#39;.format(len(data)))
+
+        # gli array sono scambiati per rispettare l&#39;ordine delle priorità
+        originalModel = self.model.copy()
+        self.model = data
+        self.update_model(originalModel)</code></pre>
+</details>
+</dd>
+<dt id="src.client.behaviour.Behaviour.conn_match"><code class="name flex">
+<span>def <span class="ident">conn_match</span></span>(<span>self, conn1, conn2)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Verifica che le connessioni corrispondano.
+Non esiste un identificativo, quindi vanno controllati
+l'indirizzo e la porta sorgente e quelli di destinazione, se presenti.</p>
+<p>:param conn1 (dict): i dati della prima connessione.
+:param conn2 (list): i dati della seconda connessione.</p>
+<p>:return: True se le connessioni corrispondono, altrimenti False.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def conn_match(self, conn1, conn2):
+        &#34;&#34;&#34;
+        Verifica che le connessioni corrispondano.
+        Non esiste un identificativo, quindi vanno controllati
+        l&#39;indirizzo e la porta sorgente e quelli di destinazione, se presenti.
+
+        :param conn1 (dict): i dati della prima connessione.
+        :param conn2 (list): i dati della seconda connessione.
+
+        :return: True se le connessioni corrispondono, altrimenti False.
+        &#34;&#34;&#34;
+        return (
+                # il nome del processo deve corrispondere
+                conn1[&#39;proc&#39;] == conn2[&#39;proc&#39;] and (
+                (
+                        # se entrambe le destinazioni sono vuote, la sorgente deve
+                        # corrispondere completamente 
+                        conn1[&#39;dest&#39;] == [&#39;&#39;,&#39;&#39;] and 
+                        conn2[&#39;dest&#39;] == [&#39;&#39;,&#39;&#39;]
+                        and conn1[&#39;source&#39;] == conn2[&#39;source&#39;]
+                ) or (
+                        # se la destinazione non è vuota,
+                        # 3 su 4 degli altri campi (ip1, porta1, ip2, porta2) devono corrispondere
+                        conn1[&#39;dest&#39;] != [&#39;&#39;,&#39;&#39;]
+                        and (
+                                conn1[&#39;dest&#39;] == conn2[&#39;dest&#39;]
+                                and conn1[&#39;source&#39;][0] == conn2[&#39;source&#39;][0]
+                        ) or (
+                                conn1[&#39;dest&#39;][0] == conn2[&#39;dest&#39;][0]
+                                and conn1[&#39;source&#39;] == conn2[&#39;source&#39;])
+                ))
+        )</code></pre>
+</details>
+</dd>
+<dt id="src.client.behaviour.Behaviour.get_model"><code class="name flex">
+<span>def <span class="ident">get_model</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Aggiorna e ritorna il modello delle connessioni.</p>
+<p>:return: il modello aggiornato.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_model(self):
+        &#34;&#34;&#34;
+        Aggiorna e ritorna il modello delle connessioni.
+
+        :return: il modello aggiornato.
+        &#34;&#34;&#34;
+        self.check_connections()
+        return self.model</code></pre>
+</details>
+</dd>
+<dt id="src.client.behaviour.Behaviour.get_protocol"><code class="name flex">
+<span>def <span class="ident">get_protocol</span></span>(<span>self, port, type='')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Ricava il nome del protocollo in base alla porta passata.</p>
+<p>:param port (int): la porta trovata.
+:param type (str, opzionale): il tipo specifico (tcp/udp).
+Default: ''.</p>
+<p>:return: il nome del protocollo se trovato, altrimenti un valore di default.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_protocol(self, port, type=&#39;&#39;):
+        &#34;&#34;&#34;
+        Ricava il nome del protocollo in base alla porta passata.
+
+        :param port (int): la porta trovata.
+        :param type (str, opzionale): il tipo specifico (tcp/udp).
+                Default: &#39;&#39;.
+
+        :return: il nome del protocollo se trovato, altrimenti un valore di default.
+        &#34;&#34;&#34;
+        try:
+                return socket.getservbyport(port, type)
+        except Exception as e:
+                return self.customProto[port] if port in self.customProto else self.UNKNOWN_PROTO</code></pre>
+</details>
+</dd>
+<dt id="src.client.behaviour.Behaviour.remove_duplicates"><code class="name flex">
+<span>def <span class="ident">remove_duplicates</span></span>(<span>self, model)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Rimuove le connessioni simili dal modello passato.</p>
+<p>:param model (list): la lista delle connessioni.</p>
+<p>:return: il modello con le connessioni considerate diverse tra loro.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def remove_duplicates(self, model):
+        &#34;&#34;&#34;
+        Rimuove le connessioni simili dal modello passato.
+
+        :param model (list): la lista delle connessioni.
+
+        :return: il modello con le connessioni considerate diverse tra loro.
+        &#34;&#34;&#34;
+        cleanModel = []
+        for c in model:
+                found = False
+                for c2 in cleanModel:
+                        if self.conn_match(c, c2):
+                                found = True
+                                break
+                if not found:
+                        cleanModel.append(c.copy())
+        return cleanModel</code></pre>
+</details>
+</dd>
+<dt id="src.client.behaviour.Behaviour.update_model"><code class="name flex">
+<span>def <span class="ident">update_model</span></span>(<span>self, newData)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Unisce il modello attuale con le nuove connessioni, senza scartarne
+nessuna e facendo attenzione a non duplicarle.</p>
+<p>:param newData (list): la lista di nuove connessioni da aggiungere.
+Questo parametro ha priorità sull'attributo model, quindi
+all'occorrenza vanno passati in ordine inverso.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def update_model(self, newData):
+        &#34;&#34;&#34;
+        Unisce il modello attuale con le nuove connessioni, senza scartarne
+        nessuna e facendo attenzione a non duplicarle.
+
+        :param newData (list): la lista di nuove connessioni da aggiungere.
+                Questo parametro ha priorità sull&#39;attributo model, quindi
+                all&#39;occorrenza vanno passati in ordine inverso.
+        &#34;&#34;&#34;
+        self.model = self.remove_duplicates(self.model.copy())
+
+        newModel = self.model.copy()
+        newData = self.remove_duplicates(newData)
+        
+        for newConn in newData:
+                found = False
+                i = 0
+                for c in self.model:
+                        if self.conn_match(newConn, c):
+                                if len(newModel) &gt; i:
+                                        newModel[i][&#39;safe&#39;] = newConn[&#39;safe&#39;]
+                                else:
+                                        # la funzione viene richiamata se ci sono stati cambiamenti
+                                        # in parallelo (dimensioni degli array diverse)
+                                        self.update_model(newData)
+                                found = True
+                                break
+                        i+=1
+                if not found:
+                        newModel.append(newConn)
+        # se non ci sono dati, vengono impostati quelli precedenti
+        if newData == []:
+                newModel = self.model
+                
+        self.model = newModel.copy()
+
+        # logga solo se le informazioni sono utili
+        if len(self.model) != len(newData):
+                log.info(&#39;Il modello contiene ora {} connessioni. Ne sono state verificate {}&#39;.format(
+                        len(self.model), len(newData))
+                )</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="src.client" href="index.html">src.client</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="src.client.behaviour.Behaviour" href="#src.client.behaviour.Behaviour">Behaviour</a></code></h4>
+<ul class="two-column">
+<li><code><a title="src.client.behaviour.Behaviour.ANALYZING" href="#src.client.behaviour.Behaviour.ANALYZING">ANALYZING</a></code></li>
+<li><code><a title="src.client.behaviour.Behaviour.EXCLUDED_STATUS" href="#src.client.behaviour.Behaviour.EXCLUDED_STATUS">EXCLUDED_STATUS</a></code></li>
+<li><code><a title="src.client.behaviour.Behaviour.LEARNING" href="#src.client.behaviour.Behaviour.LEARNING">LEARNING</a></code></li>
+<li><code><a title="src.client.behaviour.Behaviour.UNKNOWN_PROTO" href="#src.client.behaviour.Behaviour.UNKNOWN_PROTO">UNKNOWN_PROTO</a></code></li>
+<li><code><a title="src.client.behaviour.Behaviour.check_connections" href="#src.client.behaviour.Behaviour.check_connections">check_connections</a></code></li>
+<li><code><a title="src.client.behaviour.Behaviour.conn_match" href="#src.client.behaviour.Behaviour.conn_match">conn_match</a></code></li>
+<li><code><a title="src.client.behaviour.Behaviour.customProto" href="#src.client.behaviour.Behaviour.customProto">customProto</a></code></li>
+<li><code><a title="src.client.behaviour.Behaviour.get_model" href="#src.client.behaviour.Behaviour.get_model">get_model</a></code></li>
+<li><code><a title="src.client.behaviour.Behaviour.get_protocol" href="#src.client.behaviour.Behaviour.get_protocol">get_protocol</a></code></li>
+<li><code><a title="src.client.behaviour.Behaviour.remove_duplicates" href="#src.client.behaviour.Behaviour.remove_duplicates">remove_duplicates</a></code></li>
+<li><code><a title="src.client.behaviour.Behaviour.update_model" href="#src.client.behaviour.Behaviour.update_model">update_model</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>

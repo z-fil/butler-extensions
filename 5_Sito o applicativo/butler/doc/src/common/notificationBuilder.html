@@ -1,0 +1,1764 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>src.common.notificationBuilder API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>src.common.notificationBuilder</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import PySimpleGUI as default_gui
+import PySimpleGUIWeb as web_gui
+from PySimpleGUI.PySimpleGUI import WIN_CLOSED
+from plyer import notification
+import threading
+from time import sleep
+import base64
+import binascii
+from io import BytesIO
+from PIL import Image, UnidentifiedImageError
+import json
+import sys
+from os.path import abspath, join, exists
+
+from common import log
+
+class NotificationBuilder():
+        &#34;&#34;&#34;
+        Questa classe permette di generare dinamicamente in base ad un dizionario
+        un interfaccia grafica strutturata a righe e colonne.
+        L&#39;interfaccia può essere una finestra pop-up o una notifica di sistema
+        in base ai dati passati, oppure una pagina web:
+        la distinzione viene fatta controllando il valore della porta.
+        Le interfacce possono essere interattive e avere elementi dinamici,
+        anche questi parzialmente gestiti dalla presente classe.
+        &#34;&#34;&#34;
+
+        FOREGROUND = False
+        BACKGROUND = True
+        MIN_SIZE = 20
+
+        def __init__(self, port=&#39;&#39;, scriptManager=&#39;&#39;, callback=&#39;&#39;, imagesPath=&#39;&#39;, logoPath=&#39;&#39;, testing=False):
+                &#34;&#34;&#34;
+                Istanzia un oggetto NotificationBuilder specificandone la porta web,
+                il gestore degli script, una callback e il percorso nel quale cercare
+                le eventuali immagini.
+                
+                :param port (str, opzionale): la porta web sulla quale avviare l&#39;interfaccia.
+                                Se non è specificata, la finestra apparirà sul desktop.
+                        Default: &#39;&#39;.
+                :param scriptManager (ScriptManager, opzionale): il gestore degli script
+                                allegati alla finestra (già preconfigurato).
+                        Default: &#39;&#39;.
+                :param callback (func, opzionale): la funzione di callback per notificare
+                                l&#39;interazione con un&#39;interfaccia.
+                        Default: &#39;&#39;.
+                :param imagesPath (str, opzionale): il percorso assoluto nel quale cercare
+                                le immagini, se specificate in questo formato e non come base64.
+                        Default: &#39;&#39;.
+                :param logoPath (str, opzionale): il percorso dell&#39;icona per le notifiche di sistema.
+                        Default: &#39;&#39;.
+                :param testing (bool, opzionale): se True, alcune funzionalità legate alla
+                                notifica (script, blocco completo,...) vengono ignorate.
+                        Default: False
+                &#34;&#34;&#34;
+                self.interrupt = False
+                self.port = port
+                self.scriptManager = scriptManager
+                self.name = &#39;&#39;
+                self.interacted = callback
+                self.imagesPath = imagesPath
+                self.logoPath = logoPath
+                self.windowReady = False
+                self.textBlink = threading.Thread()
+                self.bgBlink = threading.Thread()
+                self.scriptThread = threading.Thread()
+                self.testing = testing
+                self.activeWindow = False
+
+        def get_image(self, image):
+                &#34;&#34;&#34;
+                Interpreta il parametro image definendo se si tratta di dati base64
+                oppure di un percorso locale/di rete.
+                
+                :param image (str): i dati dell&#39;immagine.
+                
+                :return: i dati base64 dell&#39;immagine se valida, altrimenti &#39;&#39;.
+                &#34;&#34;&#34;
+                try:
+                        return self.to_png(image)
+                except UnidentifiedImageError:
+                        pass
+                except binascii.Error:
+                        pass
+                try:
+                        path = abspath(join(sys.path[0], self.imagesPath, image))
+                        # la decodifica è fallita; i dati vengono considerati come un percorso
+                        if exists(path):
+                                with open(path, &#34;r+b&#34;) as file:
+                                        data = base64.b64encode(file.read())
+                                        return self.to_png(data)
+                except Exception as e:
+                        log.warning(&#39;Dati dell\&#39;immagine della notifica &#34;{}&#34; non validi&#39;.format(self.data[&#39;name&#39;]))
+                        pass
+                # i dati dell&#39;immagine non sono validi, quindi vengono ignorati
+                return &#39;&#39;
+
+        def to_png(self, data):
+                &#34;&#34;&#34;
+                Verifica che l&#39;immagine sia in formato PNG (l&#39;unico accettato).
+                Se non lo è, la converte.
+                
+                :param data (str): i dati dell&#39;immagine.
+                
+                :return: i dati dell&#39;immagine convertita se necessario.
+                &#34;&#34;&#34;
+                img = Image.open(BytesIO(base64.b64decode(data)))
+                buffer = BytesIO()
+                if img.format != &#39;PNG&#39;:
+                        img.save(buffer, format=&#34;PNG&#34;)
+                        return base64.b64encode(buffer.getvalue())
+                else:
+                        return data
+
+        def get_window(self, data):
+                &#34;&#34;&#34;
+                Crea la finestra interpretando il contenuto del parametro data.
+                
+                :param data (dict, str): i dati della finestra. Possono essere un dizionario
+                        oppure una stringa contente JSON valido.
+                
+                :return: l&#39;oggetto generato della finestra, le thread di lampeggiamento
+                        del testo e dello sfondo e la thread per eseguire lo script.
+                &#34;&#34;&#34;
+                try:
+                        # tenta l&#39;eventuale conversione in dizionario
+                        data = json.loads(data)
+                except TypeError:
+                        pass
+
+                self.data = data
+                text = self.data[&#39;text&#39;]
+                script = self.data[&#39;script&#39;]
+                self.name = data[&#39;name&#39;]
+
+                window = &#39;&#39;
+
+                
+                # solo la thread dello script è inizializzata qua, dato che è l&#39;unica
+                # che può essere avviata insieme alle notifiche di sistema
+                scriptThread = &#39;&#39;
+
+                if self.valid_val([&#39;program&#39;], script) and self.port == &#39;&#39; and not self.testing:
+                        scriptThread = threading.Thread(target=self.scriptManager.run, args=[
+                                script[&#39;program&#39;], script[&#39;command&#39;]])
+
+                if data[&#39;osType&#39;]:
+                        # le notifiche si sistema vengono create solo se non si tratta di un&#39;anteprima web
+                        if self.port == &#39;&#39;:
+                                if scriptThread != &#39;&#39;:
+                                        log.warning(&#39;Avvio dello script allegato alla notifica&#39;)
+                                        scriptThread.start()
+                                        
+                                log.info(&#39;Creazione della notifica di sistema &#34;{}&#34;&#39;.format(self.name))
+                                window = [text[&#39;title&#39;], text[&#39;message&#39;][0:256], self.name,
+                                        abspath(join(sys.path[0], self.imagesPath, self.logoPath))]
+                                self.windowReady = True
+                                return window, data[&#39;osType&#39;]
+                        else:
+                                log.info(&#39;Non è possibile caricare la preview di una notifica di sistema ({})&#39;.format(data[&#39;name&#39;]))
+                                return &#39;&#39;, &#39;&#39;
+                else:
+                        pass
+                        log.info(&#39;Creazione della notifica pop-up &#34;{}&#34;&#39;.format(self.name))
+                style = self.data[&#39;style&#39;]
+                interactivity = self.data[&#39;interactivity&#39;]
+
+                sg = web_gui if self.port != &#39;&#39; else default_gui
+                if self.valid_val([&#39;theme&#39;], style):
+                        sg.theme(style[&#39;theme&#39;])
+
+                bgColor = style[&#39;bgColor&#39;] if self.valid_val([&#39;bgColor&#39;], style) else None
+                textColor = text[&#39;textColor&#39;] if self.valid_val([&#39;textColor&#39;], text) else None
+
+                sg.set_options(
+                        background_color=bgColor, text_element_background_color=bgColor,
+                        text_color=textColor, button_color=(bgColor, textColor) if bgColor and textColor else None)
+
+                elements = []
+
+                if self.testing:
+                        elements.append([sg.Button(key=&#39;-BUTTON_CLOSE_TESTING-&#39;,
+                                                                           button_text=&#39;(Chiusura, solo per test)&#39;)])
+
+                textStyle = &#39;&#39;
+
+                # stile testo generale
+                if self.valid_val([&#39;font&#39;, &#39;textSize&#39;], text) and self.valid_int([&#39;textSize&#39;], text):
+                        textStyle = text[&#39;font&#39;]+&#39; &#39;+str(text[&#39;textSize&#39;])
+                
+                # stile titolo
+                if self.valid_val([&#39;title&#39;], text):
+                        titleStyle = &#39;&#39;
+                        if self.valid_val([&#39;font&#39;, &#39;textSize&#39;], text) and self.valid_int([&#39;textSize&#39;], text):
+                                titleStyle = text[&#39;font&#39;]+&#39; &#39;+str(int(text[&#39;textSize&#39;])*3)
+                        elements.append([sg.Text(key=&#39;-TEXT_TITLE-&#39;, text=text[&#39;title&#39;],
+                                                                         font=titleStyle)])
+                if self.valid_val([&#39;message&#39;], text):
+                        elements.append([sg.Text(key=&#39;-TEXT_MESSAGE-&#39;,
+                                                                         text=text[&#39;message&#39;])])
+
+                if self.valid_val([&#39;image&#39;], style):
+                        style[&#39;image&#39;] = self.get_image(style[&#39;image&#39;])
+                        if style[&#39;image&#39;] != &#39;&#39;:
+                                elements.append(
+                                        [sg.Image(key=&#34;-IMAGE-&#34;, data=self.get_image(style[&#39;image&#39;]))])
+                inputs = []
+                if self.valid_val([&#39;buttonText&#39;], interactivity):
+                        inputs.append(sg.Button(
+                                key=&#39;-BUTTON_INPUT-&#39;, button_text=interactivity[&#39;buttonText&#39;]))
+                if self.valid_val([&#39;canClose&#39;], interactivity) and interactivity[&#39;canClose&#39;]:
+                        inputs.append(sg.Button(key=&#39;-BUTTON_CLOSE-&#39;,
+                                                                        button_text=&#39;Chiudi&#39;))
+
+                if inputs != []:
+                        elements.append(inputs)
+
+                layout = elements
+
+                size = (None, None)
+                if self.valid_val([&#39;width&#39;, &#39;height&#39;], style):
+                        style[&#39;width&#39;] = int(style[&#39;width&#39;]) if int(style[&#39;width&#39;]) &gt; self.MIN_SIZE else &#39;&#39;
+                        style[&#39;height&#39;] = int(style[&#39;height&#39;]) if int(style[&#39;height&#39;]) &gt; self.MIN_SIZE else &#39;&#39;
+                        size = (style[&#39;width&#39;], style[&#39;height&#39;]) if self.valid_int(
+                                [&#39;width&#39;, &#39;height&#39;], style) else (None, None)
+
+                window = sg.Window(data[&#39;name&#39;], layout,
+                                                   keep_on_top=True, alpha_channel=1-(float(style[&#39;alpha&#39;])/100 if self.valid_int([&#39;alpha&#39;], style) else 1),
+                                                   font=textStyle, size=size, no_titlebar=True, text_justification=&#39;c&#39;,
+                                                   grab_anywhere=self.valid_val([&#39;canMove&#39;], interactivity) and interactivity[&#39;canMove&#39;],
+                                                   element_justification=&#39;c&#39;)
+
+                textBlink = &#39;&#39;
+                bgBlink = &#39;&#39;
+                closeThread = &#39;&#39;
+
+                
+                if self.valid_val([&#39;secondTextColor&#39;, &#39;blinkSpeed&#39;], text):
+                        textBlink = threading.Thread(target=self.blink, args=[
+                                window, self.FOREGROUND, text[&#39;textColor&#39;], text[&#39;secondTextColor&#39;],
+                                text[&#39;blinkSpeed&#39;]], daemon=True)
+
+                if self.valid_val([&#39;secondBgColor&#39;, &#39;blinkSpeed&#39;], style):
+                        bgBlink = threading.Thread(target=self.blink, args=[
+                                window, self.BACKGROUND, style[&#39;bgColor&#39;], style[&#39;secondBgColor&#39;],
+                                style[&#39;blinkSpeed&#39;]], daemon=True)
+
+                if self.valid_val([&#39;timer&#39;], interactivity) and self.port == &#39;&#39;:
+                        closeThread = threading.Thread(target=self.plan_close, args=[interactivity[&#39;timer&#39;]])
+
+                self.windowReady = True
+                return window, textBlink, bgBlink, closeThread, scriptThread
+
+        def run_window(self, window, textBlink=&#39;&#39;, bgBlink=&#39;&#39;, closeThread=&#39;&#39;, scriptThread=&#39;&#39;):
+                &#34;&#34;&#34;
+                Prepara ed eseguela finestra e le threads allegate,
+                
+                :param window (sg.Window): la finestra da avviare.
+                :param textBlink (Thread, opzionale): la thread per il lampeggiamento del testo.
+                        Default: &#39;&#39;.
+                :param bgBlink (Thread, opzionale): la thread per il lampeggiamento dello sfondo.
+                        Default: &#39;&#39;.
+                :param scriptThread (str, opzionale): la thread per l&#39;esecuzione dello script,
+                                eseguito in modo asincrono per non bloccare il resto del programma.
+                        Default: &#39;&#39;.
+                &#34;&#34;&#34;
+
+                # le threads vengono assegnate a degli attributi
+                if not self.windowReady or self.data[&#39;osType&#39;] and self.port != &#39;&#39;:
+                        
+                        return
+                if self.data[&#39;osType&#39;]:
+                        log.warning(&#39;Avvio della notifica di sistema &#34;{}&#34;&#39;.format(self.name))
+                        notification.notify(*window)
+                        return
+                blocking = self.data[&#39;interactivity&#39;][&#39;blocking&#39;] and not self.testing
+
+                if self.port != &#39;&#39;:
+                        window.web_start_browser = False
+                        window.web_port = self.port
+                try:
+                        if self.activeWindow:
+                                return
+                        window.finalize()
+
+                except ValueError:
+                        return
+                log.info(&#39;Finestra finalizzata, avvio di &#34;{}&#34;&#39;.format(self.name))
+
+                
+                if self.port == &#39;&#39;:
+                        # usando la finestra come modal, è possibile disgnare quella sottostante
+                        # e simulare l&#39;attributo &#34;bloccate&#34;
+                        window.make_modal()
+
+                created = False
+                backgroundWindow = &#39;&#39;
+                backgroundEvent = &#39;&#39;
+                backgrounValues = &#39;&#39;
+                event = &#39;&#39;
+
+                if self.activeWindow:
+                        #return
+                        return
+                        
+                self.activeWindow = True
+
+                if textBlink != &#39;&#39;:
+                        self.textBlink = textBlink
+                        self.textBlink.start()
+                if bgBlink != &#39;&#39;:
+                        self.bgBlink = bgBlink
+                        self.bgBlink.start()
+                if closeThread != &#39;&#39;:
+                        closeThread.start()
+                if scriptThread != &#39;&#39; and self.port == &#39;&#39;:
+                        log.warning(&#39;Avvio dello script allegato alla notifica&#39;)
+                        scriptThread.start()
+                while not self.interrupt:
+                        # per evitare che multiple finestre web interferiscano,
+                        # l&#39;attributo è riassegnato ad ogni ciclo
+                        self.activeWindow = True
+                        event, values = window.read(500)
+                        if self.port == &#39;&#39;:
+                                # crea la finestra trasparente a tutto schermo per simulare un
+                                # blocco del computer
+                                if blocking and not created:
+                                        backgroundWindow = default_gui.Window(title=&#39;&#39;, layout=[[default_gui.Text(key=&#39;-TEXT_TITLE-&#39;, text=&#34;&#34;)]], keep_on_top=True,
+                                                                                                                  no_titlebar=True, alpha_channel=0.01, location=(-1920, -1920), size=(5760,5760), background_color=&#34;#000&#34;, finalize=True)
+                                        created = True
+
+                                if created:
+                                        backgroundEvent, backgrounValues = backgroundWindow.read(
+                                                timeout=0)
+                                if backgroundEvent == WIN_CLOSED:
+                                        break
+
+                                #if self.port == &#39;&#39;:
+                                if event == &#39;-BUTTON_INPUT-&#39;:
+                                        # usa la callback per notificare un&#39;interazione
+                                        if self.interacted != &#39;&#39;:
+                                                self.interacted(self.name)
+
+
+                                if event is None or event.startswith(&#39;-BUTTON_CLOSE&#39;) or event == WIN_CLOSED:
+                                        self.interrupt = True
+                                        log.warning(&#39;Chiusura della finestra &#34;{}&#34;&#39;.format(self.name))
+                                        break
+                                
+                if self.port == &#39;&#39;:
+                        window.close()
+                self.activeWindow = False
+                if backgroundEvent is not None and backgroundWindow is not None and hasattr(backgroundWindow, &#39;close&#39;):
+                        backgroundWindow.close()
+
+        def blink(self, window, type, firstColor, secondColor, speed):
+                &#34;&#34;&#34;
+                Cambia periodicamente colore a degli elementi della finestra in base
+                ai parametri.
+                
+                :param window (sg.Window): la finestra con gli elementi ai quali cambiare colore.
+                :param type (bool): il tipo degli elementi (True = sfondo, False = testo e pulsanti).
+                :param firstColor (str): il colore di base degli elementi.
+                :param secondColor (str): il secondo colore degli elementi.
+                :param speed (float): la velocità di cambio del colore.
+                &#34;&#34;&#34;
+                speed = float(speed)
+                try:
+                        color = firstColor
+                        while not self.interrupt:
+                                self.update_style(window, type, color)
+                                color = firstColor if color == secondColor else secondColor
+                                sleep(speed)
+                                
+                except RuntimeError as e:
+                        # PySimpleGUI solleva degli errori non gravi se lo stile degli
+                        # elementi viene cambiato al di fuori della thread principale
+                        pass
+
+        def update_style(self, window, type, color):
+                &#34;&#34;&#34;
+                Itera tra gli elementi e ne cambia il colore in base ai parametri.
+                
+                :param window (sg.Window): la finestra con gli elementi ai quali cambiare colore.
+                :param type (bool): il tipo degli elementi (True = sfondo, False = testo e pulsanti).
+                :param color (str): il colore da impostare.
+                &#34;&#34;&#34;
+                if type == self.FOREGROUND:
+                        for key, element in window.AllKeysDict.items():
+                                # gli elementi sono identificati grazie al &#34;prefisso&#34; delle loro chiavi
+                                if key.startswith(&#39;-TEXT&#39;):
+                                        element.update(text_color=color)
+                                elif key.startswith(&#39;-BUTTON&#39;):
+                                        element.update(
+                                                button_color=(color, element.ButtonColor[1]))
+                elif type == self.BACKGROUND:
+                        for key, element in window.AllKeysDict.items():
+                                if key.startswith(&#39;-TEXT&#39;):
+                                        element.update(background_color=color)
+                                elif key.startswith(&#39;-BUTTON&#39;):
+                                        element.update(
+                                                button_color=(element.ButtonColor[0], color))
+                                if hasattr(window.TKroot, &#39;configure&#39;):
+                                        window.TKroot.configure(background=color, bg=color)
+                                else:
+                                        window.BackgroundColor = color
+                                        window.refresh()
+
+        def plan_close(self, timer):
+                &#34;&#34;&#34;
+                Attende alcuni secondi prima di inviare automaticamente il comando di
+                chiusura della notifica. Funge da timer di spegnimento.
+                
+                :param timer (int): il tempo da attendere, in secondi.
+                &#34;&#34;&#34;
+                try:
+                        timer = int(timer)
+                        sleep(timer)
+                        self.interrupt = True
+                except ValueError:
+                        log.warning(&#39;Valore del timer &#34;{}&#34; non valido&#39;)
+                        pass
+
+        def show_window(self, data, port=None):
+                &#34;&#34;&#34;
+                Gestisce la creazione e l&#39;avvio della finestra.
+                
+                :param data (str): i dati della notifica.
+                :param port (int, opzionale): la porta web della finestra.
+                                Se non è impostata, viene tenuta quella precedente (se presente).
+                        Default: None.
+                &#34;&#34;&#34;
+                self.stop()
+                if self.activeWindow:
+                        # la finestra ci sta mettendo troppo a chiudersi, non procedere
+                        self.stop()
+                        return
+
+                # dopo aver controllato che non ci siano finestre attive, imposta interrupt
+                # su False per permettere a una nuova finestra di venir avviata
+                self.interrupt = False
+
+                # assegna all&#39;attributo la porta passata come parametro, se valida
+                if port is not None:
+                        self.port = port
+                
+                # crea e avvia la finestra
+                self.run_window(*self.get_window(data))
+                self.stop()
+
+        def stop(self, name=&#39;&#39;):
+                &#34;&#34;&#34;
+                Gestisce la procedura di chiusua di tutte le threads e della finestra.
+                
+                :param name (str, opzionale): il nome della finestra da chiudere.
+                        Default: &#39;&#39;.
+                &#34;&#34;&#34;
+                # interrompe solo se il nome corrisponde, se non è specificato
+                # oppure se non è già in corso un&#39;interruzione
+                if (name == &#39;&#39; or self.name == name) and not (self.interrupt and self.activeWindow):
+                        self.interrupt = True
+                        # ogni thread potrebbe non essere stata specificata, quindi servono
+                        # molteplici controlli per assicurare la fine di tutte
+                        try:
+                                self.textBlink.join()
+                        except Exception as e:
+                                pass
+                        try:
+                                self.bgBlink.join()
+                        except Exception as e:
+                                pass
+
+        def get_themes(self):
+                &#34;&#34;&#34;
+                Ritorna la lista dei temi della finestra disponibili di default.
+                
+                :return: la lista dei temi.
+                &#34;&#34;&#34;
+                return default_gui.theme_list()
+
+        def valid_int(self, keys, dict):
+                &#34;&#34;&#34;
+                Controlla la validità delle chiavi nel dizionario e la possibilità
+                di usarli come valori numerici.
+                
+                :param keys (list): la lista di chiavi da controllare.
+                :param dict (dict): il dizionario nel quale cercare le chiavi.
+                
+                :return: True se il valore è un int valido, altrimenti False.
+                &#34;&#34;&#34;
+                if self.valid_val(keys, dict):
+                        for k in keys:
+                                try:
+                                        int(dict[k])
+                                except ValueError:
+                                        return False
+                        return True
+                return False
+
+        def valid_val(self, keys, dict):
+                &#34;&#34;&#34;
+                Controlla la validità delle chiavi nel dizionario.
+                Permette di verificare che i dati della notifica siano validi
+                prima di assegnarsi al layout della finestra.
+                
+                :param keys (list): la lista di chiavi da controllare.
+                :param dict (dict): il dizionario nel quale cercare le chiavi.
+                
+                :return: True se il valore è valido per l&#39;uso, altrimenti False.
+                &#34;&#34;&#34;
+                for k in keys:
+                        if k not in dict or dict[k] is None or str.strip(str(dict[k])) == &#39;&#39;:
+                                return False
+                return True</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="src.common.notificationBuilder.NotificationBuilder"><code class="flex name class">
+<span>class <span class="ident">NotificationBuilder</span></span>
+<span>(</span><span>port='', scriptManager='', callback='', imagesPath='', logoPath='', testing=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Questa classe permette di generare dinamicamente in base ad un dizionario
+un interfaccia grafica strutturata a righe e colonne.
+L'interfaccia può essere una finestra pop-up o una notifica di sistema
+in base ai dati passati, oppure una pagina web:
+la distinzione viene fatta controllando il valore della porta.
+Le interfacce possono essere interattive e avere elementi dinamici,
+anche questi parzialmente gestiti dalla presente classe.</p>
+<p>Istanzia un oggetto NotificationBuilder specificandone la porta web,
+il gestore degli script, una callback e il percorso nel quale cercare
+le eventuali immagini.</p>
+<p>:param port (str, opzionale): la porta web sulla quale avviare l'interfaccia.
+Se non è specificata, la finestra apparirà sul desktop.
+Default: ''.
+:param scriptManager (ScriptManager, opzionale): il gestore degli script
+allegati alla finestra (già preconfigurato).
+Default: ''.
+:param callback (func, opzionale): la funzione di callback per notificare
+l'interazione con un'interfaccia.
+Default: ''.
+:param imagesPath (str, opzionale): il percorso assoluto nel quale cercare
+le immagini, se specificate in questo formato e non come base64.
+Default: ''.
+:param logoPath (str, opzionale): il percorso dell'icona per le notifiche di sistema.
+Default: ''.
+:param testing (bool, opzionale): se True, alcune funzionalità legate alla
+notifica (script, blocco completo,&hellip;) vengono ignorate.
+Default: False</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class NotificationBuilder():
+        &#34;&#34;&#34;
+        Questa classe permette di generare dinamicamente in base ad un dizionario
+        un interfaccia grafica strutturata a righe e colonne.
+        L&#39;interfaccia può essere una finestra pop-up o una notifica di sistema
+        in base ai dati passati, oppure una pagina web:
+        la distinzione viene fatta controllando il valore della porta.
+        Le interfacce possono essere interattive e avere elementi dinamici,
+        anche questi parzialmente gestiti dalla presente classe.
+        &#34;&#34;&#34;
+
+        FOREGROUND = False
+        BACKGROUND = True
+        MIN_SIZE = 20
+
+        def __init__(self, port=&#39;&#39;, scriptManager=&#39;&#39;, callback=&#39;&#39;, imagesPath=&#39;&#39;, logoPath=&#39;&#39;, testing=False):
+                &#34;&#34;&#34;
+                Istanzia un oggetto NotificationBuilder specificandone la porta web,
+                il gestore degli script, una callback e il percorso nel quale cercare
+                le eventuali immagini.
+                
+                :param port (str, opzionale): la porta web sulla quale avviare l&#39;interfaccia.
+                                Se non è specificata, la finestra apparirà sul desktop.
+                        Default: &#39;&#39;.
+                :param scriptManager (ScriptManager, opzionale): il gestore degli script
+                                allegati alla finestra (già preconfigurato).
+                        Default: &#39;&#39;.
+                :param callback (func, opzionale): la funzione di callback per notificare
+                                l&#39;interazione con un&#39;interfaccia.
+                        Default: &#39;&#39;.
+                :param imagesPath (str, opzionale): il percorso assoluto nel quale cercare
+                                le immagini, se specificate in questo formato e non come base64.
+                        Default: &#39;&#39;.
+                :param logoPath (str, opzionale): il percorso dell&#39;icona per le notifiche di sistema.
+                        Default: &#39;&#39;.
+                :param testing (bool, opzionale): se True, alcune funzionalità legate alla
+                                notifica (script, blocco completo,...) vengono ignorate.
+                        Default: False
+                &#34;&#34;&#34;
+                self.interrupt = False
+                self.port = port
+                self.scriptManager = scriptManager
+                self.name = &#39;&#39;
+                self.interacted = callback
+                self.imagesPath = imagesPath
+                self.logoPath = logoPath
+                self.windowReady = False
+                self.textBlink = threading.Thread()
+                self.bgBlink = threading.Thread()
+                self.scriptThread = threading.Thread()
+                self.testing = testing
+                self.activeWindow = False
+
+        def get_image(self, image):
+                &#34;&#34;&#34;
+                Interpreta il parametro image definendo se si tratta di dati base64
+                oppure di un percorso locale/di rete.
+                
+                :param image (str): i dati dell&#39;immagine.
+                
+                :return: i dati base64 dell&#39;immagine se valida, altrimenti &#39;&#39;.
+                &#34;&#34;&#34;
+                try:
+                        return self.to_png(image)
+                except UnidentifiedImageError:
+                        pass
+                except binascii.Error:
+                        pass
+                try:
+                        path = abspath(join(sys.path[0], self.imagesPath, image))
+                        # la decodifica è fallita; i dati vengono considerati come un percorso
+                        if exists(path):
+                                with open(path, &#34;r+b&#34;) as file:
+                                        data = base64.b64encode(file.read())
+                                        return self.to_png(data)
+                except Exception as e:
+                        log.warning(&#39;Dati dell\&#39;immagine della notifica &#34;{}&#34; non validi&#39;.format(self.data[&#39;name&#39;]))
+                        pass
+                # i dati dell&#39;immagine non sono validi, quindi vengono ignorati
+                return &#39;&#39;
+
+        def to_png(self, data):
+                &#34;&#34;&#34;
+                Verifica che l&#39;immagine sia in formato PNG (l&#39;unico accettato).
+                Se non lo è, la converte.
+                
+                :param data (str): i dati dell&#39;immagine.
+                
+                :return: i dati dell&#39;immagine convertita se necessario.
+                &#34;&#34;&#34;
+                img = Image.open(BytesIO(base64.b64decode(data)))
+                buffer = BytesIO()
+                if img.format != &#39;PNG&#39;:
+                        img.save(buffer, format=&#34;PNG&#34;)
+                        return base64.b64encode(buffer.getvalue())
+                else:
+                        return data
+
+        def get_window(self, data):
+                &#34;&#34;&#34;
+                Crea la finestra interpretando il contenuto del parametro data.
+                
+                :param data (dict, str): i dati della finestra. Possono essere un dizionario
+                        oppure una stringa contente JSON valido.
+                
+                :return: l&#39;oggetto generato della finestra, le thread di lampeggiamento
+                        del testo e dello sfondo e la thread per eseguire lo script.
+                &#34;&#34;&#34;
+                try:
+                        # tenta l&#39;eventuale conversione in dizionario
+                        data = json.loads(data)
+                except TypeError:
+                        pass
+
+                self.data = data
+                text = self.data[&#39;text&#39;]
+                script = self.data[&#39;script&#39;]
+                self.name = data[&#39;name&#39;]
+
+                window = &#39;&#39;
+
+                
+                # solo la thread dello script è inizializzata qua, dato che è l&#39;unica
+                # che può essere avviata insieme alle notifiche di sistema
+                scriptThread = &#39;&#39;
+
+                if self.valid_val([&#39;program&#39;], script) and self.port == &#39;&#39; and not self.testing:
+                        scriptThread = threading.Thread(target=self.scriptManager.run, args=[
+                                script[&#39;program&#39;], script[&#39;command&#39;]])
+
+                if data[&#39;osType&#39;]:
+                        # le notifiche si sistema vengono create solo se non si tratta di un&#39;anteprima web
+                        if self.port == &#39;&#39;:
+                                if scriptThread != &#39;&#39;:
+                                        log.warning(&#39;Avvio dello script allegato alla notifica&#39;)
+                                        scriptThread.start()
+                                        
+                                log.info(&#39;Creazione della notifica di sistema &#34;{}&#34;&#39;.format(self.name))
+                                window = [text[&#39;title&#39;], text[&#39;message&#39;][0:256], self.name,
+                                        abspath(join(sys.path[0], self.imagesPath, self.logoPath))]
+                                self.windowReady = True
+                                return window, data[&#39;osType&#39;]
+                        else:
+                                log.info(&#39;Non è possibile caricare la preview di una notifica di sistema ({})&#39;.format(data[&#39;name&#39;]))
+                                return &#39;&#39;, &#39;&#39;
+                else:
+                        pass
+                        log.info(&#39;Creazione della notifica pop-up &#34;{}&#34;&#39;.format(self.name))
+                style = self.data[&#39;style&#39;]
+                interactivity = self.data[&#39;interactivity&#39;]
+
+                sg = web_gui if self.port != &#39;&#39; else default_gui
+                if self.valid_val([&#39;theme&#39;], style):
+                        sg.theme(style[&#39;theme&#39;])
+
+                bgColor = style[&#39;bgColor&#39;] if self.valid_val([&#39;bgColor&#39;], style) else None
+                textColor = text[&#39;textColor&#39;] if self.valid_val([&#39;textColor&#39;], text) else None
+
+                sg.set_options(
+                        background_color=bgColor, text_element_background_color=bgColor,
+                        text_color=textColor, button_color=(bgColor, textColor) if bgColor and textColor else None)
+
+                elements = []
+
+                if self.testing:
+                        elements.append([sg.Button(key=&#39;-BUTTON_CLOSE_TESTING-&#39;,
+                                                                           button_text=&#39;(Chiusura, solo per test)&#39;)])
+
+                textStyle = &#39;&#39;
+
+                # stile testo generale
+                if self.valid_val([&#39;font&#39;, &#39;textSize&#39;], text) and self.valid_int([&#39;textSize&#39;], text):
+                        textStyle = text[&#39;font&#39;]+&#39; &#39;+str(text[&#39;textSize&#39;])
+                
+                # stile titolo
+                if self.valid_val([&#39;title&#39;], text):
+                        titleStyle = &#39;&#39;
+                        if self.valid_val([&#39;font&#39;, &#39;textSize&#39;], text) and self.valid_int([&#39;textSize&#39;], text):
+                                titleStyle = text[&#39;font&#39;]+&#39; &#39;+str(int(text[&#39;textSize&#39;])*3)
+                        elements.append([sg.Text(key=&#39;-TEXT_TITLE-&#39;, text=text[&#39;title&#39;],
+                                                                         font=titleStyle)])
+                if self.valid_val([&#39;message&#39;], text):
+                        elements.append([sg.Text(key=&#39;-TEXT_MESSAGE-&#39;,
+                                                                         text=text[&#39;message&#39;])])
+
+                if self.valid_val([&#39;image&#39;], style):
+                        style[&#39;image&#39;] = self.get_image(style[&#39;image&#39;])
+                        if style[&#39;image&#39;] != &#39;&#39;:
+                                elements.append(
+                                        [sg.Image(key=&#34;-IMAGE-&#34;, data=self.get_image(style[&#39;image&#39;]))])
+                inputs = []
+                if self.valid_val([&#39;buttonText&#39;], interactivity):
+                        inputs.append(sg.Button(
+                                key=&#39;-BUTTON_INPUT-&#39;, button_text=interactivity[&#39;buttonText&#39;]))
+                if self.valid_val([&#39;canClose&#39;], interactivity) and interactivity[&#39;canClose&#39;]:
+                        inputs.append(sg.Button(key=&#39;-BUTTON_CLOSE-&#39;,
+                                                                        button_text=&#39;Chiudi&#39;))
+
+                if inputs != []:
+                        elements.append(inputs)
+
+                layout = elements
+
+                size = (None, None)
+                if self.valid_val([&#39;width&#39;, &#39;height&#39;], style):
+                        style[&#39;width&#39;] = int(style[&#39;width&#39;]) if int(style[&#39;width&#39;]) &gt; self.MIN_SIZE else &#39;&#39;
+                        style[&#39;height&#39;] = int(style[&#39;height&#39;]) if int(style[&#39;height&#39;]) &gt; self.MIN_SIZE else &#39;&#39;
+                        size = (style[&#39;width&#39;], style[&#39;height&#39;]) if self.valid_int(
+                                [&#39;width&#39;, &#39;height&#39;], style) else (None, None)
+
+                window = sg.Window(data[&#39;name&#39;], layout,
+                                                   keep_on_top=True, alpha_channel=1-(float(style[&#39;alpha&#39;])/100 if self.valid_int([&#39;alpha&#39;], style) else 1),
+                                                   font=textStyle, size=size, no_titlebar=True, text_justification=&#39;c&#39;,
+                                                   grab_anywhere=self.valid_val([&#39;canMove&#39;], interactivity) and interactivity[&#39;canMove&#39;],
+                                                   element_justification=&#39;c&#39;)
+
+                textBlink = &#39;&#39;
+                bgBlink = &#39;&#39;
+                closeThread = &#39;&#39;
+
+                
+                if self.valid_val([&#39;secondTextColor&#39;, &#39;blinkSpeed&#39;], text):
+                        textBlink = threading.Thread(target=self.blink, args=[
+                                window, self.FOREGROUND, text[&#39;textColor&#39;], text[&#39;secondTextColor&#39;],
+                                text[&#39;blinkSpeed&#39;]], daemon=True)
+
+                if self.valid_val([&#39;secondBgColor&#39;, &#39;blinkSpeed&#39;], style):
+                        bgBlink = threading.Thread(target=self.blink, args=[
+                                window, self.BACKGROUND, style[&#39;bgColor&#39;], style[&#39;secondBgColor&#39;],
+                                style[&#39;blinkSpeed&#39;]], daemon=True)
+
+                if self.valid_val([&#39;timer&#39;], interactivity) and self.port == &#39;&#39;:
+                        closeThread = threading.Thread(target=self.plan_close, args=[interactivity[&#39;timer&#39;]])
+
+                self.windowReady = True
+                return window, textBlink, bgBlink, closeThread, scriptThread
+
+        def run_window(self, window, textBlink=&#39;&#39;, bgBlink=&#39;&#39;, closeThread=&#39;&#39;, scriptThread=&#39;&#39;):
+                &#34;&#34;&#34;
+                Prepara ed eseguela finestra e le threads allegate,
+                
+                :param window (sg.Window): la finestra da avviare.
+                :param textBlink (Thread, opzionale): la thread per il lampeggiamento del testo.
+                        Default: &#39;&#39;.
+                :param bgBlink (Thread, opzionale): la thread per il lampeggiamento dello sfondo.
+                        Default: &#39;&#39;.
+                :param scriptThread (str, opzionale): la thread per l&#39;esecuzione dello script,
+                                eseguito in modo asincrono per non bloccare il resto del programma.
+                        Default: &#39;&#39;.
+                &#34;&#34;&#34;
+
+                # le threads vengono assegnate a degli attributi
+                if not self.windowReady or self.data[&#39;osType&#39;] and self.port != &#39;&#39;:
+                        
+                        return
+                if self.data[&#39;osType&#39;]:
+                        log.warning(&#39;Avvio della notifica di sistema &#34;{}&#34;&#39;.format(self.name))
+                        notification.notify(*window)
+                        return
+                blocking = self.data[&#39;interactivity&#39;][&#39;blocking&#39;] and not self.testing
+
+                if self.port != &#39;&#39;:
+                        window.web_start_browser = False
+                        window.web_port = self.port
+                try:
+                        if self.activeWindow:
+                                return
+                        window.finalize()
+
+                except ValueError:
+                        return
+                log.info(&#39;Finestra finalizzata, avvio di &#34;{}&#34;&#39;.format(self.name))
+
+                
+                if self.port == &#39;&#39;:
+                        # usando la finestra come modal, è possibile disgnare quella sottostante
+                        # e simulare l&#39;attributo &#34;bloccate&#34;
+                        window.make_modal()
+
+                created = False
+                backgroundWindow = &#39;&#39;
+                backgroundEvent = &#39;&#39;
+                backgrounValues = &#39;&#39;
+                event = &#39;&#39;
+
+                if self.activeWindow:
+                        #return
+                        return
+                        
+                self.activeWindow = True
+
+                if textBlink != &#39;&#39;:
+                        self.textBlink = textBlink
+                        self.textBlink.start()
+                if bgBlink != &#39;&#39;:
+                        self.bgBlink = bgBlink
+                        self.bgBlink.start()
+                if closeThread != &#39;&#39;:
+                        closeThread.start()
+                if scriptThread != &#39;&#39; and self.port == &#39;&#39;:
+                        log.warning(&#39;Avvio dello script allegato alla notifica&#39;)
+                        scriptThread.start()
+                while not self.interrupt:
+                        # per evitare che multiple finestre web interferiscano,
+                        # l&#39;attributo è riassegnato ad ogni ciclo
+                        self.activeWindow = True
+                        event, values = window.read(500)
+                        if self.port == &#39;&#39;:
+                                # crea la finestra trasparente a tutto schermo per simulare un
+                                # blocco del computer
+                                if blocking and not created:
+                                        backgroundWindow = default_gui.Window(title=&#39;&#39;, layout=[[default_gui.Text(key=&#39;-TEXT_TITLE-&#39;, text=&#34;&#34;)]], keep_on_top=True,
+                                                                                                                  no_titlebar=True, alpha_channel=0.01, location=(-1920, -1920), size=(5760,5760), background_color=&#34;#000&#34;, finalize=True)
+                                        created = True
+
+                                if created:
+                                        backgroundEvent, backgrounValues = backgroundWindow.read(
+                                                timeout=0)
+                                if backgroundEvent == WIN_CLOSED:
+                                        break
+
+                                #if self.port == &#39;&#39;:
+                                if event == &#39;-BUTTON_INPUT-&#39;:
+                                        # usa la callback per notificare un&#39;interazione
+                                        if self.interacted != &#39;&#39;:
+                                                self.interacted(self.name)
+
+
+                                if event is None or event.startswith(&#39;-BUTTON_CLOSE&#39;) or event == WIN_CLOSED:
+                                        self.interrupt = True
+                                        log.warning(&#39;Chiusura della finestra &#34;{}&#34;&#39;.format(self.name))
+                                        break
+                                
+                if self.port == &#39;&#39;:
+                        window.close()
+                self.activeWindow = False
+                if backgroundEvent is not None and backgroundWindow is not None and hasattr(backgroundWindow, &#39;close&#39;):
+                        backgroundWindow.close()
+
+        def blink(self, window, type, firstColor, secondColor, speed):
+                &#34;&#34;&#34;
+                Cambia periodicamente colore a degli elementi della finestra in base
+                ai parametri.
+                
+                :param window (sg.Window): la finestra con gli elementi ai quali cambiare colore.
+                :param type (bool): il tipo degli elementi (True = sfondo, False = testo e pulsanti).
+                :param firstColor (str): il colore di base degli elementi.
+                :param secondColor (str): il secondo colore degli elementi.
+                :param speed (float): la velocità di cambio del colore.
+                &#34;&#34;&#34;
+                speed = float(speed)
+                try:
+                        color = firstColor
+                        while not self.interrupt:
+                                self.update_style(window, type, color)
+                                color = firstColor if color == secondColor else secondColor
+                                sleep(speed)
+                                
+                except RuntimeError as e:
+                        # PySimpleGUI solleva degli errori non gravi se lo stile degli
+                        # elementi viene cambiato al di fuori della thread principale
+                        pass
+
+        def update_style(self, window, type, color):
+                &#34;&#34;&#34;
+                Itera tra gli elementi e ne cambia il colore in base ai parametri.
+                
+                :param window (sg.Window): la finestra con gli elementi ai quali cambiare colore.
+                :param type (bool): il tipo degli elementi (True = sfondo, False = testo e pulsanti).
+                :param color (str): il colore da impostare.
+                &#34;&#34;&#34;
+                if type == self.FOREGROUND:
+                        for key, element in window.AllKeysDict.items():
+                                # gli elementi sono identificati grazie al &#34;prefisso&#34; delle loro chiavi
+                                if key.startswith(&#39;-TEXT&#39;):
+                                        element.update(text_color=color)
+                                elif key.startswith(&#39;-BUTTON&#39;):
+                                        element.update(
+                                                button_color=(color, element.ButtonColor[1]))
+                elif type == self.BACKGROUND:
+                        for key, element in window.AllKeysDict.items():
+                                if key.startswith(&#39;-TEXT&#39;):
+                                        element.update(background_color=color)
+                                elif key.startswith(&#39;-BUTTON&#39;):
+                                        element.update(
+                                                button_color=(element.ButtonColor[0], color))
+                                if hasattr(window.TKroot, &#39;configure&#39;):
+                                        window.TKroot.configure(background=color, bg=color)
+                                else:
+                                        window.BackgroundColor = color
+                                        window.refresh()
+
+        def plan_close(self, timer):
+                &#34;&#34;&#34;
+                Attende alcuni secondi prima di inviare automaticamente il comando di
+                chiusura della notifica. Funge da timer di spegnimento.
+                
+                :param timer (int): il tempo da attendere, in secondi.
+                &#34;&#34;&#34;
+                try:
+                        timer = int(timer)
+                        sleep(timer)
+                        self.interrupt = True
+                except ValueError:
+                        log.warning(&#39;Valore del timer &#34;{}&#34; non valido&#39;)
+                        pass
+
+        def show_window(self, data, port=None):
+                &#34;&#34;&#34;
+                Gestisce la creazione e l&#39;avvio della finestra.
+                
+                :param data (str): i dati della notifica.
+                :param port (int, opzionale): la porta web della finestra.
+                                Se non è impostata, viene tenuta quella precedente (se presente).
+                        Default: None.
+                &#34;&#34;&#34;
+                self.stop()
+                if self.activeWindow:
+                        # la finestra ci sta mettendo troppo a chiudersi, non procedere
+                        self.stop()
+                        return
+
+                # dopo aver controllato che non ci siano finestre attive, imposta interrupt
+                # su False per permettere a una nuova finestra di venir avviata
+                self.interrupt = False
+
+                # assegna all&#39;attributo la porta passata come parametro, se valida
+                if port is not None:
+                        self.port = port
+                
+                # crea e avvia la finestra
+                self.run_window(*self.get_window(data))
+                self.stop()
+
+        def stop(self, name=&#39;&#39;):
+                &#34;&#34;&#34;
+                Gestisce la procedura di chiusua di tutte le threads e della finestra.
+                
+                :param name (str, opzionale): il nome della finestra da chiudere.
+                        Default: &#39;&#39;.
+                &#34;&#34;&#34;
+                # interrompe solo se il nome corrisponde, se non è specificato
+                # oppure se non è già in corso un&#39;interruzione
+                if (name == &#39;&#39; or self.name == name) and not (self.interrupt and self.activeWindow):
+                        self.interrupt = True
+                        # ogni thread potrebbe non essere stata specificata, quindi servono
+                        # molteplici controlli per assicurare la fine di tutte
+                        try:
+                                self.textBlink.join()
+                        except Exception as e:
+                                pass
+                        try:
+                                self.bgBlink.join()
+                        except Exception as e:
+                                pass
+
+        def get_themes(self):
+                &#34;&#34;&#34;
+                Ritorna la lista dei temi della finestra disponibili di default.
+                
+                :return: la lista dei temi.
+                &#34;&#34;&#34;
+                return default_gui.theme_list()
+
+        def valid_int(self, keys, dict):
+                &#34;&#34;&#34;
+                Controlla la validità delle chiavi nel dizionario e la possibilità
+                di usarli come valori numerici.
+                
+                :param keys (list): la lista di chiavi da controllare.
+                :param dict (dict): il dizionario nel quale cercare le chiavi.
+                
+                :return: True se il valore è un int valido, altrimenti False.
+                &#34;&#34;&#34;
+                if self.valid_val(keys, dict):
+                        for k in keys:
+                                try:
+                                        int(dict[k])
+                                except ValueError:
+                                        return False
+                        return True
+                return False
+
+        def valid_val(self, keys, dict):
+                &#34;&#34;&#34;
+                Controlla la validità delle chiavi nel dizionario.
+                Permette di verificare che i dati della notifica siano validi
+                prima di assegnarsi al layout della finestra.
+                
+                :param keys (list): la lista di chiavi da controllare.
+                :param dict (dict): il dizionario nel quale cercare le chiavi.
+                
+                :return: True se il valore è valido per l&#39;uso, altrimenti False.
+                &#34;&#34;&#34;
+                for k in keys:
+                        if k not in dict or dict[k] is None or str.strip(str(dict[k])) == &#39;&#39;:
+                                return False
+                return True</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="src.common.notificationBuilder.NotificationBuilder.BACKGROUND"><code class="name">var <span class="ident">BACKGROUND</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="src.common.notificationBuilder.NotificationBuilder.FOREGROUND"><code class="name">var <span class="ident">FOREGROUND</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="src.common.notificationBuilder.NotificationBuilder.MIN_SIZE"><code class="name">var <span class="ident">MIN_SIZE</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="src.common.notificationBuilder.NotificationBuilder.blink"><code class="name flex">
+<span>def <span class="ident">blink</span></span>(<span>self, window, type, firstColor, secondColor, speed)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Cambia periodicamente colore a degli elementi della finestra in base
+ai parametri.</p>
+<p>:param window (sg.Window): la finestra con gli elementi ai quali cambiare colore.
+:param type (bool): il tipo degli elementi (True = sfondo, False = testo e pulsanti).
+:param firstColor (str): il colore di base degli elementi.
+:param secondColor (str): il secondo colore degli elementi.
+:param speed (float): la velocità di cambio del colore.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def blink(self, window, type, firstColor, secondColor, speed):
+        &#34;&#34;&#34;
+        Cambia periodicamente colore a degli elementi della finestra in base
+        ai parametri.
+        
+        :param window (sg.Window): la finestra con gli elementi ai quali cambiare colore.
+        :param type (bool): il tipo degli elementi (True = sfondo, False = testo e pulsanti).
+        :param firstColor (str): il colore di base degli elementi.
+        :param secondColor (str): il secondo colore degli elementi.
+        :param speed (float): la velocità di cambio del colore.
+        &#34;&#34;&#34;
+        speed = float(speed)
+        try:
+                color = firstColor
+                while not self.interrupt:
+                        self.update_style(window, type, color)
+                        color = firstColor if color == secondColor else secondColor
+                        sleep(speed)
+                        
+        except RuntimeError as e:
+                # PySimpleGUI solleva degli errori non gravi se lo stile degli
+                # elementi viene cambiato al di fuori della thread principale
+                pass</code></pre>
+</details>
+</dd>
+<dt id="src.common.notificationBuilder.NotificationBuilder.get_image"><code class="name flex">
+<span>def <span class="ident">get_image</span></span>(<span>self, image)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Interpreta il parametro image definendo se si tratta di dati base64
+oppure di un percorso locale/di rete.</p>
+<p>:param image (str): i dati dell'immagine.</p>
+<p>:return: i dati base64 dell'immagine se valida, altrimenti ''.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_image(self, image):
+        &#34;&#34;&#34;
+        Interpreta il parametro image definendo se si tratta di dati base64
+        oppure di un percorso locale/di rete.
+        
+        :param image (str): i dati dell&#39;immagine.
+        
+        :return: i dati base64 dell&#39;immagine se valida, altrimenti &#39;&#39;.
+        &#34;&#34;&#34;
+        try:
+                return self.to_png(image)
+        except UnidentifiedImageError:
+                pass
+        except binascii.Error:
+                pass
+        try:
+                path = abspath(join(sys.path[0], self.imagesPath, image))
+                # la decodifica è fallita; i dati vengono considerati come un percorso
+                if exists(path):
+                        with open(path, &#34;r+b&#34;) as file:
+                                data = base64.b64encode(file.read())
+                                return self.to_png(data)
+        except Exception as e:
+                log.warning(&#39;Dati dell\&#39;immagine della notifica &#34;{}&#34; non validi&#39;.format(self.data[&#39;name&#39;]))
+                pass
+        # i dati dell&#39;immagine non sono validi, quindi vengono ignorati
+        return &#39;&#39;</code></pre>
+</details>
+</dd>
+<dt id="src.common.notificationBuilder.NotificationBuilder.get_themes"><code class="name flex">
+<span>def <span class="ident">get_themes</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Ritorna la lista dei temi della finestra disponibili di default.</p>
+<p>:return: la lista dei temi.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_themes(self):
+        &#34;&#34;&#34;
+        Ritorna la lista dei temi della finestra disponibili di default.
+        
+        :return: la lista dei temi.
+        &#34;&#34;&#34;
+        return default_gui.theme_list()</code></pre>
+</details>
+</dd>
+<dt id="src.common.notificationBuilder.NotificationBuilder.get_window"><code class="name flex">
+<span>def <span class="ident">get_window</span></span>(<span>self, data)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Crea la finestra interpretando il contenuto del parametro data.</p>
+<p>:param data (dict, str): i dati della finestra. Possono essere un dizionario
+oppure una stringa contente JSON valido.</p>
+<p>:return: l'oggetto generato della finestra, le thread di lampeggiamento
+del testo e dello sfondo e la thread per eseguire lo script.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_window(self, data):
+        &#34;&#34;&#34;
+        Crea la finestra interpretando il contenuto del parametro data.
+        
+        :param data (dict, str): i dati della finestra. Possono essere un dizionario
+                oppure una stringa contente JSON valido.
+        
+        :return: l&#39;oggetto generato della finestra, le thread di lampeggiamento
+                del testo e dello sfondo e la thread per eseguire lo script.
+        &#34;&#34;&#34;
+        try:
+                # tenta l&#39;eventuale conversione in dizionario
+                data = json.loads(data)
+        except TypeError:
+                pass
+
+        self.data = data
+        text = self.data[&#39;text&#39;]
+        script = self.data[&#39;script&#39;]
+        self.name = data[&#39;name&#39;]
+
+        window = &#39;&#39;
+
+        
+        # solo la thread dello script è inizializzata qua, dato che è l&#39;unica
+        # che può essere avviata insieme alle notifiche di sistema
+        scriptThread = &#39;&#39;
+
+        if self.valid_val([&#39;program&#39;], script) and self.port == &#39;&#39; and not self.testing:
+                scriptThread = threading.Thread(target=self.scriptManager.run, args=[
+                        script[&#39;program&#39;], script[&#39;command&#39;]])
+
+        if data[&#39;osType&#39;]:
+                # le notifiche si sistema vengono create solo se non si tratta di un&#39;anteprima web
+                if self.port == &#39;&#39;:
+                        if scriptThread != &#39;&#39;:
+                                log.warning(&#39;Avvio dello script allegato alla notifica&#39;)
+                                scriptThread.start()
+                                
+                        log.info(&#39;Creazione della notifica di sistema &#34;{}&#34;&#39;.format(self.name))
+                        window = [text[&#39;title&#39;], text[&#39;message&#39;][0:256], self.name,
+                                abspath(join(sys.path[0], self.imagesPath, self.logoPath))]
+                        self.windowReady = True
+                        return window, data[&#39;osType&#39;]
+                else:
+                        log.info(&#39;Non è possibile caricare la preview di una notifica di sistema ({})&#39;.format(data[&#39;name&#39;]))
+                        return &#39;&#39;, &#39;&#39;
+        else:
+                pass
+                log.info(&#39;Creazione della notifica pop-up &#34;{}&#34;&#39;.format(self.name))
+        style = self.data[&#39;style&#39;]
+        interactivity = self.data[&#39;interactivity&#39;]
+
+        sg = web_gui if self.port != &#39;&#39; else default_gui
+        if self.valid_val([&#39;theme&#39;], style):
+                sg.theme(style[&#39;theme&#39;])
+
+        bgColor = style[&#39;bgColor&#39;] if self.valid_val([&#39;bgColor&#39;], style) else None
+        textColor = text[&#39;textColor&#39;] if self.valid_val([&#39;textColor&#39;], text) else None
+
+        sg.set_options(
+                background_color=bgColor, text_element_background_color=bgColor,
+                text_color=textColor, button_color=(bgColor, textColor) if bgColor and textColor else None)
+
+        elements = []
+
+        if self.testing:
+                elements.append([sg.Button(key=&#39;-BUTTON_CLOSE_TESTING-&#39;,
+                                                                   button_text=&#39;(Chiusura, solo per test)&#39;)])
+
+        textStyle = &#39;&#39;
+
+        # stile testo generale
+        if self.valid_val([&#39;font&#39;, &#39;textSize&#39;], text) and self.valid_int([&#39;textSize&#39;], text):
+                textStyle = text[&#39;font&#39;]+&#39; &#39;+str(text[&#39;textSize&#39;])
+        
+        # stile titolo
+        if self.valid_val([&#39;title&#39;], text):
+                titleStyle = &#39;&#39;
+                if self.valid_val([&#39;font&#39;, &#39;textSize&#39;], text) and self.valid_int([&#39;textSize&#39;], text):
+                        titleStyle = text[&#39;font&#39;]+&#39; &#39;+str(int(text[&#39;textSize&#39;])*3)
+                elements.append([sg.Text(key=&#39;-TEXT_TITLE-&#39;, text=text[&#39;title&#39;],
+                                                                 font=titleStyle)])
+        if self.valid_val([&#39;message&#39;], text):
+                elements.append([sg.Text(key=&#39;-TEXT_MESSAGE-&#39;,
+                                                                 text=text[&#39;message&#39;])])
+
+        if self.valid_val([&#39;image&#39;], style):
+                style[&#39;image&#39;] = self.get_image(style[&#39;image&#39;])
+                if style[&#39;image&#39;] != &#39;&#39;:
+                        elements.append(
+                                [sg.Image(key=&#34;-IMAGE-&#34;, data=self.get_image(style[&#39;image&#39;]))])
+        inputs = []
+        if self.valid_val([&#39;buttonText&#39;], interactivity):
+                inputs.append(sg.Button(
+                        key=&#39;-BUTTON_INPUT-&#39;, button_text=interactivity[&#39;buttonText&#39;]))
+        if self.valid_val([&#39;canClose&#39;], interactivity) and interactivity[&#39;canClose&#39;]:
+                inputs.append(sg.Button(key=&#39;-BUTTON_CLOSE-&#39;,
+                                                                button_text=&#39;Chiudi&#39;))
+
+        if inputs != []:
+                elements.append(inputs)
+
+        layout = elements
+
+        size = (None, None)
+        if self.valid_val([&#39;width&#39;, &#39;height&#39;], style):
+                style[&#39;width&#39;] = int(style[&#39;width&#39;]) if int(style[&#39;width&#39;]) &gt; self.MIN_SIZE else &#39;&#39;
+                style[&#39;height&#39;] = int(style[&#39;height&#39;]) if int(style[&#39;height&#39;]) &gt; self.MIN_SIZE else &#39;&#39;
+                size = (style[&#39;width&#39;], style[&#39;height&#39;]) if self.valid_int(
+                        [&#39;width&#39;, &#39;height&#39;], style) else (None, None)
+
+        window = sg.Window(data[&#39;name&#39;], layout,
+                                           keep_on_top=True, alpha_channel=1-(float(style[&#39;alpha&#39;])/100 if self.valid_int([&#39;alpha&#39;], style) else 1),
+                                           font=textStyle, size=size, no_titlebar=True, text_justification=&#39;c&#39;,
+                                           grab_anywhere=self.valid_val([&#39;canMove&#39;], interactivity) and interactivity[&#39;canMove&#39;],
+                                           element_justification=&#39;c&#39;)
+
+        textBlink = &#39;&#39;
+        bgBlink = &#39;&#39;
+        closeThread = &#39;&#39;
+
+        
+        if self.valid_val([&#39;secondTextColor&#39;, &#39;blinkSpeed&#39;], text):
+                textBlink = threading.Thread(target=self.blink, args=[
+                        window, self.FOREGROUND, text[&#39;textColor&#39;], text[&#39;secondTextColor&#39;],
+                        text[&#39;blinkSpeed&#39;]], daemon=True)
+
+        if self.valid_val([&#39;secondBgColor&#39;, &#39;blinkSpeed&#39;], style):
+                bgBlink = threading.Thread(target=self.blink, args=[
+                        window, self.BACKGROUND, style[&#39;bgColor&#39;], style[&#39;secondBgColor&#39;],
+                        style[&#39;blinkSpeed&#39;]], daemon=True)
+
+        if self.valid_val([&#39;timer&#39;], interactivity) and self.port == &#39;&#39;:
+                closeThread = threading.Thread(target=self.plan_close, args=[interactivity[&#39;timer&#39;]])
+
+        self.windowReady = True
+        return window, textBlink, bgBlink, closeThread, scriptThread</code></pre>
+</details>
+</dd>
+<dt id="src.common.notificationBuilder.NotificationBuilder.plan_close"><code class="name flex">
+<span>def <span class="ident">plan_close</span></span>(<span>self, timer)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Attende alcuni secondi prima di inviare automaticamente il comando di
+chiusura della notifica. Funge da timer di spegnimento.</p>
+<p>:param timer (int): il tempo da attendere, in secondi.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def plan_close(self, timer):
+        &#34;&#34;&#34;
+        Attende alcuni secondi prima di inviare automaticamente il comando di
+        chiusura della notifica. Funge da timer di spegnimento.
+        
+        :param timer (int): il tempo da attendere, in secondi.
+        &#34;&#34;&#34;
+        try:
+                timer = int(timer)
+                sleep(timer)
+                self.interrupt = True
+        except ValueError:
+                log.warning(&#39;Valore del timer &#34;{}&#34; non valido&#39;)
+                pass</code></pre>
+</details>
+</dd>
+<dt id="src.common.notificationBuilder.NotificationBuilder.run_window"><code class="name flex">
+<span>def <span class="ident">run_window</span></span>(<span>self, window, textBlink='', bgBlink='', closeThread='', scriptThread='')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Prepara ed eseguela finestra e le threads allegate,</p>
+<p>:param window (sg.Window): la finestra da avviare.
+:param textBlink (Thread, opzionale): la thread per il lampeggiamento del testo.
+Default: ''.
+:param bgBlink (Thread, opzionale): la thread per il lampeggiamento dello sfondo.
+Default: ''.
+:param scriptThread (str, opzionale): la thread per l'esecuzione dello script,
+eseguito in modo asincrono per non bloccare il resto del programma.
+Default: ''.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def run_window(self, window, textBlink=&#39;&#39;, bgBlink=&#39;&#39;, closeThread=&#39;&#39;, scriptThread=&#39;&#39;):
+        &#34;&#34;&#34;
+        Prepara ed eseguela finestra e le threads allegate,
+        
+        :param window (sg.Window): la finestra da avviare.
+        :param textBlink (Thread, opzionale): la thread per il lampeggiamento del testo.
+                Default: &#39;&#39;.
+        :param bgBlink (Thread, opzionale): la thread per il lampeggiamento dello sfondo.
+                Default: &#39;&#39;.
+        :param scriptThread (str, opzionale): la thread per l&#39;esecuzione dello script,
+                        eseguito in modo asincrono per non bloccare il resto del programma.
+                Default: &#39;&#39;.
+        &#34;&#34;&#34;
+
+        # le threads vengono assegnate a degli attributi
+        if not self.windowReady or self.data[&#39;osType&#39;] and self.port != &#39;&#39;:
+                
+                return
+        if self.data[&#39;osType&#39;]:
+                log.warning(&#39;Avvio della notifica di sistema &#34;{}&#34;&#39;.format(self.name))
+                notification.notify(*window)
+                return
+        blocking = self.data[&#39;interactivity&#39;][&#39;blocking&#39;] and not self.testing
+
+        if self.port != &#39;&#39;:
+                window.web_start_browser = False
+                window.web_port = self.port
+        try:
+                if self.activeWindow:
+                        return
+                window.finalize()
+
+        except ValueError:
+                return
+        log.info(&#39;Finestra finalizzata, avvio di &#34;{}&#34;&#39;.format(self.name))
+
+        
+        if self.port == &#39;&#39;:
+                # usando la finestra come modal, è possibile disgnare quella sottostante
+                # e simulare l&#39;attributo &#34;bloccate&#34;
+                window.make_modal()
+
+        created = False
+        backgroundWindow = &#39;&#39;
+        backgroundEvent = &#39;&#39;
+        backgrounValues = &#39;&#39;
+        event = &#39;&#39;
+
+        if self.activeWindow:
+                #return
+                return
+                
+        self.activeWindow = True
+
+        if textBlink != &#39;&#39;:
+                self.textBlink = textBlink
+                self.textBlink.start()
+        if bgBlink != &#39;&#39;:
+                self.bgBlink = bgBlink
+                self.bgBlink.start()
+        if closeThread != &#39;&#39;:
+                closeThread.start()
+        if scriptThread != &#39;&#39; and self.port == &#39;&#39;:
+                log.warning(&#39;Avvio dello script allegato alla notifica&#39;)
+                scriptThread.start()
+        while not self.interrupt:
+                # per evitare che multiple finestre web interferiscano,
+                # l&#39;attributo è riassegnato ad ogni ciclo
+                self.activeWindow = True
+                event, values = window.read(500)
+                if self.port == &#39;&#39;:
+                        # crea la finestra trasparente a tutto schermo per simulare un
+                        # blocco del computer
+                        if blocking and not created:
+                                backgroundWindow = default_gui.Window(title=&#39;&#39;, layout=[[default_gui.Text(key=&#39;-TEXT_TITLE-&#39;, text=&#34;&#34;)]], keep_on_top=True,
+                                                                                                          no_titlebar=True, alpha_channel=0.01, location=(-1920, -1920), size=(5760,5760), background_color=&#34;#000&#34;, finalize=True)
+                                created = True
+
+                        if created:
+                                backgroundEvent, backgrounValues = backgroundWindow.read(
+                                        timeout=0)
+                        if backgroundEvent == WIN_CLOSED:
+                                break
+
+                        #if self.port == &#39;&#39;:
+                        if event == &#39;-BUTTON_INPUT-&#39;:
+                                # usa la callback per notificare un&#39;interazione
+                                if self.interacted != &#39;&#39;:
+                                        self.interacted(self.name)
+
+
+                        if event is None or event.startswith(&#39;-BUTTON_CLOSE&#39;) or event == WIN_CLOSED:
+                                self.interrupt = True
+                                log.warning(&#39;Chiusura della finestra &#34;{}&#34;&#39;.format(self.name))
+                                break
+                        
+        if self.port == &#39;&#39;:
+                window.close()
+        self.activeWindow = False
+        if backgroundEvent is not None and backgroundWindow is not None and hasattr(backgroundWindow, &#39;close&#39;):
+                backgroundWindow.close()</code></pre>
+</details>
+</dd>
+<dt id="src.common.notificationBuilder.NotificationBuilder.show_window"><code class="name flex">
+<span>def <span class="ident">show_window</span></span>(<span>self, data, port=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Gestisce la creazione e l'avvio della finestra.</p>
+<p>:param data (str): i dati della notifica.
+:param port (int, opzionale): la porta web della finestra.
+Se non è impostata, viene tenuta quella precedente (se presente).
+Default: None.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def show_window(self, data, port=None):
+        &#34;&#34;&#34;
+        Gestisce la creazione e l&#39;avvio della finestra.
+        
+        :param data (str): i dati della notifica.
+        :param port (int, opzionale): la porta web della finestra.
+                        Se non è impostata, viene tenuta quella precedente (se presente).
+                Default: None.
+        &#34;&#34;&#34;
+        self.stop()
+        if self.activeWindow:
+                # la finestra ci sta mettendo troppo a chiudersi, non procedere
+                self.stop()
+                return
+
+        # dopo aver controllato che non ci siano finestre attive, imposta interrupt
+        # su False per permettere a una nuova finestra di venir avviata
+        self.interrupt = False
+
+        # assegna all&#39;attributo la porta passata come parametro, se valida
+        if port is not None:
+                self.port = port
+        
+        # crea e avvia la finestra
+        self.run_window(*self.get_window(data))
+        self.stop()</code></pre>
+</details>
+</dd>
+<dt id="src.common.notificationBuilder.NotificationBuilder.stop"><code class="name flex">
+<span>def <span class="ident">stop</span></span>(<span>self, name='')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Gestisce la procedura di chiusua di tutte le threads e della finestra.</p>
+<p>:param name (str, opzionale): il nome della finestra da chiudere.
+Default: ''.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def stop(self, name=&#39;&#39;):
+        &#34;&#34;&#34;
+        Gestisce la procedura di chiusua di tutte le threads e della finestra.
+        
+        :param name (str, opzionale): il nome della finestra da chiudere.
+                Default: &#39;&#39;.
+        &#34;&#34;&#34;
+        # interrompe solo se il nome corrisponde, se non è specificato
+        # oppure se non è già in corso un&#39;interruzione
+        if (name == &#39;&#39; or self.name == name) and not (self.interrupt and self.activeWindow):
+                self.interrupt = True
+                # ogni thread potrebbe non essere stata specificata, quindi servono
+                # molteplici controlli per assicurare la fine di tutte
+                try:
+                        self.textBlink.join()
+                except Exception as e:
+                        pass
+                try:
+                        self.bgBlink.join()
+                except Exception as e:
+                        pass</code></pre>
+</details>
+</dd>
+<dt id="src.common.notificationBuilder.NotificationBuilder.to_png"><code class="name flex">
+<span>def <span class="ident">to_png</span></span>(<span>self, data)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Verifica che l'immagine sia in formato PNG (l'unico accettato).
+Se non lo è, la converte.</p>
+<p>:param data (str): i dati dell'immagine.</p>
+<p>:return: i dati dell'immagine convertita se necessario.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def to_png(self, data):
+        &#34;&#34;&#34;
+        Verifica che l&#39;immagine sia in formato PNG (l&#39;unico accettato).
+        Se non lo è, la converte.
+        
+        :param data (str): i dati dell&#39;immagine.
+        
+        :return: i dati dell&#39;immagine convertita se necessario.
+        &#34;&#34;&#34;
+        img = Image.open(BytesIO(base64.b64decode(data)))
+        buffer = BytesIO()
+        if img.format != &#39;PNG&#39;:
+                img.save(buffer, format=&#34;PNG&#34;)
+                return base64.b64encode(buffer.getvalue())
+        else:
+                return data</code></pre>
+</details>
+</dd>
+<dt id="src.common.notificationBuilder.NotificationBuilder.update_style"><code class="name flex">
+<span>def <span class="ident">update_style</span></span>(<span>self, window, type, color)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Itera tra gli elementi e ne cambia il colore in base ai parametri.</p>
+<p>:param window (sg.Window): la finestra con gli elementi ai quali cambiare colore.
+:param type (bool): il tipo degli elementi (True = sfondo, False = testo e pulsanti).
+:param color (str): il colore da impostare.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def update_style(self, window, type, color):
+        &#34;&#34;&#34;
+        Itera tra gli elementi e ne cambia il colore in base ai parametri.
+        
+        :param window (sg.Window): la finestra con gli elementi ai quali cambiare colore.
+        :param type (bool): il tipo degli elementi (True = sfondo, False = testo e pulsanti).
+        :param color (str): il colore da impostare.
+        &#34;&#34;&#34;
+        if type == self.FOREGROUND:
+                for key, element in window.AllKeysDict.items():
+                        # gli elementi sono identificati grazie al &#34;prefisso&#34; delle loro chiavi
+                        if key.startswith(&#39;-TEXT&#39;):
+                                element.update(text_color=color)
+                        elif key.startswith(&#39;-BUTTON&#39;):
+                                element.update(
+                                        button_color=(color, element.ButtonColor[1]))
+        elif type == self.BACKGROUND:
+                for key, element in window.AllKeysDict.items():
+                        if key.startswith(&#39;-TEXT&#39;):
+                                element.update(background_color=color)
+                        elif key.startswith(&#39;-BUTTON&#39;):
+                                element.update(
+                                        button_color=(element.ButtonColor[0], color))
+                        if hasattr(window.TKroot, &#39;configure&#39;):
+                                window.TKroot.configure(background=color, bg=color)
+                        else:
+                                window.BackgroundColor = color
+                                window.refresh()</code></pre>
+</details>
+</dd>
+<dt id="src.common.notificationBuilder.NotificationBuilder.valid_int"><code class="name flex">
+<span>def <span class="ident">valid_int</span></span>(<span>self, keys, dict)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Controlla la validità delle chiavi nel dizionario e la possibilità
+di usarli come valori numerici.</p>
+<p>:param keys (list): la lista di chiavi da controllare.
+:param dict (dict): il dizionario nel quale cercare le chiavi.</p>
+<p>:return: True se il valore è un int valido, altrimenti False.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def valid_int(self, keys, dict):
+        &#34;&#34;&#34;
+        Controlla la validità delle chiavi nel dizionario e la possibilità
+        di usarli come valori numerici.
+        
+        :param keys (list): la lista di chiavi da controllare.
+        :param dict (dict): il dizionario nel quale cercare le chiavi.
+        
+        :return: True se il valore è un int valido, altrimenti False.
+        &#34;&#34;&#34;
+        if self.valid_val(keys, dict):
+                for k in keys:
+                        try:
+                                int(dict[k])
+                        except ValueError:
+                                return False
+                return True
+        return False</code></pre>
+</details>
+</dd>
+<dt id="src.common.notificationBuilder.NotificationBuilder.valid_val"><code class="name flex">
+<span>def <span class="ident">valid_val</span></span>(<span>self, keys, dict)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Controlla la validità delle chiavi nel dizionario.
+Permette di verificare che i dati della notifica siano validi
+prima di assegnarsi al layout della finestra.</p>
+<p>:param keys (list): la lista di chiavi da controllare.
+:param dict (dict): il dizionario nel quale cercare le chiavi.</p>
+<p>:return: True se il valore è valido per l'uso, altrimenti False.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def valid_val(self, keys, dict):
+        &#34;&#34;&#34;
+        Controlla la validità delle chiavi nel dizionario.
+        Permette di verificare che i dati della notifica siano validi
+        prima di assegnarsi al layout della finestra.
+        
+        :param keys (list): la lista di chiavi da controllare.
+        :param dict (dict): il dizionario nel quale cercare le chiavi.
+        
+        :return: True se il valore è valido per l&#39;uso, altrimenti False.
+        &#34;&#34;&#34;
+        for k in keys:
+                if k not in dict or dict[k] is None or str.strip(str(dict[k])) == &#39;&#39;:
+                        return False
+        return True</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="src.common" href="index.html">src.common</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="src.common.notificationBuilder.NotificationBuilder" href="#src.common.notificationBuilder.NotificationBuilder">NotificationBuilder</a></code></h4>
+<ul class="two-column">
+<li><code><a title="src.common.notificationBuilder.NotificationBuilder.BACKGROUND" href="#src.common.notificationBuilder.NotificationBuilder.BACKGROUND">BACKGROUND</a></code></li>
+<li><code><a title="src.common.notificationBuilder.NotificationBuilder.FOREGROUND" href="#src.common.notificationBuilder.NotificationBuilder.FOREGROUND">FOREGROUND</a></code></li>
+<li><code><a title="src.common.notificationBuilder.NotificationBuilder.MIN_SIZE" href="#src.common.notificationBuilder.NotificationBuilder.MIN_SIZE">MIN_SIZE</a></code></li>
+<li><code><a title="src.common.notificationBuilder.NotificationBuilder.blink" href="#src.common.notificationBuilder.NotificationBuilder.blink">blink</a></code></li>
+<li><code><a title="src.common.notificationBuilder.NotificationBuilder.get_image" href="#src.common.notificationBuilder.NotificationBuilder.get_image">get_image</a></code></li>
+<li><code><a title="src.common.notificationBuilder.NotificationBuilder.get_themes" href="#src.common.notificationBuilder.NotificationBuilder.get_themes">get_themes</a></code></li>
+<li><code><a title="src.common.notificationBuilder.NotificationBuilder.get_window" href="#src.common.notificationBuilder.NotificationBuilder.get_window">get_window</a></code></li>
+<li><code><a title="src.common.notificationBuilder.NotificationBuilder.plan_close" href="#src.common.notificationBuilder.NotificationBuilder.plan_close">plan_close</a></code></li>
+<li><code><a title="src.common.notificationBuilder.NotificationBuilder.run_window" href="#src.common.notificationBuilder.NotificationBuilder.run_window">run_window</a></code></li>
+<li><code><a title="src.common.notificationBuilder.NotificationBuilder.show_window" href="#src.common.notificationBuilder.NotificationBuilder.show_window">show_window</a></code></li>
+<li><code><a title="src.common.notificationBuilder.NotificationBuilder.stop" href="#src.common.notificationBuilder.NotificationBuilder.stop">stop</a></code></li>
+<li><code><a title="src.common.notificationBuilder.NotificationBuilder.to_png" href="#src.common.notificationBuilder.NotificationBuilder.to_png">to_png</a></code></li>
+<li><code><a title="src.common.notificationBuilder.NotificationBuilder.update_style" href="#src.common.notificationBuilder.NotificationBuilder.update_style">update_style</a></code></li>
+<li><code><a title="src.common.notificationBuilder.NotificationBuilder.valid_int" href="#src.common.notificationBuilder.NotificationBuilder.valid_int">valid_int</a></code></li>
+<li><code><a title="src.common.notificationBuilder.NotificationBuilder.valid_val" href="#src.common.notificationBuilder.NotificationBuilder.valid_val">valid_val</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>

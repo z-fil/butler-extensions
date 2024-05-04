@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Gestore delle notifiche</title>
+
+	<script type="text/javascript" src="static/jquery-3.5.1.min.js"></script>
+	<script type="text/javascript" src="static/bootstrap/bootstrap.bundle.min.js"></script>
+	<script type="text/javascript" src="static/bootstrap-colorpicker/bootstrap-colorpicker.min.js"></script>
+	<script type="text/javascript" src="static/common.js"></script>
+
+	<link rel="stylesheet" href="static/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="static/bootstrap-colorpicker/bootstrap-colorpicker.min.css">
+	<link rel="stylesheet" href="static/toggleStyle.css">
+	<link rel="stylesheet" href="static/common.css">
+</head>
+
+<body>
+	<div id="container" class="container">
+		<div class="row jumbotron">
+			<div class="col-12">
+
+				<div class="col text-center">
+					<h1>Gestione notifiche</h1>
+					<div class="mb-3 input-group">
+
+						<!-- Pulsanti per le due sezioni principali -->
+						<button id="customSectionButton" class="btn btn-secondary btn-lg btn-block" type="button" data-toggle="collapse"
+							data-target="#customSection, #sendSection.show"><a>Personalizza una notifica</a></button>
+						<button id="sendSectionButton" class="btn btn-secondary btn-lg btn-block" type="button" data-toggle="collapse"
+							data-target="#customSection.show, #sendSection">Invia una notifica</button>
+					</div>
+				</div>  
+				
+				<!-- Sezione di personalizzazione delle notifiche -->
+				<div id="customSection" class="toggleSection panel-collapse collapse">
+					<div class="card">
+						<div class="card-body">
+							<h3 class="card-title">
+								Personalizza il template
+							</h3>
+
+
+							<!-- Toggle per il tipo (di sistema o pop-up) -->
+							<div class="mb-3">
+								<h5>
+									<label data-toggle="collapse" data-target="#osToggle, #popUpToggle" class="control-toggle">
+										<input type="checkbox" id="osType">
+										<div class="toggle-button"></div>
+									</label>
+									Di sistema
+								</h5>
+								<div id="popUpToggle" class="panel-collapse show">
+									<small class="text-muted">La notifica apparirà come finestra pop-up</small>
+								</div>
+								<div id="osToggle" class="panel-collapse collapse">
+									<small class="text-muted">La notifica apparirà come semplice avviso di sistema (solo titolo e messaggio)</small>
+								</div>
+							</div>
+
+
+							<button class="btn btn-primary btn-block btn-lg" type="button" data-toggle="collapse"
+							data-target="#textSection">Modifica il testo</button>
+							<!-- Parametri del testo -->
+							<div id="textSection" class="collapse">
+								<div class="card">
+									<div class="card-body">
+										<div class="input-group mb-3">
+											<div class="input-group-prepend">
+												<span class="input-group-text">Titolo</span>
+											</div>
+											<input id="title" type="text" class="form-control">
+										</div>
+
+										<div class="input-group mb-3">
+											<div class="input-group-prepend">
+												<span class="input-group-text">Messaggio</span>
+											</div>
+											<input type="textarea" id="message" class="form-control" aria-label="With textarea">
+										</div>
+
+										<div class="popUpOnlySection">
+											<div class="input-group mb-3">
+												<div class="input-group-prepend">
+													<label class="input-group-text" for="font">Font</label>
+												</div>
+												<input id="font" type="text" class="form-control">
+											</div>
+
+											<div id="textColor" class="input-group mb-3 " title="Using input value">
+												<div class="input-group-prepend">
+													<span class="input-group-text">Colore testo</span>
+												</div>
+												<input type="text" class="input-group form-control" value="#DD0F20FF" />
+												<span class="input-group-append">
+													<span class="input-group-text colorpicker-input-addon"><i></i></span>
+												</span>
+											</div>
+
+											<div class="input-group">
+												<div class="input-group-prepend">
+													<span class="input-group-text">Grandezza testo</span>
+												</div>
+												<input type="range" min="5" max="30" value="12" step="1" id="textSize" class="input-group form-control">
+												<div class="input-group-append">
+													<label class="input-group-text"><span id="textSizeValue">12</span>pt</label>
+												</div>
+											</div>
+											<div class="mb-3">
+												<small class="text-muted">Il titolo avrà una grandezza pari a 3 volte quella del testo</small>
+											</div>
+										</div>
+
+										<div class="popUpOnlySection">
+											<div class="mb-3">
+												<h5>
+													<label data-toggle="collapse" href="#secondTextColor" class="control-toggle">
+														<input type="checkbox" id="blinkingText">
+														<div class="toggle-button"></div>
+													</label>
+													Lampeggiante
+												</h5>
+											</div>
+											<div id="secondTextColor" class="panel-collapse collapse">
+												<div class="card-body">
+													<div class="input-group mb-3">
+														<div class="input-group-prepend">
+															<span class="input-group-text">Secondo colore</span>
+														</div>
+														<input type="text" class="input-group form-control" value="#DD0F20FF" />
+														<span class="input-group-append">
+															<span class="input-group-text colorpicker-input-addon"><i></i></span>
+														</span>
+													</div>
+
+													<div class="input-group mb-3">
+														<div class="input-group-prepend">
+															<span class="input-group-text">Velocità</span>
+														</div>
+														<input type="range" min="0.1" max="4" value="2" step="0.1" id="textBlink" class="input-group form-control">
+														<div class="input-group-append">
+															<label class="input-group-text"><span id="textBlinkValue">2</span>s</label>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+
+							<button class="btn btn-primary btn-block btn-lg popUpOnlySection" type="button" data-toggle="collapse"
+							data-target="#styleSection">Modifica lo stile</button>
+							<!-- Parametri dello stile -->
+							<div id="styleSection" class="collapse popUpOnlySection">
+								<div class="card">
+									<div class="card-body">
+										<div class="input-group mb-3">
+											<div class="input-group-prepend">
+												<label class="input-group-text" for="theme">Tema</label>
+											</div>
+											<select class="custom-select" id="themesList">
+											</select>
+										</div>
+
+										<div id="bgColor" class="input-group mb-3" title="Using input value">
+											<div class="input-group-prepend">
+												<span class="input-group-text">Sfondo</span>
+											</div>
+											<input type="text" class="input-group form-control" value="#DD0F20FF" />
+											<span class="input-group-append">
+												<span class="input-group-text colorpicker-input-addon"><i></i></span>
+											</span>
+										</div>
+
+										<div class="mb-3">
+											<h5>
+												<label data-toggle="collapse" data-target="#secondBgColor" class="control-toggle">
+													<input type="checkbox" id="blinkingBg">
+													<div class="toggle-button"></div>
+												</label>
+												Lampeggiante
+											</h5>
+										</div>
+										<div id="secondBgColor" class="panel-collapse collapse">
+											<div class="card-body">
+												<div class="input-group mb-3">
+													<div class="input-group-prepend">
+														<span class="input-group-text">Secondo colore</span>
+													</div>
+													<input type="text" class="input-group form-control" value="#DD0F20FF" />
+													<span class="input-group-append">
+														<span class="input-group-text colorpicker-input-addon"><i></i></span>
+													</span>
+												</div>
+
+												<div class="input-group mb-3">
+													<div class="input-group-prepend">
+														<span class="input-group-text">Velocità</span>
+													</div>
+													<input type="range" min="0.1" max="4" value="2" step="0.1" id="bgBlink"
+														class="input-group form-control">
+													<div class="input-group-append">
+														<label class="input-group-text"><span id="bgBlinkValue">2</span>s</label>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="mb-3">
+											<h5>
+												<label data-toggle="collapse" data-target="#dimension" class="control-toggle">
+													<input type="checkbox" id="customDimension">
+													<div class="toggle-button"></div>
+												</label>
+												Dimensioni personalizzate
+											</h5>
+										</div>
+										<div id="dimension" class="panel-collapse collapse">
+											<div class="card-body">
+												<div class="input-group mb-3">
+													<div class="input-group-prepend">
+														<span class="input-group-text">Larghezza</span>
+													</div>
+													<input type="range" min="48" max="3840" value="400" id="width"
+													class="input-group form-control">
+													<div class="input-group-append">
+														<label class="input-group-text"><span id="widthValue">400</span>px</label>
+													</div>
+												</div>
+												<div class="input-group mb-3">
+													<div class="input-group-prepend">
+														<span class="input-group-text">Altezza</span>
+													</div>
+													<input type="range" min="27" max="2160" value="600" id="height"
+														class="input-group form-control">
+													<div class="input-group-append">
+														<label class="input-group-text"><span id="heightValue">600</span>px</label>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="input-group mb-3">
+											<div class="input-group-prepend">
+												<label class="input-group-text">Immagine</label>
+											</div>
+											<input class="custom-select dynamicList" id="imagesList" list="imagesDatalist"></input>
+											<datalist id="imagesDatalist"></datalist>
+
+										</div>
+
+										<div class="input-group mb-3">
+											<div class="input-group-prepend">
+												<span class="input-group-text">Trasparenza</span>
+											</div>
+											<input type="range" min="0" max="90" value="0" id="alpha" class="input-group form-control">
+											<div class="input-group-append">
+												<label class="input-group-text"><span id="alphaValue">0</span>%</label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+
+							<button class="btn btn-primary btn-block btn-lg popUpOnlySection" type="button" data-toggle="collapse"
+							data-target="#interactivitySection">Modifica l'interattività</button>
+							<!-- Parametri dell'interattività -->
+							<div id="interactivitySection" class="collapse popUpOnlySection">
+								<div class="card">
+									<div class="card-body">
+										<div class="mb-3">
+											<h5>
+												<label class="control-toggle">
+													<input id="canMove" type="checkbox">
+													<div class="toggle-button"></div>
+												</label>
+												Può essere spostato
+											</h5>
+										</div>
+
+										<div class="mb-3">
+											<h5>
+												<label class="control-toggle">
+													<input id="canClose" type="checkbox">
+													<div class="toggle-button"></div>
+												</label>
+												Può essere chiuso
+											</h5>
+										</div>
+
+										<div class="mb-3">
+											<h5>
+												<label class="control-toggle">
+													<input id="blocking" type="checkbox">
+													<div class="toggle-button"></div>
+												</label>
+												Bloccante
+											</h5>
+										</div>
+
+										<div class="mb-3">
+											<h5>
+												<label data-toggle="collapse" data-target="#buttonToggle" class="control-toggle">
+													<input id="withButton" type="checkbox">
+													<div class="toggle-button"></div>
+												</label>
+												Con pulsante
+											</h5>
+										</div>  
+										<div id="buttonToggle" class="panel-collapse collapse">
+											<div class="card-body">
+												<div class="input-group mb-3">
+													<div class="input-group-prepend">
+														<span class="input-group-text">Testo pulsante</span>
+													</div>
+													<input id="buttonText" type="text" class="form-control">
+												</div>
+											</div>
+										</div>
+										
+										<div class="mb-3">
+										<h5>
+											<label data-toggle="collapse" data-target="#autoClose" class="control-toggle">
+												<input type="checkbox" id="customClose">
+												<div class="toggle-button"></div>
+											</label>
+											Timer di chiusura automatica
+										</h5>
+										</div>
+										<div id="autoClose" class="panel-collapse collapse">
+											<div class="card-body">
+												<div class="input-group mb-3">
+													<div class="input-group-prepend">
+														<span class="input-group-text">Tempo</span>
+													</div>
+													<input type="range" min="2" max="300" value="10" id="timer"
+														class="input-group form-control">
+													<div class="input-group-append">
+														<label class="input-group-text"><span id="timerValue">10</span>s</label>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+
+							<button class="btn btn-primary btn-block btn-lg" type="button" data-toggle="collapse"
+							data-target="#scriptSection">Aggiungi uno script</button>
+							<!-- Parametri dello script -->
+							<div id="scriptSection" class="collapse">
+								<div class="card">
+									<div class="card-body">
+										<div class="input-group">
+											<div class="input-group-prepend">
+												<span class="input-group-text">Comando</span>
+											</div>
+											<div class="input-group-append">
+												<input id="program" type="text" class="form-control">
+											</div>
+											<div class="input-group-append">
+												<span class="input-group-text">File</span>
+											</div>
+											<input type="text" id="scriptsList" list="scriptsDatalist" class="custom-select dynamicList" />
+											<datalist id="scriptsDatalist"></datalist>
+										</div>
+										<div class="mb-3">
+											<small class="text-muted">Il primo campo può contenere il nome di un programma o un piccolo comando, mentre il secondo è il nome del file dello script da avviare (necessario solo se prima si è specificato un programma di avvio)</small>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Sezione di invio delle notifiche -->
+				<div id="sendSection" class="toggleSection panel-collapse collapse card">
+					<div class="card">
+						<div class="card-body">
+							<h3 class="card-title">
+								Scegli le informazioni d'invio
+							</h3>
+
+
+							<button class="btn btn-primary btn-block btn-lg" type="button" data-toggle="collapse"
+								data-target="#recipientSection">Scegli i destinatari</button>
+							<!-- Selezione dei destinatari -->
+							<div id="recipientSection" class="collapse">
+								<div class="card">
+									<div class="card-body">
+										<h3 class="card-title">Destinatari</h3>
+										<small class="text-muted">La lista può essere separata da virgole, spazi, trattini o nuove righe.<br>
+											I range possono essere stabiliti in base alle sottoreti date dai prefissi ("/")</small><br><br>
+										<div class="input-group mb-3">
+											<div class="input-group-prepend">
+												<span class="input-group-text">IPv4</span>
+											</div>
+											<input type="textarea" id="recipientList" class="form-control"
+												placeholder="1.2.3.4, 5.6.7.8, 192.168.1.2-192.168.3.4, 172.16.5.0/16,..." aria-label="With textarea">
+											<div class="input-group-append">
+												<button id="checkRecipients" class="btn btn-success">Verifica</button>
+											</div>
+										</div>
+										<small class="text-muted">È possibile verificare la correttezza della lista premendo il tasto apposito.<br>
+											Digitare * (asterisco) per inviare la notifica a tutti i Butlers.
+										</small>
+									</div>
+								</div>
+							</div>
+
+
+							<button class="btn btn-primary btn-block btn-lg" type="button" data-toggle="collapse"
+								data-target="#manageSection">Gestisci le notifiche</button>
+							<!-- Parametri per la gestione delle notifiche -->
+							<div id="manageSection" class="collapse">
+								<div class="card">
+									<div class="card-body">
+										<h3 class="card-title">Invio</h3>
+										<div class="mb-3">
+											<div class="input-group">
+												<div class="input-group-prepend">
+													<label class="input-group-text">Notifica</label>
+												</div>
+												<input type="text" id="notifList" list="notifDatalist" class="custom-select dynamicList" />
+												<datalist id="notifDatalist"></datalist>
+											</div>
+										</div>
+										<div class="mb-3 text-center">
+											<div class="btn-group">
+												<button id="revoke" type="button" class="btn btn-warning">Revoca</button>
+												<button class="btn btn-danger" data-toggle="modal"
+													data-target="#deleteConfirmationModal">Elimina</button>
+												<button id="testNotif" class="btn btn-info">Prova</button>
+												<button id="confirmSaveNotif" type="button" class="btn btn-success" data-toggle="modal"
+													data-target="#saveConfirmationModal">Salva</button>
+											</div>
+										</div>
+										<div class="mb-3">
+											<small class="text-muted">Revocare una notifica permette di forzarne la chiusura su tutti i Butler,
+												in modo da annullare un invio errato. Non sono usati i destinatari della lista.<br>
+												<b>Non affidarsi a questa funzionalità: prestare sempre attenzione alle notifiche inviate.</b>
+											</small>
+										</div>
+										<div class="mb-3">
+											<h5>
+												<label data-toggle="collapse" data-target="#deliveryToggle" class="control-toggle">
+													<input type="checkbox" id="deliveryStart">
+													<div class="toggle-button"></div>
+												</label>
+												Salva in un buffer
+											</h5>
+											<small class="text-muted">
+												I buffer permettono di ritentare l'invio di una notifica che non ha raggiunto tutti i destinatari
+												immediatamente,
+												oppure di ritardare l'inizio della consegna per tutti.
+											</small>
+											<div id="deliveryToggle" class="panel-collapse collapse">
+												<div class="card-body">
+													<div class="input-group">
+														<div class="input-group-prepend">
+															<span class="input-group-text">Inizio consegna</span>
+														</div>
+														<input id="deliveryDate" type="date" class="form-control">
+														<input id="deliveryTime" type="time" class="form-control">
+													</div>
+												</div>
+											</div>
+										</div>
+								
+										<button id="sendButton" class="btn btn-warning btn-lg btn-block" type="button" data-toggle="modal"
+											data-target="#sendConfirmationModal"><a>Invia notifica</a></button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					</div>
+
+
+
+				<!-- Modal per la conferma dell'eliminazione della notifica -->
+				<div class="modal fade" id="deleteConfirmationModal" tabindex="-1" role="dialog"
+					aria-hidden="true">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">Sicuro di voler cancellare il template selezionato?</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								L'azione non può essere annullata. Se hai precedentemente cliccato "Usa template", i dati sono stati
+								automaticamente immessi nei campi di input.<br>
+								Se non è stata selezionata nessuna notifica, questa azione non avrà effetto.
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Annulla</button>
+								<button id="deleteConfirmButton" type="button" class="btn btn-primary" data-dismiss="modal">
+									Elimina definitivamente il template</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Modal per la verifica dei destinatari -->
+				<div class="modal fade" id="recipientResultModal" tabindex="-1" role="dialog">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">Destinatari validi trovati nella lista</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<div class="scrollData jumbotron">
+									<pre class="validRecipients"></pre>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Chudi</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Modal per la conferma del salvataggio di nuovi dati per una notifica -->
+				<div class="modal fade" id="saveConfirmationModal" tabindex="-1" role="dialog" aria-hidden="true">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">Vuoi sovrascrivere la notifica "<b id="overwriteName"></b>"?</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<h5>Vecchi dati</h5>
+								<div class="scrollData jumbotron mb-3">
+									<pre id="oldData"></pre>
+								</div>
+								
+								<h5>Nuovi dati</h5>
+								<div class="scrollData jumbotron">
+									<pre id="newData"></pre>
+								</div>
+							</div>
+				
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Annulla</button>
+								<button id="saveNotif" type="button" class="btn btn-warning" data-dismiss="modal">Salva</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Modal per la conferma dell'invio dei dati -->
+				<div class="modal fade" id="sendConfirmationModal" tabindex="-1" role="dialog" aria-hidden="true">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">Vuoi inviare questa notifica?</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<p class="mb-3">
+									La notifica può essere annullata, ma in base alla modalità di invio gli utenti potrebbero comunque riceverla.<br>
+								</p>
+								<h5>Inizio dell'invio</h5>
+								<div class="scrollData jumbotron mb-3">
+									<pre id="finalDeliveryStart"></pre>
+								</div>
+								
+								<h5>Destinatari</h5>
+								<div class="scrollData jumbotron mb-3">
+									<pre class="validRecipients"></pre>
+								</div>
+
+								<h5>Notifica in JSON</h5>
+								<div class="scrollData jumbotron">
+									<pre id="finalData"></pre>
+								</div>
+							</div>
+
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Annulla</button>
+								<button id="sendNotif" type="button" class="btn btn-warning" data-dismiss="modal">
+									Invia notifica</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<!-- Alert per le risposte normali -->
+				<div id="success" class="alert alert-success collapse" role="alert">
+				</div>
+				
+				<!-- Alert per gli errori -->
+				<div id="error" class="alert alert-danger collapse" role="alert">
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<script type="text/javascript">
+
+		$(document).ready(function () {
+			init();
+			// inizializza i colorpickers
+			$('#textColor, #secondTextColor, #bgColor, #secondBgColor').colorpicker({ "color": "#000" });
+
+			var today = new Date();
+			var day = today.getDate();
+			var month = today.getMonth() + 1;
+			var h = today.getHours();
+			var min = today.getMinutes();
+
+			var year = today.getFullYear();
+			if (day < 10) { day = '0' + day }
+			if (month < 10) { month = '0' + month }
+			if (h < 10) { h = '0' + h }
+			if (min < 10) { min = '0' + min }
+			today = year + '-' + month + '-' + day;
+			now = h + ':' + min
+
+			// imposta la data corrente nei campi appositi
+			console.log($("#deliveryDate").val(), today, $("#deliveryDate").val()=='', $("#deliveryDate").val()==undefined, $("#deliveryDate").val()==' ')
+			if ($("#deliveryDate").val() == '') {
+				$("#deliveryDate").val(today);
+			}
+			
+			if ($("#deliveryTime").val() == '') {
+				$("#deliveryTime").val(now);
+			}
+
+			// carica le liste di dati dinamici con i possibili valori
+			request('POST', 'notifList', null, setDataList);
+			request('POST', 'themesList', null, setDataList);
+			request('POST', 'imagesList', null, setDataList);
+			request('POST', 'scriptsList', null, setDataList);
+			
+			// avvia il polling per l'invio dei dati delle notifiche
+			updateTimer();
+		});
+
+		/*function sendPreview() {
+			if (preview) {
+				console.log("send true all");
+				request('POST', 'refreshPreview', { 'notif': getTemplateData() }, function(data){ timer = data['timer']})
+				// non è chiamato come funzione di callback poichè un errore
+				// interromperebbe il polling
+				updateTimer()
+			} else {
+				console.log("set prev active 10 false");
+				setTimeout(updateTimer, defaultTimer*1000)
+			}
+		}*/
+
+		var timer = 0;
+		var defaultTimer = 10;
+
+		// permette di caricare sul server i dati parziali della notifica per l'anteprima.
+		// Chiede al server il timer di aggiornamento: se è minore di 1,
+		// non manda i dati ma ripete la richiesta dopo alcuni secondi,
+		// altrimenti li manda in base al timer ricevuto.
+		function updateTimer() {
+			wait = defaultTimer;
+			data = null;
+			if (timer >= 1) {
+				wait = timer;
+				data = { 'notif': getTemplateData() }
+				console.log('Invio dei dati tra '+timer+' secondi')
+			}
+			request('POST', 'refreshPreview', data, function (data) { timer = data['timer'] });
+			setTimeout(function() {
+				updateTimer();
+			}, wait*1000);
+		}
+
+		/*function updateTimer(data) {
+				console.log("update timer with: "+data);
+			timer = data['timer'];
+			if (timer < 1) {
+				timer = 0
+				console.log("upd aborted, new in "+timer+"*1000");
+				isPreviewActive(preview);
+			} else {
+				console.log("send! " + timer + "*1000");
+				setTimeout(sendPreview,  timer * 1000);
+			}
+		}*/
+						
+		// aggiorna automaticamente i dati delle liste dinamiche
+		// quando acquisiscono il focus
+		$('body').on('focus', '.dynamicList', function (e) {
+			request('POST', e.target.id, null, setDataList);
+		});
+	
+		// il campo per la selezione della notifica, alla perdita del focus,
+		// carica gli eventuali dati corrispondenti alla notifica negli appositi
+		// campi di input, in modo che siano pronti per la modifica
+		$('body').on('focusout', '#notifList', function (e) {
+			request('POST', 'notifData', { 'name': $('#notifList').val() }, loadTemplate);
+		});
+
+		// inserisce i parametri possibili nelle liste
+		function setDataList(data) {
+			id = Object.keys(data)[0]
+			data = data[id];
+			id = '#'+id;
+			// se la lista da aggiornare è seguito da una datalist,
+			// è a questa che devono essere assegnati i dati
+			if ($(id).next().prop('nodeName') == 'DATALIST') {
+				id = '#'+$(id).next().prop('id');
+			}
+			
+			// i dati vengono inseriti solo se quelli nuovi differiscono dai precedenti
+			if (data != null && $(id).first().text().trim() != data.toString().replaceAll(',', '')) {
+				$(id).text('');
+				Object.keys(data).forEach(function (key) {
+					$(id).append($('<option>').val(data[key]).text(data[key]));
+				})
+			}
+		}
+
+		// richiede l'eliminazione dela notifica
+		$('body').on('click', '#deleteConfirmButton', function () {
+			console.log("deleting: "+$('#notifList').val());
+			request('DELETE', 'deleteNotif', {'name': $('#notifList').val()}, function(data) {
+				$('#notifList').val('');
+				// resetta i campi con la notifica ""
+				request('POST', 'notifData', { 'name': '' }, function(data) {
+					loadTemplate(data);
+					showSuccessAlert(data);
+				});
+				
+				request('POST', 'notifList', null, function (data) {
+					setDataList(data);
+				});
+			});
+		});
+
+		// mostra il modal di conferma del salvataggio
+		$('body').on('show.bs.modal', '#saveConfirmationModal', function (event) {
+			$('#saveConfirmationModal').find('#overwriteName').text($('#notifList').val());
+			$('#saveConfirmationModal').find('#newData').text(JSON.stringify(getTemplateData(), null, 4));
+			request('POST', 'notifData', { 'name': $('#notifList').val() }, function (data) {
+				if (data['notif']['name'] == '') {
+					data['notif'] = [];
+				}
+				$('#saveConfirmationModal').find('#oldData').text(JSON.stringify(data['notif'], null, 4));
+			})
+
+		});
+	
+		// mostra il modal di conferma dell'invio
+		$('body').on('show.bs.modal', '#sendConfirmationModal', function (event) {
+			request('POST', 'verifyList', { 'recipients': $('#recipientList').val() }, function (recipients) {
+				request('POST', 'notifData', { 'name': $('#notifList').val() }, function (data) { setFinalData(data, recipients); });
+			});
+
+		});
+
+		// imposta i dati nel modal di conferma dell'invio della notifica
+		function setFinalData(notifData, validRecipients) {
+			$('#sendConfirmationModal').find('.validRecipients').text(JSON.stringify(validRecipients, null, 4));
+			if (notifData['notif']['name'] == '') {
+				notifData['notif'] = [];
+			}
+			$('#sendConfirmationModal').find('#finalData').text(JSON.stringify(notifData['notif'], null, 4));
+			$('#sendConfirmationModal').find('#finalDeliveryStart').text($('#deliveryDate').val() + " " + $('#deliveryTime').val());
+		}
+
+		// richiede il salvataggio dei dati
+		$('body').on('click', '#saveNotif', function (event) {
+			request('PUT', 'saveNotif', { 'notif': getTemplateData() }, function(data) {
+				showSuccessAlert(data);
+			});
+		});
+		
+		// richiede la chiusura della notifica dai Butlers
+		$('body').on('click', '#revoke', function () {
+			request('DELETE', 'revoke', { 'name': $('#notifList').val() }, showSuccessAlert)
+		});
+
+		// richiede l'auto invio di una notifica di test per verificarne lo stile
+		$('body').on('click', '#testNotif', function (e) {
+			console.log("TESTING")
+			request('POST', 'testNotif', { 'notif': getTemplateData() }, showSuccessAlert);
+		});
+
+
+		// richiede l'invio della notifica
+		$('body').on('click', '#sendNotif', function (event) {
+			start = ''
+			if ($('#deliveryStart').is(":checked")) {
+				start = $('#sendConfirmationModal').find('#finalDeliveryStart').text()
+			}
+			data = { 
+				'name': $('#notifList').val(),
+				'buffer': {
+					'start': start,
+					'recipients': JSON.parse($('#sendConfirmationModal').find('.validRecipients').text())
+				}
+			}
+			request('PUT', 'sendNotif', data, showSuccessAlert);
+		});
+
+		// richiede la lista di destinatari validi
+		$('body').on('click', '#checkRecipients', function (e) {
+			request('POST', 'verifyList', {'recipients': $('#recipientList').val() }, setValidRecipients);
+		});
+
+		// imposta la lista di destinatari
+		function setValidRecipients(recipients, url) {
+			$('#recipientResultModal').modal('show');
+			$('.validRecipients').text(JSON.stringify(recipients, null, 4));
+		}
+
+		// cambia lo stile dei pulsanti principali in base allo stato delle sezioni
+		$('body').on('show.bs.collapse hide.bs.collapse', '.toggleSection', function (e) {
+			// ferma la propagazione dell'evento
+			if (e.target !== e.currentTarget) {
+				return;
+			}
+			$("#" + $(this).attr('id') + "Button").toggleClass('btn-primary btn-secondary');
+			
+			console.log("#" + $(this).attr('id') + "Button");
+		});
+		
+		// all'input su uno slider, anche il suo campo con il valore viene aggiornato 
+		$('body').on('input', 'input[type=range]', function (e) {
+			$('#' + $(this).attr('id') + 'Value').text(this.value);
+		});
+
+		// richiama la funzione per cambiare lo stile in base al tipo della notifica
+		$('body').on('click', '#osType', function (e) {
+			toggleOsType();
+		});
+
+		// cambia lo stile in base al tipo della notifica
+		function toggleOsType() {
+			if ($('#osType').is(":checked")) {
+				$('.popUpOnlySection').slideUp();
+			} else {
+				$('.popUpOnlySection').slideDown();
+				$('.popUpOnlySection').attr('style', "");
+			}
+		}
+
+		// riempie i campi di input con i dati ricevuti
+		function loadTemplate(data, url) {
+			templateData = data['notif']
+
+			var text = templateData['text'];
+			console.log('Caricamento della notifica '+text)
+			$('#title').val(text['title']);
+			$('#message').val(text['message']);
+
+			var script = templateData['script'];
+			$('#program').val(script['program']);
+			$('#scriptsList').val(script['command']);
+
+			$('#osType').prop('checked', false);
+			toggleOsType();
+			if (templateData['osType']) {
+				$('#osType').prop('checked', true);
+				toggleOsType();
+			} else {
+				
+				$('#font').val(text['font']);
+				$('#textColor').colorpicker("setValue", text['textColor']);
+				$('#textSize').val(text['textSize']);
+				$('#textSizeValue').text(text['textSize']);
+				$('#secondTextColor').colorpicker("setValue", text['secondTextColor']);
+				$('#textBlink').val(text['blinkSpeed']);
+				$('#textBlinkValue').text(text['blinkSpeed']);
+				
+				if (text['secondTextColor'] != "" && text['blinkSpeed'] != '') {
+					$('#blinkingText').prop('checked', true);
+					$('#secondTextColor').collapse("show");
+				} else {
+					$('#blinkingText').prop('checked', false);
+					$('#secondTextColor').collapse("hide");
+					$('#secondTextColor').colorpicker("setValue", "#000");
+					$('#textBlink').val(2);
+					$('#textBlinkValue').text(2);
+				}
+				
+				var style = templateData['style'];
+				$('#themesList').val(style['theme']);
+				$('#bgColor').colorpicker("setValue", style['bgColor']);
+				$('#secondBgColor').colorpicker("setValue", style['secondBgColor']);
+				$('#bgBlink').val(style['blinkSpeed']);
+				$('#bgBlinkValue').text(style['blinkSpeed']);
+				$('#width').val(style['width']);
+				$('#widthValue').text(style['width']);
+				$('#height').val(style['height']);
+				$('#heightValue').text(style['height']);
+				$('#imagesList').val(style['image']);
+				$('#alpha').val(style['alpha']);
+				$('#alphaValue').val(style['alpha']);
+				
+				if (style['width'] != "" || style['height'] != '') {
+					$('#customDimension').prop('checked', true);
+					$('#dimension').collapse('show');
+				} else {
+					$('#customDimension').prop('checked', false);
+					$('#dimension').collapse('hide');
+					$('#width').val(400);
+					$('#widthValue').text(400);
+					$('#height').val(600);
+					$('#heightValue').text(600);
+				}
+				
+				if (style['secondBgColor'] != "" && style['blinkSpeed'] != '') {
+					$('#blinkingBg').prop('checked', true);
+					$('#secondBgColor').collapse('show');
+				} else {
+					$('#blinkingBg').prop('checked', false);
+					$('#secondBgColor').collapse('hide');
+					$('#secondBgColor').colorpicker("setValue", "#000");
+					$('#bgBlink').val(2);
+					$('#bgBlinkValue').text(2);
+				}
+
+				var interactivity = templateData['interactivity'];
+				$('#canMove').prop('checked', interactivity['canMove']);
+				$('#canClose').prop('checked', interactivity['canClose']);
+				$('#blocking').prop('checked', interactivity['blocking']);
+				$('#buttonText').val(interactivity['buttonText']);
+				$('#timer').val(interactivity['timer']);
+				
+				if (interactivity['buttonText'] != "") {
+					$('#withButton').prop('checked', true);
+					$('#buttonToggle').collapse('show');
+				} else {
+					$('#withButton').prop('checked', false);
+					$('#buttonToggle').collapse('hide');
+				}
+				
+				if (interactivity['timer'] != "") {
+					$('#customClose').prop('checked', true);
+					$('#autoClose').collapse('show');
+				} else {
+					$('#customClose').prop('checked', false);
+					$('#autoClose').collapse('hide');
+					$('#timer').val(10);
+				}
+			}
+
+		}
+
+		// ritorna i dati della notifica in base al tipo
+		function getTemplateData() {
+			data = '';
+			if ($('#osType').is(':checked')) {
+				data = getSystemTemplate();
+			} else {
+				data = getPopUpTemplate();
+			}
+			return data
+		}
+
+		// raccoglie, interpreta e ritorna tutti i dati della notifica
+		function getPopUpTemplate() {
+			var blinkingText = {
+				'secondTextColor': '',
+				'blinkSpeed': '',
+			};
+			if ($('#blinkingText').is(':checked')) {
+				blinkingText['secondTextColor'] = $('#secondTextColor').colorpicker("getValue");
+				blinkingText['blinkSpeed'] = parseFloat($('#textBlinkValue').text());
+			}
+			
+			var blinkingBg = {
+				'secondBgColor': '',
+				'blinkSpeed': '',
+			};
+			if ($('#blinkingBg').is(':checked')) {
+				blinkingBg['secondBgColor'] = $('#secondBgColor').colorpicker("getValue");
+				blinkingBg['blinkSpeed'] = parseFloat($('#bgBlinkValue').text());
+			}
+			
+			var customDimension = {
+				'width': '',
+				'height': '',
+			};
+			if ($('#customDimension').is(':checked')) {
+				customDimension['width'] = $('#width').val();
+				customDimension['height'] = $('#height').val();
+			}
+			
+			var buttonText = '';
+			if ($('#withButton').is(':checked')) {
+				buttonText = $('#buttonText').val();
+			}
+
+			var timer = '';
+			if ($('#customClose').is(':checked')) {
+				timer = $('#timer').val();
+			}
+
+			data = {
+				'name': $('#notifList').val(),
+				'osType': false,
+				'text': {
+					'title': $('#title').val(),
+					'message': $('#message').val(),
+					'font': $('#font').val(),
+					'textColor': $('#textColor').colorpicker("getValue"),
+					'textSize': $('#textSize').val(),
+					'secondTextColor': blinkingText['secondTextColor'],
+					'blinkSpeed': blinkingText['blinkSpeed']
+				},
+				'style': {
+					'theme': $('#themesList').val(),
+					'bgColor': $('#bgColor').colorpicker("getValue"),
+					'secondBgColor': blinkingBg['secondBgColor'],
+					'blinkSpeed': blinkingBg['blinkSpeed'],
+					'width': customDimension['width'],
+					'height': customDimension['height'],
+					'image': $('#imagesList').val(),
+					'alpha': $('#alpha').val(),
+				},
+				'interactivity': {
+					'canMove': $('#canMove').is(':checked'),
+					'canClose': $('#canClose').is(':checked'),
+					'blocking': $('#blocking').is(':checked'),
+					'buttonText': buttonText,
+					'timer': timer,
+				},
+				'script': {
+					'program': $('#program').val(),
+					'command': $('#scriptsList').val(),
+				}
+			};
+			return data;
+		}
+		
+
+		// raccoglie, interpreta e ritorna solo i dati utili ad una notifica di sistema
+		function getSystemTemplate() {
+			data = {
+				'name': $('#notifList').val(),
+				'osType': true,
+				'text': {
+					'title': $('#title').val(),
+					'message': $('#message').val()
+				},
+				'script': {
+					'program': $('#program').val(),
+					'command': $('#scriptsList').val(),
+				}
+			}
+			return data;
+		}
+	</script>
+</body>
+</html>

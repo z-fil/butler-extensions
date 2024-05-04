@@ -1,0 +1,40 @@
+# PynSource Version 1.2
+{'type':'meta', 'info1':'Lorem ipsum dolor sit amet, consectetur adipiscing elit is latin. Comments are saved.'}
+{'type':'umlshape', 'id':'Manager', 'x':602, 'y':651, 'width':170, 'height':714, 'attrs': 'TIMER|addr|butlerApi|butlers|collMap|configs|controlCenterApi|controlCenterGui|controlConf|dbHelper|expireTime|guiConf|id|interactions|ipParser|params|protocol|serverConf|testNotifData', 'meths': 'add_butler|addr_exists|apply_standard_model|butler_exists|can_disconnect|check_buffer|check_butlers|disconnect_client|edit_butler|force_disconnect|get_butler_details|get_file_data|get_files_list|interacted|parse_notif_data|revoke|send_notif|set_butler_details|start|test_notif|update_db_details|validate_credentials'}
+{'type':'umlshape', 'id':'ControlCenterGUI', 'x':409, 'y':609, 'width':170, 'height':298, 'attrs': 'controlApiAddr|flask|ip|port|resPath|templatesPath', 'meths': '__init__|get_control_addr|index|list|manager|preview|startAPI|start_api|status'}
+{'type':'umlshape', 'id':'IPParser', 'x':441, 'y':1062, 'width':106, 'height':80, 'attrs': '', 'meths': 'include|sanitize_ips'}
+{'type':'umlshape', 'id':'ButlerAPI', 'x':443, 'y':1159, 'width':106, 'height':202, 'attrs': 'sub', 'meths': '__init__|authenticate|details|disconnect|interacted|startAPI|start_api|status'}
+{'type':'umlshape', 'id':'DbHelper', 'x':1019, 'y':931, 'width':154, 'height':426, 'attrs': 'IP|PORT|bufferDb|buffer_db|computerDb|notifDb|notif_db', 'meths': 'add_buffered_notif|clean_buffer|delete_buffer|delete_notif|get_buffer|get_computer_data|get_notif|get_notif_data|get_notif_id|log_db_error|login|update_buffer|update_conn|update_value|upsert_details|upsert_notif'}
+{'type':'umlshape', 'id':'ControlCenterAPI', 'x':805, 'y':609, 'width':186, 'height':682, 'attrs': 'a|db|guiAddr|preview|previewAddr|previewPort|sections|sub|timer', 'meths': '__init__|after_request|apply_standard_model|authenticate|delete_notif|disconnect_host|edit_butler|edit_connection|get_addr|get_butler_list|get_details|get_images_list|get_notif_data|get_notif_list|get_port|get_scripts_list|get_sections|get_themes|refresh_preview|revoke_notif|save_notif|send_notif|set_can_disconnect|set_timer|startAPI|start_api|test_notif|toggle_module|toggle_phase|verify_recipients_list'}
+{'type':'umlshape', 'id':'Butler', 'x':247, 'y':607, 'width':138, 'height':346, 'attrs': 'addr|butlerController|canDisconnect|ip|mac|notifier|serverAddr|serverId|user', 'meths': '__init__|authenticate|disconnect|edit|get_details|get_status|revoke|send|update_model'}
+{'type':'umlshape', 'id':'BaseAPI', 'x':243, 'y':964, 'width':146, 'height':378, 'attrs': 'ACCEPTED|BAD_METHOD|FORBIDDEN|UNAUTHORIZED|auth|callbacks|expireTime|flask|ip|port|sslConf', 'meths': '__init__|generate_keys|get_json|init_token|obj_dict|page_not_found|standard_response|startAPI|start_api'}
+{'type':'umlshape', 'id':'NotificationBuilder', 'x':1200, 'y':652, 'width':200, 'height':538, 'attrs': 'BACKGROUND|FOREGROUND|MIN_SIZE|activeWindow|bgBlink|data|imagesPath|interacted|interrupt|logoPath|name|port|scriptManager|scriptThread|testing|textBlink|windowReady', 'meths': '__init__|blink|get_image|get_themes|get_window|plan_close|run_window|show_window|stop|to_png|update_style|valid_int|valid_val'}
+{'type':'umlshape', 'id':'Flask', 'x':463, 'y':938, 'width':60, 'height':28, 'attrs': '', 'meths': ''}
+{'type':'umlshape', 'id':'RequestSubmitter', 'x':33, 'y':602, 'width':170, 'height':282, 'attrs': 'DELETE|GET|NOT_ALLOWED|POST|PUT|REQUEST_TIMEOUT|SEE_OTHER|authCallback|baseUrl|headers', 'meths': '__init__|request|send|valid_json'}
+{'type':'umlshape', 'id':'ArgsParser', 'x':1047, 'y':616, 'width':110, 'height':122, 'attrs': 'description|params', 'meths': '__init__|parse'}
+{'type':'umlshape', 'id':'Authenticate', 'x':43, 'y':1131, 'width':146, 'height':218, 'attrs': 'INTERNAL_ERROR|SEE_OTHER|UNAUTHORIZED|flask|key', 'meths': '__init__|setup|standard_response|token_required|wrap'}
+{'type':'umlshape', 'id':'ConfigParser', 'x':1233, 'y':1199, 'width':130, 'height':106, 'attrs': 'configs', 'meths': 'get_valid_path|load_configs'}
+{'type':'umlshape', 'id':'json.load', 'x':1247, 'y':1333, 'width':100, 'height':28, 'attrs': '', 'meths': ''}
+{'type':'umlshape', 'id':'FailedRequest', 'x':1030, 'y':763, 'width':140, 'height':154, 'attrs': 'ok|status_code|tex|text', 'meths': '__init__|json'}
+{'type':'umlshape', 'id':'Logger', 'x':458, 'y':988, 'width':70, 'height':64, 'attrs': '', 'meths': 'start'}
+{'type':'umlshape', 'id':'threading.Thread', 'x':1208, 'y':601, 'width':170, 'height':28, 'attrs': '', 'meths': ''}
+{'type':'umlshape', 'id':'ButlerController', 'x':33, 'y':902, 'width':170, 'height':218, 'attrs': 'headers', 'meths': '__init__|authenticate|disconnect|edit|get_details|notify|revoke|status|update_model'}
+{'type':'umlshape', 'id':'copy.deepcopy', 'x':613, 'y':607, 'width':140, 'height':28, 'attrs': '', 'meths': ''}
+{'type':'edge', 'id':'ControlCenterGUI_to_Manager', 'source':'ControlCenterGUI', 'target':'Manager', 'uml_edge_type': 'composition'}
+{'type':'edge', 'id':'IPParser_to_Manager', 'source':'IPParser', 'target':'Manager', 'uml_edge_type': 'composition'}
+{'type':'edge', 'id':'ButlerAPI_to_Manager', 'source':'ButlerAPI', 'target':'Manager', 'uml_edge_type': 'composition'}
+{'type':'edge', 'id':'DbHelper_to_Manager', 'source':'DbHelper', 'target':'Manager', 'uml_edge_type': 'composition'}
+{'type':'edge', 'id':'ControlCenterAPI_to_Manager', 'source':'ControlCenterAPI', 'target':'Manager', 'uml_edge_type': 'composition'}
+{'type':'edge', 'id':'ButlerAPI_to_BaseAPI', 'source':'ButlerAPI', 'target':'BaseAPI', 'uml_edge_type': 'generalisation'}
+{'type':'edge', 'id':'ControlCenterAPI_to_BaseAPI', 'source':'ControlCenterAPI', 'target':'BaseAPI', 'uml_edge_type': 'generalisation'}
+{'type':'edge', 'id':'NotificationBuilder_to_ControlCenterAPI', 'source':'NotificationBuilder', 'target':'ControlCenterAPI', 'uml_edge_type': 'composition'}
+{'type':'edge', 'id':'ControlCenterGUI_to_BaseAPI', 'source':'ControlCenterGUI', 'target':'BaseAPI', 'uml_edge_type': 'generalisation'}
+{'type':'edge', 'id':'Flask_to_ControlCenterGUI', 'source':'Flask', 'target':'ControlCenterGUI', 'uml_edge_type': 'composition'}
+{'type':'edge', 'id':'Flask_to_Authenticate', 'source':'Flask', 'target':'Authenticate', 'uml_edge_type': 'composition'}
+{'type':'edge', 'id':'Authenticate_to_BaseAPI', 'source':'Authenticate', 'target':'BaseAPI', 'uml_edge_type': 'composition'}
+{'type':'edge', 'id':'Flask_to_BaseAPI', 'source':'Flask', 'target':'BaseAPI', 'uml_edge_type': 'composition'}
+{'type':'edge', 'id':'json.load_to_ConfigParser', 'source':'json.load', 'target':'ConfigParser', 'uml_edge_type': 'composition'}
+{'type':'edge', 'id':'threading.Thread_to_NotificationBuilder', 'source':'threading.Thread', 'target':'NotificationBuilder', 'uml_edge_type': 'composition'}
+{'type':'edge', 'id':'ButlerController_to_Butler', 'source':'ButlerController', 'target':'Butler', 'uml_edge_type': 'composition'}
+{'type':'edge', 'id':'ButlerController_to_RequestSubmitter', 'source':'ButlerController', 'target':'RequestSubmitter', 'uml_edge_type': 'generalisation'}
+{'type':'edge', 'id':'copy.deepcopy_to_Manager', 'source':'copy.deepcopy', 'target':'Manager', 'uml_edge_type': 'composition'}

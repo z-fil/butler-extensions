@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Lista di Butlers</title>
+
+	<script type="text/javascript" src="static/jquery-3.5.1.min.js"></script>
+	<script type="text/javascript" src="static/bootstrap/bootstrap.bundle.min.js"></script>
+	<script type="text/javascript" src="static/common.js"></script>
+
+	<link rel="stylesheet" href="static/fontawesome/css/all.min.css">
+	<link rel="stylesheet" href="static/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="static/common.css">
+	<link rel="stylesheet" href="/static/toggleStyle.css">
+	<link rel="stylesheet" href="/static/common.css">
+	
+	<style>
+		/* Stile generale della pagina */
+	
+		.butlerCard,
+		.butlerCard {
+			color: #fff;
+		}
+	
+		.butlerCard *,
+		.butlerCard * {
+			margin-bottom: 0px;
+			align-items: center;
+		}
+	
+		.butlerCard .card-body,
+		.butlerCard .card-body {
+			padding: 0.3rem;
+		}
+	
+		.buttons button {
+			border: 1px solid black;
+		}
+	</style>
+	</head>
+	
+	<body>
+		<div id="container" class="container">
+			<div class="row jumbotron">
+				<div id="rows" class="col-12">
+					<div class="col text-center mb-3">
+						<h1>Lista Butlers</h1>
+						<button id="refresh" class="btn btn-lg btn-block btn-info">
+							<i class="fas fa-sync-alt"></i>
+						</button>
+					</div>
+					<div class="card list">
+                        <!-- I clients sono caricati e aggiornati dinamicamente -->
+					</div>
+	
+					<!-- Modal di conferma della disconnessione di un Butler -->
+					<div class="modal fade" id="moreDataModal" tabindex="-1" role="dialog" aria-hidden="true">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content card">
+								<div class="modal-header">
+									<h5 class="modal-title">Gestione Butler <b id="targetButler"></b></h5>
+								</div>
+								<div class="modal-body">
+									<button class="btn btn-primary btn-block btn-lg" type="button" data-toggle="collapse"
+										data-target="#modulesSection">Moduli</button>
+									<div id="modulesSection" class="collapse">
+										<div class="card">
+											<div class="card-body">
+												<div id="modulesList" class="mb-3">
+													<!-- I moduli sono caricati dinamicamente -->
+												</div>
+											</div>
+										</div>
+									</div>
+									
+									<button class="btn btn-primary btn-block btn-lg behaviourOnlySection" type="button" data-toggle="collapse"
+										data-target="#behaviourSection">Comportamento</button>
+									<div id="behaviourSection" class="collapse behaviourOnlySection">
+										<div class="card">
+											<div class="card-body">
+												<div class="mb-3">
+													<label data-toggle="collapse"
+														data-target="#trafficModel, #learningPhase, #analysisPhase"
+														class="control-toggle">
+														<input id="phaseToggle" type="checkbox">
+														<div class="toggle-button"></div>
+													</label>
+													<h5>Cambia la fase</h5>
+													<div id="learningPhase" class="panel-collapse show">
+														Fase di apprendimento: <small class="text-muted">Il Butler sta
+															aggiungendo le sue connessioni attuali al modello
+															standard</small>
+													</div>
+													<div id="analysisPhase" class="panel-collapse collapse">
+														Fase di analisi: <small class="text-muted">Il Butler è alla ricerca
+															di connessioni al di fuori del modello standard</small>
+													</div>
+												</div>
+												<button id="applyModel" class="btn btn-lg btn-block btn-info">
+													Applica modello standard
+												</button>
+	
+												<div id="trafficModel" class="card mb-3 panel-collapse collapse phaseToggleOnlySection">
+													<div class="card-body mb-3">
+														<div id="connectionsList">
+                                                            <!-- Le connessioni sono caricate dinamicamente -->
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+	
+									<button class="btn btn-primary btn-block btn-lg inventoryOnlySection" type="button" data-toggle="collapse"
+										data-target="#inventorySection">Inventario</button>
+									<div id="inventorySection" class="collapse inventoryOnlySection">
+										<div class="card">
+											<div class="card-body">
+												<div class="scrollData jumbotron">
+													<pre id="inventoryData">
+													    <!-- I dati dell'inventario sono caricati dinamicamente -->
+                                                    </pre>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	
+			<!-- Modal di conferma della disconnessione di un Butler -->
+			<div class="modal fade" id="disconnectModal" tabindex="-1" role="dialog" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title">Sicuro di voler disconnettere il Bulter <b id="targetRecipient"></b>?
+							</h5>
+						</div>
+						<div class="modal-body">
+							Questo host andrà offline, perciò smetterà di ricevere notifiche e di rispondere alle
+							richieste del server fino al suo prossimo avvio.<br>
+							Gli utenti non vedranno alcun cambiamento.
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Annulla</button>
+							<button id="disconnect" type="button" class="btn btn-primary" data-dismiss="modal">Disconnetti
+								Butler</button>
+						</div>
+					</div>
+				</div>
+			</div>
+	
+			<!-- Alert per le risposte normali -->
+			<div id="success" class="alert alert-success collapse" role="alert">
+			</div>
+	
+			<!-- Alert per gli errori -->
+			<div id="error" class="alert alert-danger collapse" role="alert">
+			</div>
+		</div>
+		</div>
+	
+	
+		<script type="text/javascript">
+			$(document).ready(function () {
+				init();
+				// richieste la lista di utenti connessi
+				request('POST', 'butlers', null, generateButlerList);
+			});
+
+			// mostra il modal di conferma della disconnessione
+			$('body').on('show.bs.modal', '#disconnectModal', function (event) {
+				// prende i dati dall'attributo "data-host"
+				var host = $(event.relatedTarget).parent().data('host')
+				var modal = $(this)
+
+				modal.find('#targetRecipient').text(host);
+				console.log("Disconnessione di " + host);
+				modal.find('#disconnect').data('host', host);
+			});
+
+			// disconnette il Butler selezionato
+			$('body').on('click', '#disconnect', function (e) {
+				request('POST', 'disconnect', {
+					'addr': $(this).data('host')
+				}, removeButler);
+			});
+
+			// rimuove un singolo elemento dalla lista di Butlers
+			function removeButler(data) {
+				// viene controllata la presenza dell'indice "user" per definire
+				// se esiste ancora, in quanto "addr" è per forza presente
+				// per identificare l'host da eliminare
+				if ('user' in data['butlers']) {
+					return;
+				}
+
+				$('.list').children().each(function (i, obj) {
+					if ($(this).find('.buttons').data("host") == data['butlers']['addr']) {
+						console.log("Eliminazione di " + data['butlers']['addr'])
+						$(this).remove();
+					}
+				});
+				showSuccessAlert(data);
+			}
+
+			// cambia la possibilità di disconnettere il butler e aggiorna l'icona
+			$("body").on('click', ".canDisconnect", function () {
+				request('POST', 'canDisconnect', {
+					'addr': $(this).parent().data('host'),
+					'permission': $(this).find('i').hasClass('fa-lock')
+				}, function (data) {
+					showSuccessAlert(data);
+					$('body').find('[data-host="' + data['addr'] + '"] .canDisconnect i').toggleClass('fa-lock-open fa-lock');
+				});
+			});
+
+			// genera in modo dinamico una riga con alcune informazioni
+			// sui Butlers ricevuti come parametro
+			function generateButlerList(data) {
+				butlers = data['butlers']
+				$('.list').children().remove();
+				butlers.forEach(function (e) {
+					icon = 'fa-lock';
+					if (e['canDisconnect']) {
+						icon = 'fa-lock-open';
+					}
+					console.log("Generazione del Butler:");
+					console.log(e);
+					$('.list').append(`
+						<div class="butlerCard card-body">
+							<div class="card">
+								<div class="row bg-success">
+									<div class="col-3 card-body">
+										<h5>${e['user']}</h5>
+									</div>
+	
+									<div class="col-4 card-body text-center">
+										<h6>${e['addr']}<br>${e['mac']}</h6>
+									</div>
+	
+									<div class="col-5 card-body buttons" data-host="${e['addr']}">
+										<button id="moreDataButton" class="btn btn-primary float-right" data-toggle="modal"
+											>
+											<i class="fas fa-plus"></i>
+										</button>
+
+										<button class="btn btn-danger float-right" data-toggle="modal" data-target="#disconnectModal">
+											<i class="fas fa-power-off"></i>
+										</button>
+										<button class="refresh btn btn-info float-right">
+										<i class="fas fa-sync-alt"></i>
+										</button>
+										<button class="canDisconnect lock btn btn-warning float-right">
+											<i class="fas ${icon}"></i>
+										</button>
+									</div>
+								</div>
+							</div>`);
+				});
+				showSuccessAlert(data);
+			}
+
+			// aggiorna lo stato di tutti i Butlers
+			$('body').on('click', '#refresh', function () {
+				request('POST', 'butlers', null, generateButlerList);
+			});
+
+			// aggiorna lo stato di un singolo Butler
+			$('body').on('click', '.refresh', function () {
+				addr = $(this).parent().data('host');
+				request('POST', 'butlers', { 'addr': addr }, removeButler);
+			});
+
+
+			/*
+			#####################################
+			Funzioni aggiuntive butler-extensions
+			#####################################
+			*/
+
+			// chiede i dettagli, poi configura e apre il modal apposito  
+			$('body').on('click', '#moreDataButton', function (event) {
+				// prende i dati dall'attributo "data-host"
+				var host = $(this).parent().data('host')
+				request('POST', 'details', { 'addr': host }, function(data) {
+					loadDetails(data);
+
+					var modal = $('#moreDataModal');
+					modal.data('host', host);
+					modal.find('#targetButler').text(host);
+					modal.modal('show');
+				});
+			});
+
+			// imposta i dettagli nei contenitori corretti e ne gestisce lo stile
+			function loadDetails(data) {
+				generateModulesList(data['mac'], data['modules']);
+				if ('inventory' in data) {
+					// l'inventario è rappresentato come stringa
+					$('#inventoryData').text(JSON.stringify(data['inventory'], null, 4));
+				}
+				if ('model' in data) {
+					$("#phaseToggle").prop('checked', !data['phase']);
+					generateConnectionsList(data['mac'], data['model']);
+					$('#trafficModel').collapse((data['phase']? 'hide': 'show'));
+					$('#analysisPhase, #learningPhase').removeClass('show');
+					// se True, la fase è di apprendimento
+					if (data['phase']) {
+						$('#analysisPhase').addClass('collapse');
+						$('#learningPhase').addClass('show');
+						$('#learningPhase').removeClass('collapse');
+					} else {
+						$('#learningPhase').addClass('collapse');
+						$('#analysisPhase').addClass('show');
+						$('#analysisPhase').removeClass('collapse');
+					}
+				}
+			}
+
+			// genera la lista dei moduli del Butler in base ai dati ricevuti
+			function generateModulesList(addr, modules) {
+				$('#modulesList').children().remove();
+				for ([key, val] of Object.entries(modules)) {
+					console.log("Generazione del modulo " + key + "(" + key + ")");
+					$('#modulesList').append(`
+							<div class="mb-3">
+								<label data-toggle="collapse" class="control-toggle">
+									<input id="${key}" class="moduleToggle" type="checkbox" data-host="${addr}">
+									<div class="toggle-button"></div>
+									</label>
+									<h5>${key}</h5>
+							</div>`);
+					$("#" + key).prop('checked', val);
+					toggleSection(key);
+				};
+			}
+
+			// richiede il cambio di stato di un modulo del Butler
+			$('body').on('input', '.moduleToggle', function (e) {
+				request('PUT', 'module', {
+					'addr': $('#moreDataModal').data('host'),
+					'data': {'modules': {[this.id]: $(this).is(':checked')}},
+				}, function(){});
+				toggleSection(this.id);
+			});
+			
+			// cambia lo stile in base allo stato della sezione
+			function toggleSection(name) {
+				if ($('#'+name).is(":checked")) {
+					$('.'+name+'OnlySection').slideDown();
+					$('.'+name+'OnlySection').attr('style', "");
+				} else {
+					$('.'+name+'OnlySection').slideUp();
+				}
+			}
+
+			// genera la lista delle connessioni in base ai dati ricevuti
+			function generateConnectionsList(addr, model) {
+				$('#connectionsList').children().remove();
+				for ([key, data] of Object.entries(model)) {
+					console.log("Generazione della connessione ");
+					console.log(data);
+					var dest = "";
+					
+					// i destinatari sono mostrati solo se presenti
+					if (data['dest'][0] != '') {
+						dest = `
+							<div class="row">
+								<h6>Verso: ${data['dest'][0]} ${data['dest'][1]}</h6>
+							</div>
+							`
+					}
+					// le connessioni sono salvate nel localStorage
+					// per poter essere riconosciute e inviate di nuovo al server 
+					localStorage.setItem(addr+'conn'+key, JSON.stringify(data))
+					$('#connectionsList').append(`
+							<div class="mb-3 card ${(data['safe'])? 'bg-success': 'bg-warning'}">
+								<div class="card-body">
+									<label data-toggle="collapse" class="control-toggle">
+										<input id="${addr}conn${key}" class="connectionToggle" type="checkbox" data-host="${addr}">
+										<div class="toggle-button"></div>
+									</label>
+									<h5>${data['proc']} - "${data['proto']}" - ${data['status']}</h5>
+									
+									<div>
+										<div class="row">
+											<h6>${(data['status'] == 'LISTEN')? 'Su': 'Da'}: ${data['source'][0]} ${data['source'][1]}</h6>
+										</div>
+										${dest}
+									</div>
+								</div>
+							</div>`);
+					$('#'+$.escapeSelector(addr)+'conn'+key).prop('checked', data['safe']);
+				};
+			}
+
+			// richiede il cambio della fase del comportamento
+			$('body').on('input', '#phaseToggle', function (e) {
+				request('PUT', 'phase', {
+					'addr': $('#moreDataModal').data('host'),
+					'data': {'phase': !$(this).is(':checked')}
+				}, function() {
+					request('POST', 'details', { 'addr': $('#moreDataModal').data('host') }, loadDetails);
+				});
+			});
+
+			// richiede il cambio della sicurezza di una connessione
+			$('body').on('input', '.connectionToggle', function (e) {
+				var connection = JSON.parse(localStorage.getItem(this.id))
+				connection['safe'] = $(this).is(':checked');
+				$('#' + $.escapeSelector(this.id)).parent().parent().parent().toggleClass('bg-warning bg-success');
+				request('PUT', 'connection', {
+					'addr': $('#moreDataModal').data('host'),
+					'data': {'model': connection}
+				}, function(){});
+			});
+
+			// richiede di applicare il modello standard delle connessioni
+			$('body').on('click', '#applyModel', function (e) {
+				console.log("Impostazione del modello standard");
+				request('PUT', 'standardModel', { 'addr': $('#moreDataModal').data('host') },  function (data) {
+					request('POST', 'details', { 'addr': $('#moreDataModal').data('host') }, loadDetails);
+					showSuccessAlert(data);
+				});
+			});
+
+			/*
+			##########################################
+			Fine funzioni aggiuntive butler-extensions
+			##########################################
+			*/
+		</script>
+	</body>
+	
+</html>

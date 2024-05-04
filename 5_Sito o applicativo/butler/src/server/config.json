@@ -1,0 +1,39 @@
+{
+	"username": "root",
+	"password": "4813494D137E1631BBA301D5ACAB6E7BB7AA74CE1185D456565EF51D737677B2",
+	"expireTime": 20,
+	"protocol": "https",
+	"ssl": {
+		"certPath": "../butler.crt",
+		"keyPath": "../butler.key"
+	},
+	"server": {
+		"ip": "192.168.56.101",
+		"port": 20210,
+		"id": "serverID"
+	},
+	"controlCenter": {
+		"ip": "127.0.0.1",
+		"port": 20211,
+		"previewPort": 20212
+	},
+	"gui": {
+		"ip": "127.0.0.1",
+		"port": 20213,
+		"templatesPath": "./gui/templates",
+		"resPath": "./gui/static",
+		"sections": ["manager", "list"]
+	},
+	"bufferTimer": -1,
+	"database": {
+		"ip": "192.168.56.101",
+		"port": 27017
+	},
+	"logging": {
+		"level": "INFO",
+		"path": "."
+	},
+	"logoPath": "../logo.ico",
+	"imagesPath": "./images",
+	"scriptsPath": "./scripts"
+}

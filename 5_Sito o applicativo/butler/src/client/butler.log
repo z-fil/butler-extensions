@@ -1,0 +1,406 @@
+2021-05-27 15:20:13,991 - INFO from butler.py (start): È usato l'ip 192.168.56.1
+2021-05-27 15:20:13,997 - INFO from inventory.py (get_mac): L'ip usato 192.168.56.1 è legato alla scheda VirtualBox Host-Only Network con MAC Address 0A-00-27-00-00-0F
+2021-05-27 15:20:13,997 - INFO from butler.py (start): Avvio del Butler 192.168.56.1:20219
+2021-05-27 15:20:14,005 - INFO from commandListener.py (start_api): Attesa di comandi su 192.168.56.1:20219
+2021-05-27 15:20:17,596 - INFO from butler.py (connect): Connessione al server https://192.168.56.101:20210
+2021-05-27 15:20:17,596 - INFO from clientGUI.py (listen_tray): Avvio del menu
+2021-05-27 15:20:19,189 - INFO from commandListener.py (authenticate): Connessione accettata dal server "serverID" su "https://192.168.56.101:20210"
+2021-05-27 15:20:19,211 - INFO from messenger.py (authenticate): Connessione stabilita con "https://192.168.56.101:20210"
+2021-05-27 15:20:19,251 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:20:19,251 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:20:19,592 - INFO from behaviour.py (check_connections): Ci sono 39 connessioni attive
+2021-05-27 15:20:19,593 - INFO from behaviour.py (update_model): Il modello contiene ora 37 connessioni. Ne sono state verificate 0
+2021-05-27 15:20:19,704 - INFO from behaviour.py (update_model): Il modello contiene ora 62 connessioni. Ne sono state verificate 60
+2021-05-27 15:20:20,092 - INFO from behaviour.py (check_connections): Ci sono 39 connessioni attive
+2021-05-27 15:20:20,197 - INFO from commandListener.py (status): Richiesta dello stato da parte del server
+2021-05-27 15:20:44,016 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:20:44,016 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:20:44,323 - INFO from behaviour.py (check_connections): Ci sono 39 connessioni attive
+2021-05-27 15:20:44,366 - INFO from requestSubmitter.py (request): Richiesta a "https://192.168.56.101:20210/details" fallita a causa della chiave scaduta: nuovo tentativo di autenticazione
+2021-05-27 15:20:44,443 - INFO from commandListener.py (status): Richiesta dello stato da parte del server
+2021-05-27 15:20:44,450 - INFO from messenger.py (authenticate): Connessione stabilita con "https://192.168.56.101:20210"
+2021-05-27 15:20:44,492 - INFO from butler.py (check_details): Invio di alcuni dettagli al server: ['inventory', 'mac']
+2021-05-27 15:20:53,155 - INFO from commandListener.py (status): Richiesta dello stato da parte del server
+2021-05-27 15:20:56,565 - INFO from commandListener.py (status): Richiesta dello stato da parte del server
+2021-05-27 15:21:14,516 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:21:14,517 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:21:14,825 - INFO from behaviour.py (check_connections): Ci sono 40 connessioni attive
+2021-05-27 15:21:14,827 - INFO from behaviour.py (update_model): Il modello contiene ora 64 connessioni. Ne sono state verificate 62
+2021-05-27 15:21:14,856 - INFO from requestSubmitter.py (request): Richiesta a "https://192.168.56.101:20210/details" fallita a causa della chiave scaduta: nuovo tentativo di autenticazione
+2021-05-27 15:21:14,933 - INFO from commandListener.py (status): Richiesta dello stato da parte del server
+2021-05-27 15:21:14,942 - INFO from messenger.py (authenticate): Connessione stabilita con "https://192.168.56.101:20210"
+2021-05-27 15:21:15,005 - INFO from butler.py (check_details): Invio di alcuni dettagli al server: ['inventory', 'model', 'mac']
+2021-05-27 15:21:45,024 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:21:45,024 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:21:45,349 - INFO from behaviour.py (check_connections): Ci sono 38 connessioni attive
+2021-05-27 15:21:45,380 - INFO from requestSubmitter.py (request): Richiesta a "https://192.168.56.101:20210/details" fallita a causa della chiave scaduta: nuovo tentativo di autenticazione
+2021-05-27 15:21:45,442 - INFO from commandListener.py (status): Richiesta dello stato da parte del server
+2021-05-27 15:21:45,447 - INFO from messenger.py (authenticate): Connessione stabilita con "https://192.168.56.101:20210"
+2021-05-27 15:21:45,485 - INFO from butler.py (check_details): Invio di alcuni dettagli al server: ['inventory', 'mac']
+2021-05-27 15:22:15,503 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:22:15,504 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:22:15,828 - INFO from behaviour.py (check_connections): Ci sono 39 connessioni attive
+2021-05-27 15:22:15,828 - INFO from behaviour.py (update_model): Il modello contiene ora 65 connessioni. Ne sono state verificate 64
+2021-05-27 15:22:15,860 - INFO from requestSubmitter.py (request): Richiesta a "https://192.168.56.101:20210/details" fallita a causa della chiave scaduta: nuovo tentativo di autenticazione
+2021-05-27 15:22:15,944 - INFO from commandListener.py (status): Richiesta dello stato da parte del server
+2021-05-27 15:22:15,968 - INFO from messenger.py (authenticate): Connessione stabilita con "https://192.168.56.101:20210"
+2021-05-27 15:22:16,023 - INFO from butler.py (check_details): Invio di alcuni dettagli al server: ['inventory', 'model', 'mac']
+2021-05-27 15:22:26,414 - INFO from commandListener.py (notify): Notifica "informazione" (di sistema) ricevuta da 192.168.56.1
+2021-05-27 15:22:27,586 - WARNING from butler.py (start): Nuova notifica: "informazione"
+2021-05-27 15:22:27,586 - INFO from notificationBuilder.py (get_window): Creazione della notifica pop-up "informazione"
+2021-05-27 15:22:28,202 - INFO from notificationBuilder.py (run_window): Finestra finalizzata, avvio di "informazione"
+2021-05-27 15:22:46,039 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:22:46,039 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:22:46,348 - INFO from behaviour.py (check_connections): Ci sono 39 connessioni attive
+2021-05-27 15:22:46,373 - INFO from requestSubmitter.py (request): Richiesta a "https://192.168.56.101:20210/details" fallita a causa della chiave scaduta: nuovo tentativo di autenticazione
+2021-05-27 15:22:46,418 - INFO from commandListener.py (status): Richiesta dello stato da parte del server
+2021-05-27 15:22:46,422 - INFO from messenger.py (authenticate): Connessione stabilita con "https://192.168.56.101:20210"
+2021-05-27 15:22:46,471 - INFO from butler.py (check_details): Invio di alcuni dettagli al server: ['inventory', 'mac']
+2021-05-27 15:23:03,477 - INFO from commandListener.py (notify): Notifica "informazione" (di sistema) ricevuta da 192.168.56.1
+2021-05-27 15:23:04,249 - WARNING from butler.py (start): Nuova notifica: "informazione"
+2021-05-27 15:23:04,249 - INFO from notificationBuilder.py (get_window): Creazione della notifica pop-up "informazione"
+2021-05-27 15:23:04,319 - INFO from notificationBuilder.py (run_window): Finestra finalizzata, avvio di "informazione"
+2021-05-27 15:23:09,121 - WARNING from notificationBuilder.py (run_window): Chiusura della finestra "informazione"
+2021-05-27 15:23:16,487 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:23:16,488 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:23:16,816 - INFO from behaviour.py (check_connections): Ci sono 39 connessioni attive
+2021-05-27 15:23:16,867 - INFO from butler.py (check_details): Invio di alcuni dettagli al server: ['inventory', 'mac']
+2021-05-27 15:23:40,408 - INFO from commandListener.py (notify): Notifica "informazione" (di sistema) ricevuta da 192.168.56.1
+2021-05-27 15:23:41,136 - WARNING from butler.py (start): Nuova notifica: "informazione"
+2021-05-27 15:23:41,137 - INFO from notificationBuilder.py (get_window): Creazione della notifica pop-up "informazione"
+2021-05-27 15:23:41,203 - INFO from notificationBuilder.py (run_window): Finestra finalizzata, avvio di "informazione"
+2021-05-27 15:23:45,281 - WARNING from notificationBuilder.py (run_window): Chiusura della finestra "informazione"
+2021-05-27 15:23:46,884 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:23:46,885 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:23:47,196 - INFO from behaviour.py (check_connections): Ci sono 39 connessioni attive
+2021-05-27 15:23:47,197 - INFO from behaviour.py (update_model): Il modello contiene ora 66 connessioni. Ne sono state verificate 65
+2021-05-27 15:23:47,226 - INFO from requestSubmitter.py (request): Richiesta a "https://192.168.56.101:20210/details" fallita a causa della chiave scaduta: nuovo tentativo di autenticazione
+2021-05-27 15:23:47,303 - INFO from commandListener.py (status): Richiesta dello stato da parte del server
+2021-05-27 15:23:47,320 - INFO from messenger.py (authenticate): Connessione stabilita con "https://192.168.56.101:20210"
+2021-05-27 15:23:47,384 - INFO from butler.py (check_details): Invio di alcuni dettagli al server: ['inventory', 'model', 'mac']
+2021-05-27 15:24:04,621 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:24:04,912 - INFO from behaviour.py (check_connections): Ci sono 40 connessioni attive
+2021-05-27 15:24:04,964 - INFO from behaviour.py (update_model): Il modello contiene ora 66 connessioni. Ne sono state verificate 64
+2021-05-27 15:24:17,403 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:24:17,403 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:24:17,727 - INFO from behaviour.py (check_connections): Ci sono 39 connessioni attive
+2021-05-27 15:24:17,729 - INFO from behaviour.py (update_model): Il modello contiene ora 69 connessioni. Ne sono state verificate 66
+2021-05-27 15:24:17,756 - INFO from requestSubmitter.py (request): Richiesta a "https://192.168.56.101:20210/details" fallita a causa della chiave scaduta: nuovo tentativo di autenticazione
+2021-05-27 15:24:17,865 - INFO from commandListener.py (status): Richiesta dello stato da parte del server
+2021-05-27 15:24:17,880 - INFO from messenger.py (authenticate): Connessione stabilita con "https://192.168.56.101:20210"
+2021-05-27 15:24:17,950 - INFO from butler.py (check_details): Invio di alcuni dettagli al server: ['inventory', 'model', 'mac']
+2021-05-27 15:24:47,969 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:24:48,243 - INFO from behaviour.py (check_connections): Ci sono 38 connessioni attive
+2021-05-27 15:25:18,264 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:25:18,265 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:25:18,528 - INFO from behaviour.py (check_connections): Ci sono 37 connessioni attive
+2021-05-27 15:25:18,560 - INFO from requestSubmitter.py (request): Richiesta a "https://192.168.56.101:20210/details" fallita a causa della chiave scaduta: nuovo tentativo di autenticazione
+2021-05-27 15:25:18,606 - INFO from commandListener.py (status): Richiesta dello stato da parte del server
+2021-05-27 15:25:18,616 - INFO from messenger.py (authenticate): Connessione stabilita con "https://192.168.56.101:20210"
+2021-05-27 15:25:18,660 - INFO from butler.py (check_details): Invio di alcuni dettagli al server: ['inventory', 'mac']
+2021-05-27 15:25:48,679 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:25:48,940 - INFO from behaviour.py (check_connections): Ci sono 38 connessioni attive
+2021-05-27 15:26:18,964 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:26:18,965 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:26:19,229 - INFO from behaviour.py (check_connections): Ci sono 38 connessioni attive
+2021-05-27 15:26:19,274 - INFO from requestSubmitter.py (request): Richiesta a "https://192.168.56.101:20210/details" fallita a causa della chiave scaduta: nuovo tentativo di autenticazione
+2021-05-27 15:26:19,339 - INFO from commandListener.py (status): Richiesta dello stato da parte del server
+2021-05-27 15:26:19,347 - INFO from messenger.py (authenticate): Connessione stabilita con "https://192.168.56.101:20210"
+2021-05-27 15:26:19,387 - INFO from butler.py (check_details): Invio di alcuni dettagli al server: ['inventory', 'mac']
+2021-05-27 15:26:49,404 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:26:49,404 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:26:49,662 - INFO from behaviour.py (check_connections): Ci sono 37 connessioni attive
+2021-05-27 15:26:49,691 - INFO from requestSubmitter.py (request): Richiesta a "https://192.168.56.101:20210/details" fallita a causa della chiave scaduta: nuovo tentativo di autenticazione
+2021-05-27 15:26:49,742 - INFO from commandListener.py (status): Richiesta dello stato da parte del server
+2021-05-27 15:26:49,749 - INFO from messenger.py (authenticate): Connessione stabilita con "https://192.168.56.101:20210"
+2021-05-27 15:26:49,803 - INFO from butler.py (check_details): Invio di alcuni dettagli al server: ['inventory', 'mac']
+2021-05-27 15:27:19,820 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:27:19,820 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:27:20,082 - INFO from behaviour.py (check_connections): Ci sono 37 connessioni attive
+2021-05-27 15:27:20,124 - INFO from butler.py (check_details): Invio di alcuni dettagli al server: ['inventory', 'mac']
+2021-05-27 15:27:44,414 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:27:44,415 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:27:44,693 - INFO from behaviour.py (check_connections): Ci sono 39 connessioni attive
+2021-05-27 15:27:44,694 - INFO from behaviour.py (update_model): Il modello contiene ora 70 connessioni. Ne sono state verificate 69
+2021-05-27 15:27:44,755 - INFO from behaviour.py (update_model): Il modello contiene ora 70 connessioni. Ne sono state verificate 67
+2021-05-27 15:27:50,140 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:27:50,434 - INFO from behaviour.py (check_connections): Ci sono 38 connessioni attive
+2021-05-27 15:27:52,146 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:27:52,426 - INFO from behaviour.py (check_connections): Ci sono 39 connessioni attive
+2021-05-27 15:27:52,465 - INFO from behaviour.py (update_model): Il modello contiene ora 70 connessioni. Ne sono state verificate 67
+2021-05-27 15:28:02,951 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:28:02,952 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:28:03,235 - INFO from behaviour.py (check_connections): Ci sono 39 connessioni attive
+2021-05-27 15:28:03,237 - INFO from behaviour.py (update_model): Il modello contiene ora 71 connessioni. Ne sono state verificate 70
+2021-05-27 15:28:15,773 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:28:15,773 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:28:16,051 - INFO from behaviour.py (check_connections): Ci sono 38 connessioni attive
+2021-05-27 15:28:20,452 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:28:20,717 - INFO from behaviour.py (check_connections): Ci sono 37 connessioni attive
+2021-05-27 15:28:31,678 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:28:31,678 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:28:31,950 - INFO from behaviour.py (check_connections): Ci sono 38 connessioni attive
+2021-05-27 15:28:36,785 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:28:36,785 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:28:37,057 - INFO from behaviour.py (check_connections): Ci sono 39 connessioni attive
+2021-05-27 15:28:37,059 - INFO from behaviour.py (update_model): Il modello contiene ora 72 connessioni. Ne sono state verificate 71
+2021-05-27 15:28:37,206 - INFO from behaviour.py (update_model): Il modello contiene ora 72 connessioni. Ne sono state verificate 67
+2021-05-27 15:28:50,736 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:28:50,736 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:28:51,000 - INFO from behaviour.py (check_connections): Ci sono 37 connessioni attive
+2021-05-27 15:28:51,030 - INFO from requestSubmitter.py (request): Richiesta a "https://192.168.56.101:20210/details" fallita a causa della chiave scaduta: nuovo tentativo di autenticazione
+2021-05-27 15:28:51,079 - INFO from commandListener.py (status): Richiesta dello stato da parte del server
+2021-05-27 15:28:51,088 - INFO from messenger.py (authenticate): Connessione stabilita con "https://192.168.56.101:20210"
+2021-05-27 15:28:51,132 - INFO from butler.py (check_details): Invio di alcuni dettagli al server: ['inventory', 'mac']
+2021-05-27 15:28:55,828 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:28:56,117 - INFO from behaviour.py (check_connections): Ci sono 39 connessioni attive
+2021-05-27 15:28:56,119 - INFO from behaviour.py (update_model): Il modello contiene ora 73 connessioni. Ne sono state verificate 72
+2021-05-27 15:28:56,175 - INFO from behaviour.py (update_model): Il modello contiene ora 73 connessioni. Ne sono state verificate 72
+2021-05-27 15:29:21,154 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:29:21,154 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:29:21,439 - INFO from behaviour.py (check_connections): Ci sono 37 connessioni attive
+2021-05-27 15:29:21,440 - INFO from behaviour.py (update_model): Il modello contiene ora 74 connessioni. Ne sono state verificate 73
+2021-05-27 15:29:21,470 - INFO from requestSubmitter.py (request): Richiesta a "https://192.168.56.101:20210/details" fallita a causa della chiave scaduta: nuovo tentativo di autenticazione
+2021-05-27 15:29:21,521 - INFO from commandListener.py (status): Richiesta dello stato da parte del server
+2021-05-27 15:29:21,527 - INFO from messenger.py (authenticate): Connessione stabilita con "https://192.168.56.101:20210"
+2021-05-27 15:29:21,598 - INFO from butler.py (check_details): Invio di alcuni dettagli al server: ['inventory', 'model', 'mac']
+2021-05-27 15:29:51,615 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:29:51,616 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:29:51,927 - INFO from behaviour.py (check_connections): Ci sono 38 connessioni attive
+2021-05-27 15:29:51,961 - INFO from requestSubmitter.py (request): Richiesta a "https://192.168.56.101:20210/details" fallita a causa della chiave scaduta: nuovo tentativo di autenticazione
+2021-05-27 15:29:52,011 - INFO from commandListener.py (status): Richiesta dello stato da parte del server
+2021-05-27 15:29:52,020 - INFO from messenger.py (authenticate): Connessione stabilita con "https://192.168.56.101:20210"
+2021-05-27 15:29:52,056 - INFO from butler.py (check_details): Invio di alcuni dettagli al server: ['inventory', 'mac']
+2021-05-27 15:30:21,141 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:30:21,425 - INFO from behaviour.py (check_connections): Ci sono 39 connessioni attive
+2021-05-27 15:30:21,480 - INFO from behaviour.py (update_model): Il modello contiene ora 74 connessioni. Ne sono state verificate 73
+2021-05-27 15:30:22,074 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:30:22,366 - INFO from behaviour.py (check_connections): Ci sono 38 connessioni attive
+2021-05-27 15:30:26,125 - WARNING from commandListener.py (disconnect): Il server 192.168.56.1 ha richiesto la disconnessione
+2021-05-27 15:30:26,126 - WARNING from messenger.py (disconnect): Disconnessione da https://192.168.56.101:20210
+2021-05-27 15:30:39,886 - INFO from butler.py (start): Tentativo di spegnimento manuale
+2021-05-27 15:30:39,888 - WARNING from failedRequest.py (__init__): Errore generale nella richiesta: Invalid URL '/disconnect': No schema supplied. Perhaps you meant http:///disconnect?
+2021-05-27 15:30:39,888 - WARNING from butler.py (start): Richiesta accettata. Disconnessione di 192.168.56.1:20219
+2021-05-27 15:30:39,888 - INFO from clientGUI.py (stop): Chiusura del menu
+2021-05-27 15:30:39,888 - INFO from butler.py (start): Spegnimento del Butler 192.168.56.1:20219
+2021-05-27 15:30:39,888 - INFO from clientGUI.py (stop): Chiusura del menu
+2021-05-27 15:32:54,297 - INFO from butler.py (start): È usato l'ip 192.168.56.1
+2021-05-27 15:32:54,303 - INFO from inventory.py (get_mac): L'ip usato 192.168.56.1 è legato alla scheda VirtualBox Host-Only Network con MAC Address 0A-00-27-00-00-0F
+2021-05-27 15:32:54,303 - INFO from butler.py (start): Avvio del Butler 192.168.56.1:20219
+2021-05-27 15:32:54,311 - INFO from commandListener.py (start_api): Attesa di comandi su 192.168.56.1:20219
+2021-05-27 15:32:57,377 - INFO from butler.py (connect): Connessione al server https://192.168.56.101:20210
+2021-05-27 15:32:57,377 - INFO from clientGUI.py (listen_tray): Avvio del menu
+2021-05-27 15:32:59,075 - INFO from commandListener.py (authenticate): Connessione accettata dal server "serverID" su "https://192.168.56.101:20210"
+2021-05-27 15:32:59,087 - INFO from messenger.py (authenticate): Connessione stabilita con "https://192.168.56.101:20210"
+2021-05-27 15:32:59,142 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:32:59,143 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:32:59,462 - INFO from behaviour.py (check_connections): Ci sono 39 connessioni attive
+2021-05-27 15:32:59,463 - INFO from behaviour.py (update_model): Il modello contiene ora 37 connessioni. Ne sono state verificate 0
+2021-05-27 15:33:00,555 - INFO from commandListener.py (status): Richiesta dello stato da parte del server
+2021-05-27 15:33:01,742 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:33:01,742 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:33:02,062 - INFO from behaviour.py (check_connections): Ci sono 39 connessioni attive
+2021-05-27 15:33:03,926 - INFO from behaviour.py (check_connections): Ci sono 39 connessioni attive
+2021-05-27 15:33:04,026 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:33:04,026 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:33:04,342 - INFO from behaviour.py (check_connections): Ci sono 39 connessioni attive
+2021-05-27 15:33:15,579 - INFO from behaviour.py (update_model): Il modello contiene ora 37 connessioni. Ne sono state verificate 1
+2021-05-27 15:33:17,320 - INFO from behaviour.py (update_model): Il modello contiene ora 37 connessioni. Ne sono state verificate 1
+2021-05-27 15:33:24,323 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:33:24,323 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:33:24,585 - INFO from behaviour.py (check_connections): Ci sono 38 connessioni attive
+2021-05-27 15:33:24,585 - INFO from behaviour.py (update_model): Il modello contiene ora 38 connessioni. Ne sono state verificate 37
+2021-05-27 15:33:24,626 - INFO from butler.py (check_details): Invio di alcuni dettagli al server: ['inventory', 'model', 'mac']
+2021-05-27 15:33:33,741 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:33:34,049 - INFO from behaviour.py (check_connections): Ci sono 39 connessioni attive
+2021-05-27 15:33:54,646 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:33:54,646 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:33:54,925 - INFO from behaviour.py (update_model): Il modello contiene ora 39 connessioni. Ne sono state verificate 38
+2021-05-27 15:33:54,972 - INFO from butler.py (check_details): Invio di alcuni dettagli al server: ['inventory', 'model', 'mac']
+2021-05-27 15:34:24,988 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:34:24,989 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:34:25,258 - INFO from behaviour.py (check_connections): Ci sono 38 connessioni attive
+2021-05-27 15:34:25,258 - INFO from behaviour.py (update_model): Il modello contiene ora 40 connessioni. Ne sono state verificate 39
+2021-05-27 15:34:25,300 - INFO from butler.py (check_details): Invio di alcuni dettagli al server: ['inventory', 'model', 'mac']
+2021-05-27 15:34:55,317 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:34:55,317 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:34:55,578 - INFO from behaviour.py (check_connections): Ci sono 38 connessioni attive
+2021-05-27 15:34:55,579 - INFO from behaviour.py (update_model): Il modello contiene ora 41 connessioni. Ne sono state verificate 40
+2021-05-27 15:34:55,621 - INFO from butler.py (check_details): Invio di alcuni dettagli al server: ['inventory', 'model', 'mac']
+2021-05-27 15:35:19,092 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:35:19,092 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:35:19,374 - INFO from behaviour.py (check_connections): Ci sono 38 connessioni attive
+2021-05-27 15:35:19,376 - INFO from behaviour.py (update_model): Il modello contiene ora 42 connessioni. Ne sono state verificate 41
+2021-05-27 15:35:19,471 - INFO from behaviour.py (update_model): Il modello contiene ora 42 connessioni. Ne sono state verificate 41
+2021-05-27 15:35:25,641 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:35:25,960 - INFO from behaviour.py (check_connections): Ci sono 37 connessioni attive
+2021-05-27 15:35:25,961 - INFO from behaviour.py (update_model): Il modello contiene ora 43 connessioni. Ne sono state verificate 42
+2021-05-27 15:35:25,992 - INFO from butler.py (check_details): Invio di alcuni dettagli al server: ['model', 'mac']
+2021-05-27 15:35:56,008 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:35:56,008 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:35:56,274 - INFO from behaviour.py (check_connections): Ci sono 38 connessioni attive
+2021-05-27 15:35:56,276 - INFO from behaviour.py (update_model): Il modello contiene ora 44 connessioni. Ne sono state verificate 43
+2021-05-27 15:35:56,334 - INFO from butler.py (check_details): Invio di alcuni dettagli al server: ['inventory', 'model', 'mac']
+2021-05-27 15:36:26,355 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:36:26,355 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:36:26,626 - INFO from behaviour.py (check_connections): Ci sono 38 connessioni attive
+2021-05-27 15:36:26,627 - INFO from behaviour.py (update_model): Il modello contiene ora 45 connessioni. Ne sono state verificate 44
+2021-05-27 15:36:26,669 - INFO from butler.py (check_details): Invio di alcuni dettagli al server: ['inventory', 'model', 'mac']
+2021-05-27 15:36:56,686 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:36:56,686 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:36:56,992 - INFO from behaviour.py (check_connections): Ci sono 37 connessioni attive
+2021-05-27 15:36:57,040 - INFO from butler.py (check_details): Invio di alcuni dettagli al server: ['inventory', 'mac']
+2021-05-27 15:37:27,056 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:37:27,057 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:37:27,320 - INFO from behaviour.py (check_connections): Ci sono 37 connessioni attive
+2021-05-27 15:37:27,321 - INFO from behaviour.py (update_model): Il modello contiene ora 46 connessioni. Ne sono state verificate 45
+2021-05-27 15:37:27,377 - INFO from butler.py (check_details): Invio di alcuni dettagli al server: ['inventory', 'model', 'mac']
+2021-05-27 15:37:57,395 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:37:57,395 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:37:57,655 - INFO from behaviour.py (check_connections): Ci sono 37 connessioni attive
+2021-05-27 15:37:57,656 - INFO from behaviour.py (update_model): Il modello contiene ora 47 connessioni. Ne sono state verificate 46
+2021-05-27 15:37:57,698 - INFO from butler.py (check_details): Invio di alcuni dettagli al server: ['inventory', 'model', 'mac']
+2021-05-27 15:38:27,715 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:38:27,968 - INFO from behaviour.py (check_connections): Ci sono 37 connessioni attive
+2021-05-27 15:38:57,981 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:38:57,983 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:38:58,291 - INFO from behaviour.py (check_connections): Ci sono 37 connessioni attive
+2021-05-27 15:38:58,292 - INFO from behaviour.py (update_model): Il modello contiene ora 48 connessioni. Ne sono state verificate 47
+2021-05-27 15:38:58,353 - INFO from butler.py (check_details): Invio di alcuni dettagli al server: ['inventory', 'model', 'mac']
+2021-05-27 15:39:28,375 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:39:28,376 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:39:28,678 - INFO from behaviour.py (check_connections): Ci sono 37 connessioni attive
+2021-05-27 15:39:28,679 - INFO from behaviour.py (update_model): Il modello contiene ora 49 connessioni. Ne sono state verificate 48
+2021-05-27 15:39:28,721 - INFO from butler.py (check_details): Invio di alcuni dettagli al server: ['inventory', 'model', 'mac']
+2021-05-27 15:39:58,742 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:39:58,742 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:39:59,006 - INFO from behaviour.py (check_connections): Ci sono 37 connessioni attive
+2021-05-27 15:39:59,007 - INFO from behaviour.py (update_model): Il modello contiene ora 50 connessioni. Ne sono state verificate 49
+2021-05-27 15:39:59,049 - INFO from butler.py (check_details): Invio di alcuni dettagli al server: ['inventory', 'model', 'mac']
+2021-05-27 15:40:29,065 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:40:29,065 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:40:29,342 - INFO from behaviour.py (check_connections): Ci sono 37 connessioni attive
+2021-05-27 15:40:29,374 - INFO from butler.py (check_details): Invio di alcuni dettagli al server: ['inventory', 'mac']
+2021-05-27 15:40:59,392 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:40:59,392 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:40:59,645 - INFO from behaviour.py (check_connections): Ci sono 38 connessioni attive
+2021-05-27 15:40:59,646 - INFO from behaviour.py (update_model): Il modello contiene ora 51 connessioni. Ne sono state verificate 50
+2021-05-27 15:40:59,690 - INFO from butler.py (check_details): Invio di alcuni dettagli al server: ['inventory', 'model', 'mac']
+2021-05-27 15:41:29,707 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:41:29,707 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:41:29,973 - INFO from behaviour.py (check_connections): Ci sono 38 connessioni attive
+2021-05-27 15:41:29,974 - INFO from behaviour.py (update_model): Il modello contiene ora 52 connessioni. Ne sono state verificate 51
+2021-05-27 15:41:30,032 - INFO from butler.py (check_details): Invio di alcuni dettagli al server: ['inventory', 'model', 'mac']
+2021-05-27 15:42:00,049 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:42:00,049 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:42:00,306 - INFO from behaviour.py (check_connections): Ci sono 37 connessioni attive
+2021-05-27 15:42:00,308 - INFO from behaviour.py (update_model): Il modello contiene ora 53 connessioni. Ne sono state verificate 52
+2021-05-27 15:42:00,352 - INFO from butler.py (check_details): Invio di alcuni dettagli al server: ['inventory', 'model', 'mac']
+2021-05-27 15:42:30,368 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:42:30,368 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:42:30,660 - INFO from behaviour.py (check_connections): Ci sono 37 connessioni attive
+2021-05-27 15:42:30,661 - INFO from behaviour.py (update_model): Il modello contiene ora 54 connessioni. Ne sono state verificate 53
+2021-05-27 15:42:30,708 - INFO from butler.py (check_details): Invio di alcuni dettagli al server: ['inventory', 'model', 'mac']
+2021-05-27 15:43:00,725 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:43:00,726 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:43:00,993 - INFO from behaviour.py (check_connections): Ci sono 37 connessioni attive
+2021-05-27 15:43:01,035 - INFO from butler.py (check_details): Invio di alcuni dettagli al server: ['inventory', 'mac']
+2021-05-27 15:43:31,052 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:43:31,053 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:43:31,317 - INFO from behaviour.py (check_connections): Ci sono 37 connessioni attive
+2021-05-27 15:43:31,361 - INFO from butler.py (check_details): Invio di alcuni dettagli al server: ['inventory', 'mac']
+2021-05-27 15:44:01,379 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:44:01,380 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:44:01,636 - INFO from behaviour.py (check_connections): Ci sono 37 connessioni attive
+2021-05-27 15:44:01,637 - INFO from behaviour.py (update_model): Il modello contiene ora 55 connessioni. Ne sono state verificate 54
+2021-05-27 15:44:01,680 - INFO from butler.py (check_details): Invio di alcuni dettagli al server: ['inventory', 'model', 'mac']
+2021-05-27 15:44:31,698 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:44:31,698 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:44:31,971 - INFO from behaviour.py (check_connections): Ci sono 37 connessioni attive
+2021-05-27 15:44:32,002 - INFO from requestSubmitter.py (request): Richiesta a "https://192.168.56.101:20210/details" fallita a causa della chiave scaduta: nuovo tentativo di autenticazione
+2021-05-27 15:44:32,049 - INFO from commandListener.py (status): Richiesta dello stato da parte del server
+2021-05-27 15:44:32,056 - INFO from messenger.py (authenticate): Connessione stabilita con "https://192.168.56.101:20210"
+2021-05-27 15:44:32,098 - INFO from butler.py (check_details): Invio di alcuni dettagli al server: ['inventory', 'mac']
+2021-05-27 15:44:50,627 - INFO from commandListener.py (status): Richiesta dello stato da parte del server
+2021-05-27 15:45:02,116 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:45:02,117 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:45:02,366 - INFO from behaviour.py (check_connections): Ci sono 37 connessioni attive
+2021-05-27 15:45:02,395 - INFO from requestSubmitter.py (request): Richiesta a "https://192.168.56.101:20210/details" fallita a causa della chiave scaduta: nuovo tentativo di autenticazione
+2021-05-27 15:45:02,465 - INFO from commandListener.py (status): Richiesta dello stato da parte del server
+2021-05-27 15:45:02,474 - INFO from messenger.py (authenticate): Connessione stabilita con "https://192.168.56.101:20210"
+2021-05-27 15:45:02,518 - INFO from butler.py (check_details): Invio di alcuni dettagli al server: ['inventory', 'mac']
+2021-05-27 15:45:32,540 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:45:32,540 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:45:32,814 - INFO from behaviour.py (check_connections): Ci sono 37 connessioni attive
+2021-05-27 15:45:32,816 - INFO from behaviour.py (update_model): Il modello contiene ora 56 connessioni. Ne sono state verificate 55
+2021-05-27 15:45:32,860 - INFO from butler.py (check_details): Invio di alcuni dettagli al server: ['inventory', 'model', 'mac']
+2021-05-27 15:46:02,878 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:46:02,878 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:46:03,143 - INFO from behaviour.py (check_connections): Ci sono 38 connessioni attive
+2021-05-27 15:46:03,186 - INFO from butler.py (check_details): Invio di alcuni dettagli al server: ['inventory', 'mac']
+2021-05-27 15:46:33,202 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:46:33,202 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:46:33,489 - INFO from behaviour.py (check_connections): Ci sono 37 connessioni attive
+2021-05-27 15:46:33,489 - INFO from behaviour.py (update_model): Il modello contiene ora 57 connessioni. Ne sono state verificate 56
+2021-05-27 15:46:33,533 - INFO from butler.py (check_details): Invio di alcuni dettagli al server: ['inventory', 'model', 'mac']
+2021-05-27 15:46:35,789 - INFO from commandListener.py (status): Richiesta dello stato da parte del server
+2021-05-27 15:46:36,575 - INFO from commandListener.py (status): Richiesta dello stato da parte del server
+2021-05-27 15:46:37,025 - INFO from commandListener.py (status): Richiesta dello stato da parte del server
+2021-05-27 15:46:37,198 - INFO from commandListener.py (status): Richiesta dello stato da parte del server
+2021-05-27 15:46:37,342 - INFO from commandListener.py (status): Richiesta dello stato da parte del server
+2021-05-27 15:46:37,505 - INFO from commandListener.py (status): Richiesta dello stato da parte del server
+2021-05-27 15:46:37,674 - INFO from commandListener.py (status): Richiesta dello stato da parte del server
+2021-05-27 15:46:37,813 - INFO from commandListener.py (status): Richiesta dello stato da parte del server
+2021-05-27 15:46:37,986 - INFO from commandListener.py (status): Richiesta dello stato da parte del server
+2021-05-27 15:46:38,145 - INFO from commandListener.py (status): Richiesta dello stato da parte del server
+2021-05-27 15:46:38,324 - INFO from commandListener.py (status): Richiesta dello stato da parte del server
+2021-05-27 15:46:41,813 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:46:41,813 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:46:42,076 - INFO from behaviour.py (check_connections): Ci sono 37 connessioni attive
+2021-05-27 15:46:43,451 - INFO from commandListener.py (status): Richiesta dello stato da parte del server
+2021-05-27 15:47:03,551 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:47:03,551 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:47:03,819 - INFO from behaviour.py (check_connections): Ci sono 35 connessioni attive
+2021-05-27 15:47:03,848 - INFO from requestSubmitter.py (request): Richiesta a "https://192.168.56.101:20210/details" fallita a causa della chiave scaduta: nuovo tentativo di autenticazione
+2021-05-27 15:47:03,893 - INFO from commandListener.py (status): Richiesta dello stato da parte del server
+2021-05-27 15:47:03,898 - INFO from messenger.py (authenticate): Connessione stabilita con "https://192.168.56.101:20210"
+2021-05-27 15:47:03,938 - INFO from butler.py (check_details): Invio di alcuni dettagli al server: ['inventory', 'mac']
+2021-05-27 15:47:07,340 - INFO from commandListener.py (status): Richiesta dello stato da parte del server
+2021-05-27 15:47:11,352 - INFO from commandListener.py (status): Richiesta dello stato da parte del server
+2021-05-27 15:47:33,955 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:47:33,956 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:47:34,227 - INFO from behaviour.py (check_connections): Ci sono 35 connessioni attive
+2021-05-27 15:47:34,257 - INFO from requestSubmitter.py (request): Richiesta a "https://192.168.56.101:20210/details" fallita a causa della chiave scaduta: nuovo tentativo di autenticazione
+2021-05-27 15:47:34,304 - INFO from commandListener.py (status): Richiesta dello stato da parte del server
+2021-05-27 15:47:34,312 - INFO from messenger.py (authenticate): Connessione stabilita con "https://192.168.56.101:20210"
+2021-05-27 15:47:34,356 - INFO from butler.py (check_details): Invio di alcuni dettagli al server: ['inventory', 'mac']
+2021-05-27 15:48:04,372 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:48:04,372 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:48:04,676 - INFO from behaviour.py (check_connections): Ci sono 36 connessioni attive
+2021-05-27 15:48:04,677 - INFO from behaviour.py (update_model): Il modello contiene ora 58 connessioni. Ne sono state verificate 57
+2021-05-27 15:48:04,719 - INFO from requestSubmitter.py (request): Richiesta a "https://192.168.56.101:20210/details" fallita a causa della chiave scaduta: nuovo tentativo di autenticazione
+2021-05-27 15:48:04,769 - INFO from commandListener.py (status): Richiesta dello stato da parte del server
+2021-05-27 15:48:04,776 - INFO from messenger.py (authenticate): Connessione stabilita con "https://192.168.56.101:20210"
+2021-05-27 15:48:04,813 - INFO from butler.py (check_details): Invio di alcuni dettagli al server: ['inventory', 'model', 'mac']
+2021-05-27 15:48:34,833 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:48:34,833 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:48:35,098 - INFO from behaviour.py (check_connections): Ci sono 36 connessioni attive
+2021-05-27 15:48:35,099 - INFO from behaviour.py (update_model): Il modello contiene ora 59 connessioni. Ne sono state verificate 58
+2021-05-27 15:48:35,150 - INFO from butler.py (check_details): Invio di alcuni dettagli al server: ['inventory', 'model', 'mac']
+2021-05-27 15:49:05,168 - WARNING from inventory.py (get_inventory): [WinError 21] The device is not ready: 'D'
+2021-05-27 15:49:05,168 - INFO from inventory.py (get_inventory): Informazioni inventario DESKTOP-C9V1LJO (0A-00-27-00-00-0F) aggiornate
+2021-05-27 15:49:05,441 - INFO from behaviour.py (check_connections): Ci sono 36 connessioni attive
+2021-05-27 15:49:07,457 - INFO from butler.py (check_details): Invio di alcuni dettagli al server: ['inventory', 'mac']
+2021-05-27 15:49:09,473 - INFO from messenger.py (server_online): Stato del server: offline
+2021-05-27 15:49:09,473 - WARNING from butler.py (check_details): I dettagli inviati non hanno raggiunto il server
+2021-05-27 15:49:09,473 - WARNING from messenger.py (disconnect): Disconnessione da https://192.168.56.101:20210
+2021-05-27 16:15:18,295 - WARNING from failedRequest.py (__init__): Errore generale nella richiesta: Invalid URL '/status': No schema supplied. Perhaps you meant http:///status?
+2021-05-27 16:15:18,295 - INFO from messenger.py (server_online): Stato del server: offline
+2021-05-27 16:15:20,312 - INFO from notificationBuilder.py (get_window): Creazione della notifica di sistema "Butler Agent"
+2021-05-27 16:15:20,312 - WARNING from notificationBuilder.py (run_window): Avvio della notifica di sistema "Butler Agent"
+2021-05-27 16:15:25,033 - INFO from butler.py (start): Tentativo di spegnimento manuale
+2021-05-27 16:15:28,036 - WARNING from butler.py (start): Richiesta accettata. Disconnessione di 192.168.56.1:20219
+2021-05-27 16:15:28,036 - WARNING from messenger.py (disconnect): Disconnessione da https://192.168.56.101:20210
+2021-05-27 16:15:28,036 - INFO from clientGUI.py (stop): Chiusura del menu
+2021-05-27 16:15:28,036 - INFO from butler.py (start): Spegnimento del Butler 192.168.56.1:20219
+2021-05-27 16:15:28,037 - INFO from clientGUI.py (stop): Chiusura del menu

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Centro di controllo Butlers</title>
+
+	<script type="text/javascript" src="static/split.js/split.min.js"></script>
+	<script type="text/javascript" src="static/jquery-3.5.1.min.js"></script>
+	<script type="text/javascript" src="static/bootstrap/bootstrap.bundle.min.js"></script>
+	<script type="text/javascript" src="static/common.js"></script>
+
+	<link rel="stylesheet" href="static/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="static/common.css">
+	<style>
+		/* Stile generale della pagina */
+
+		.row {
+			overflow: auto;
+		}
+
+		iframe {
+			width: 100%;
+			height: 95%;
+		}
+
+		#dropdownRestore {
+			position: absolute;
+			overflow: unset;
+			top: 5px;
+			right: 15px;
+			z-index: 1000;
+		}
+
+		.dropdown {
+			position: initial;
+		}
+
+		.buttons {
+			padding: 5px;
+		}
+
+		/* Stile aggiuntivo per split.js */
+
+		.split,
+		.gutter.gutter-horizontal {
+			float: left;
+		}
+
+		.split {
+			height: 100%;
+		}
+
+		.gutter.gutter-horizontal {
+			cursor: ew-resize;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<div class="row" id="row">
+			<!-- Il contentuto della pagina è generato automaticamente -->
+		</div>
+
+		<!-- Dropdown per riaprire le sezioni chiuse -->
+		<div id="dropdownRestore">
+			<div class="dropdown">
+				<button class="btn btn-small btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Riapri
+				</button>
+				<div id="sectionsList" class="dropdown-menu dropdown-menu-right">
+				</div>
+			</div>
+		</div>
+
+
+
+		<!-- Modal di login -->
+		<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title w-100 text-center">Accedi al centro di controllo</h4>
+					</div>
+					<div class="modal-body">
+						<div class="panel-body">
+							<div class="form-group">
+								<input type="text" class="form-control" id="username" placeholder="Username"
+									required="required">
+							</div>
+							<div class="form-group">
+								<input type="password" class="form-control" id="password" placeholder="Password"
+									required="required">
+							</div>
+							<div class="form-group">
+								<button id="login" type="submit"
+									class="btn btn-primary btn-lg btn-block login-btn">Login</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<!-- Alert per le risposte normali -->
+			<div id="success" class="alert alert-success collapse" role="alert">
+			</div>
+
+			<!-- Alert per gli errori -->
+			<div id="error" class="alert alert-danger collapse" role="alert">
+			</div>
+		</div>
+	</div>
+
+
+	<script type="text/javascript">
+		// memorizza le sezioni che saranno avviate
+		windows = {};
+
+		$(document).ready(function () {
+			localStorage.setItem('addr', window.location.origin);
+
+			// prima di mostrare il login richiede l'indirizzo dell'API di controllo
+			request('GET', 'api', null, setupLogin);
+
+			// permette di attivare il pulsante "Login" alla pressione del tasto "enter"
+			$("body").keydown(function (event) {
+				if (event.which == 13) {
+					event.preventDefault();
+					$('#login').click();
+				}
+			});
+		});
+
+		// imposta il server al quale effettuare il login
+		function setupLogin(data) {
+			// l'indirizzo dell'API di controllo viene salvata nello storage locale
+			// poichè non deve scadere
+			localStorage.setItem('addr', data['addr']);
+			showLogin();
+		}
+
+
+		// manda i dati del login
+		$('body').on('click', '#login', function () {
+			var name = $('#username').val();
+			var password = $('#password').val();
+			request('POST', 'authenticate', { 'username': name, 'password': password }, function (data) {
+				$("#loginModal").modal('hide');
+				// i dati per le prossime richieste sono salvati in dei cookie
+				// che scadranno poco dopo il token reale
+				setCookie('token', data['token'], data['exp'] + 1);
+				setCookie('sub', name, data['exp'] + 1);
+				fetchSections();
+			});
+		});
+
+		// richiede e genera le sezioni
+		function fetchSections() {
+			request('GET', 'sections', null, generateSections);
+		}
+
+		// gestisce la procedura di distacco delle sezioni, 
+		// replicando il contenuto nella nuova finestra
+		$('body').on('click', '.detach', function (e) {
+			if (e.target !== e.currentTarget) return;
+			console.log("Distacco di " + e.target)
+			parent = $(e.target).parent().parent()
+			currentFrame = parent.find('iframe');
+
+			size = "width=" + Math.floor($(currentFrame).width()) + ",height=" + Math.floor($(currentFrame).height());
+			newWindow = window.open(getCookie('addr') + parent.attr('id'), parent.attr('id'), size);
+			$(currentFrame)[0].contentWindow.unload();
+
+			// mette del contenuto della pagina in una finestra a parte
+			newWindow.startingData = $(currentFrame).contents().find('#container').html();
+			// salva i dati in un dizionario, con chiave corrispondente al nome della sezione
+			windows[parent.attr('id')] = newWindow;
+
+			// prima della chiusua della finestra, i dati saranno rimessi nella pagina principale
+			$(windows[parent.attr('id')]).on("unload", function (e) {
+				// esegue alcune operazioni prima della chiusura
+				windows[this.name].unload();
+				// mostra la sezione nascosta
+				restore(this.name, $(windows[this.name].document).find('#container'));
+			})
+
+			parent.toggleClass('split collapse');
+			reloadSections();
+		});
+
+		// chiusura delle sezioni (in realtà sono solo nascoste)
+		$('body').on('click', '.hide', function () {
+			$(this).parent().parent().toggleClass('split collapse');
+
+			$('#row').children('div').each(function (i, e) {
+				$(e).attr('style', 'width:0px');
+			});
+
+			reloadSections();
+		});
+
+		// ripristino delle sezioni
+		$('body').on('click', '.restore', function () {
+			$('#' + $(this).data('section')).addClass('split');
+			$('#' + $(this).data('section')).removeClass('collapse');
+			reloadSections();
+		});
+
+		function restore(key, container) {
+			$('#' + key).removeClass('collapse');
+			$('#' + key).addClass('split');
+			$('#' + key).find('iframe').contents().find('#container').html(container.html());
+			reloadSections();
+		}
+
+		// prima di qualunque cambio al layout, vanno effettuate alcune operazioni di pulizia
+		function reloadSections() {
+			$('.gutter').remove();
+			Split($('#row').children('.split'), {
+				minSize: 100,
+			});
+		}
+
+		// genera i contenitori per le sezioni e i relativi controlli
+		function generateSections(sections) {
+			sections.forEach(function (e) {
+				// controlla se la sezione è già presente
+				if ($('#row').find('#' + e)[0] != undefined) {
+					// nei loop jQuery, "return" equivale a "continue"
+					return;
+				}
+				console.log("Generazione della sezione " + e)
+				$('#row').append(`
+					<div id="${e}" class="split">
+						<div class="buttons">
+							<button class="btn-primary btn detach">Separa</button>
+							<button class="btn-danger btn hide">Chiudi</button>
+						</div>
+						<iframe src="/${e}"></iframe>
+					</div>`)
+				$('#sectionsList').append(`<a class="dropdown-item restore" data-section="${e}">${e}</a>`)
+			});
+
+			reloadSections();
+		}
+	</script>
+</body>
+
+</html>

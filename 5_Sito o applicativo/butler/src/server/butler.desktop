@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Exec=python3 /opt/butler/src/client/butler.py
+X-GNOME-Autostart-enabled=true
+NoDisplay=false
+Hidden=false
+Name=Butler
+Comment=Agent Butler
+X-GNOME-Autostart-Delay=3

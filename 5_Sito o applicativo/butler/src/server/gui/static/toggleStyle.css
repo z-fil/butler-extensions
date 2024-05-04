@@ -1,0 +1,55 @@
+
+            .panel-title{
+  padding: 0 30px;
+            }
+            .control-toggle {
+            position: relative;
+            display: inline-block;
+            width: 35px;
+            height: 20px;
+            margin-bottom: 0px;
+            float: right;
+            }
+            .control-toggle input { 
+            display:none;
+            }
+            .toggle-button {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+            border-radius: 35px;
+            }
+            .toggle-button:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 0px;
+            bottom: 0px;
+            background-color: #ffffff;
+            -webkit-transition: .4s;
+            transition: .4s;
+            border-radius: 50%;
+            }
+            input:checked + .toggle-button {
+            background-color: #36b1e5;
+            }
+            input:focus + .toggle-button {
+            box-shadow: 0 0 1px #36b1e5;
+            }
+            input:checked + .toggle-button:before {
+            -webkit-transform: translateX(15px);
+            -ms-transform: translateX(15px);
+            transform: translateX(15px);
+            }
+            .control-toggle-label {
+            position: relative;
+            top: -10px;
+            padding: 0 10px;
+            }

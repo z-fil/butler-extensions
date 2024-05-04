@@ -1,0 +1,12 @@
+2021-05-27 16:12:23,708 - INFO from manager.py (start): Avvio del server su https://192.168.56.101:20210
+2021-05-27 16:12:23,714 - INFO from butlerAPI.py (start_api): API per i Butlers avviata su 192.168.56.101:20210
+2021-05-27 16:12:23,717 - CRITICAL from butlerAPI.py (start_api): Non è stato possibile ascoltare i client su "192.168.56.101": [WinError 10049] The requested address is not valid in its context
+2021-05-27 16:12:34,242 - INFO from manager.py (start): Avvio del server su https://192.168.56.1:20210
+2021-05-27 16:12:34,246 - INFO from butlerAPI.py (start_api): API per i Butlers avviata su 192.168.56.1:20210
+2021-05-27 16:12:34,263 - INFO from dbHelper.py (login): Connessione al database mongodb://192.168.56.101:27017
+2021-05-27 16:12:34,272 - INFO from controlCenterAPI.py (start_api): API di controllo avviata su 127.0.0.1:20211
+2021-05-27 16:12:34,278 - INFO from controlCenterGUI.py (start_api): Interfaccia web del server avviata su 127.0.0.1:20213
+2021-05-27 16:12:36,824 - INFO from controlCenterGUI.py (index): Nuova connessione all'intrefaccia web
+2021-05-27 16:12:36,933 - INFO from controlCenterGUI.py (get_control_addr): Il centro di controllo si trova su https://127.0.0.1:20211
+2021-05-27 16:12:39,693 - INFO from controlCenterAPI.py (authenticate): Autenticazione da parte di "root" riuscita
+2021-05-27 16:12:39,713 - INFO from controlCenterAPI.py (get_sections): Caricate le sezioni grafiche ['manager', 'list']

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Anteprima live</title>
+	
+	<script type="text/javascript" src="static/jquery-3.5.1.min.js"></script>
+	<script type="text/javascript" src="static/bootstrap/bootstrap.bundle.min.js"></script>
+	<script type="text/javascript" src="static/common.js"></script>
+
+	<link rel="stylesheet" href="static/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="static/fontawesome/css/all.min.css"></link>
+	<link rel="stylesheet" href="static/toggleStyle.css">
+	<link rel="stylesheet" href="static/common.css">
+
+	<style>
+		/* Stile generale della pagina */
+
+		#preview {
+			min-height: 600px;
+			width: 100%;
+		}
+
+		#frameDiv {
+			height: 80%;
+		}
+
+		#frameInputs {
+			height: 20%;
+			text-align: center;
+			align-items: center;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="container" class="container">
+		<div class="row jumbotron">
+			<div id="rows" class="col-12">
+				<div class="col text-center">
+					<h1>Preview live</h1>
+				</div>
+				<div class="card">
+				<div id="frameDiv" class="card-body">
+					<!-- Iframe che mostrerà l'anteprima della notifica -->
+					<iframe id="preview" src=""></iframe>
+				</div>
+				
+
+				<!-- Controlli dell'anteprima -->
+				<div id="frameInputs" class="card-body">
+					<div class="mb-3">
+						<h5>
+							<label data-toggle="collapse" data-target="#speedToggle" class="control-toggle mb-3">
+								<input type="checkbox" id="automaticRefresh">
+								<div class="toggle-button"></div>
+							</label>
+							Aggiornamento automatico
+						</h5>
+					</div>
+
+					<div id="speedToggle" class="panel-collapse collapse">
+						<div class="card-body">
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text">Cadenza</span>
+								</div>
+								<input type="range" min="1" max="10" value="3" step="1" id="refreshSpeed"
+									class="input-group form-control slider">
+								<div class="input-group-append">
+									<label class="input-group-text"><span id="refreshSpeedValue">3</span>s</label>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<button id="refresh" class="refresh btn btn-lg btn-info">
+						<i class="fas fa-sync-alt"></i>
+					</button>
+				</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Alert per le risposte normali -->
+		<div id="success" class="alert alert-success collapse" role="alert">
+		</div>
+		
+		<!-- Alert per gli errori -->
+		<div id="error" class="alert alert-danger collapse" role="alert">
+		</div>
+	</div>
+
+
+	<script type="text/javascript">
+		var timer = 0;
+
+		$(document).ready(function () {
+			init();
+
+			request('GET', 'previewAddr', null, function(data) {
+				$('#preview').attr('src', data['addr'])
+			});
+		});
+
+		// cambia il valore del timer e lo notifica al server
+		$('body').on('input', '#refreshSpeed', function (e) {
+			$('#' + $(this).attr('id') + 'Value').text(this.value);
+			timer = $(this).val();
+			
+			request('POST', 'setTimer', { 'timer': timer }, function () { });
+		});
+
+		// aggiorna l'iframe dell'anteprima.
+		// Se questa funzione è richiamata più volte dopo che l'anteprima si è avviata,
+		// questa potrebbe smettere di funzionare
+		$('#refresh').click(function () {
+			$('#preview').attr('src', function (i, val) { console.log(i, val); return val; });
+		});
+
+		/*function setTimer() {
+			request('POST', 'setTimer', {'timer': timer}, refreshPreview);
+		}*/
+
+		// imposta o rimuove l'aggiornamento automatico dell'anteprima
+		$('body').on('input', '#automaticRefresh', function (e) {
+			if ($('#automaticRefresh').is(":checked")) {
+				timer = $('#refreshSpeed').val();
+			} else {
+				timer = 0;
+			}
+			request('POST', 'setTimer', { 'timer': timer }, function () { });
+		});
+	</script>
+</body>
+</html>
