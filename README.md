@@ -3,19 +3,29 @@
 
 ## Informazioni sul progetto
 
-Candidato:		Filippo Zinetti
+Candidate:		Filippo Zinetti
 
-Azienda:		Scuola Arti e Mestieri Trevano
+School: 		Scuola Arti e Mestieri Trevano
 
-Periodo: 		03.05.2021 – 27.05.2021
+Period: 		03.05.2021 – 27.05.2021
 
-Presentazione:	07.05.2021, 10:30
+Presentation:	07.05.2021, 10:30
 
-### Informazioni generali
+### General info / Informazioni generali
+
+Individual coding project valid as final exam for the computer science department of SAM Trevano. The time granted was of 80 hours of work throughout May 2021.
+The project was required to be in Italian. The abstract is available in English.
 
 Si tratta del progetto individuale valido per l’omonima materia come esame finale LPI del quarto anno della sezione SAM informatica, ed avrà una durata di 80 ore reali: dal 3 al 27 maggio 2021. La presentazione del lavoro si terrà il 3 giugno 2021.
 
-## Situazione inziale
+## Abstract
+
+### EN
+
+To improve evacuation procedures in the event of emergencies like fire ones, the Butler notification system was previously developed. It consists of a server and a client part: from the server, a security operator can define the style of a notification on a web-based control center and send it as a pop-up message to some clients. These are small agent running on multiple PCs, and they are called “Butlers” as they can serve and show notifications to users.
+Aiming to also enhance the computer security by having better control over their status, this solution is now extended with two additional modules to monitor the operative system itself. One extension will provide an inventory of the PC’s hardware, while the second one will allow to track the system network traffic. The client side self-analysis will be structured in a learning and an actual security analysis phase. The results will then be shown on the server control center for potential further investigations if needed. The administrator will be able to manage the clients thanks to a preexistent and already fully functional software, without any complex additional requirement. The result will be an upgraded version of the same Butler system already developed, therefore a simple update of the two sides’ files will be enough to immediately enable all the new functions.
+
+### IT
 
 Per migliorare le procedure di evacuazione e la comunicazione con il personale in caso di danni strutturali come gli incendi, è stato precedentemente sviluppato il sistema di notifiche Butler. Si tratta di un software composto da una parte server e una client: quella server dispone di un centro di controllo web dal quale un addetto della sicurezza può creare e inviare ai clients delle notifiche come messaggi pop-up. Lato client, invece, ci sono dei piccoli programmi che lavorano in background su molteplici PC e sono definiti "Butlers" (maggiordomo) poiché servono le notifiche agli utenti. Al fine di migliorare il monitoraggio dei computers, i due programmi sono ora estesi con nuove funzionalità. Sono quindi sviluppate un’estensione per eseguire un inventario delle componenti dei PC che usano l’agent Butler e una per l’analisi delle connessioni che questi hanno verso l’esterno. L’azione di analisi è eseguita da ogni client su sé stesso e i risultati sono poi inviati al server per essere mostrati nel centro di controllo, dove l'amministratore potrà visualizzarli e decidere come agire.
 
@@ -54,7 +64,7 @@ Contiene i diagrammi di gantt usati durante il lavoro
 [Sito ufficiale CPT Trevano](https://www.cpttrevano.ti.ch/)
 
 ### Allievo
-Filippo Zinetti: filippo.zinetti@samtrevano.ch
+Filippo Zinetti: fzinetti@bluewin.ch
 
 ### Mandante
 Fabio Piccioni: fabio.piccioni@edu.ti.ch
